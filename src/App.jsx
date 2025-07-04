@@ -4,6 +4,7 @@ import { supabase } from './supabaseClient'
 function App() {
   const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     fetchHelloWorld()
@@ -21,6 +22,7 @@ function App() {
       setMessage(data?.message || 'No message found')
     } catch (error) {
       console.error('Error fetching message:', error)
+      setError(error.message || 'Error loading message from Supabase')
       setMessage('Error loading message from Supabase')
     } finally {
       setLoading(false)
@@ -36,7 +38,12 @@ function App() {
           {loading ? (
             <p className="text-gray-500 animate-pulse">Loading...</p>
           ) : (
-            <p className="text-xl text-gray-700">{message}</p>
+            <>
+              <p className="text-xl text-gray-700">{message}</p>
+              {error && (
+                <p className="text-sm text-red-600 mt-2">Debug: {error}</p>
+              )}
+            </>
           )}
         </div>
         
