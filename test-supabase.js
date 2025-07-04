@@ -1,0 +1,24 @@
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = 'https://ekqbstkvcphcmweazldg.supabase.co'
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVrcWJzdGt2Y3BoY213ZWF6bGRnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE2NjE0ODksImV4cCI6MjA2NzIzNzQ4OX0.LAk8MAUYy3_dtt2aWBb1Gq86RvsQWX5QzjrhCWCmI_I'
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+async function testConnection() {
+  try {
+    const { data, error } = await supabase
+      .from('hello_world')
+      .select('*')
+    
+    if (error) {
+      console.error('Error:', error)
+    } else {
+      console.log('Success! Data:', data)
+    }
+  } catch (err) {
+    console.error('Caught error:', err)
+  }
+}
+
+testConnection()
