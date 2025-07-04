@@ -16,10 +16,14 @@ function App() {
       const { data, error } = await supabase
         .from('hello_world')
         .select('message')
-        .single()
+        .limit(1)
       
       if (error) throw error
-      setMessage(data?.message || 'No message found')
+      if (data && data.length > 0) {
+        setMessage(data[0].message)
+      } else {
+        setMessage('No messages in database yet')
+      }
     } catch (error) {
       console.error('Error fetching message:', error)
       setError(error.message || 'Error loading message from Supabase')
