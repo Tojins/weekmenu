@@ -2,52 +2,26 @@ import { useState, useEffect } from 'react'
 import { supabase } from './supabaseClient'
 
 function App() {
-  const [message, setMessage] = useState('')
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    fetchHelloWorld()
+    // Initialize app data here
   }, [])
 
-  async function fetchHelloWorld() {
-    try {
-      setLoading(true)
-      const { data, error } = await supabase
-        .from('hello_world')
-        .select('message')
-        .limit(1)
-      
-      if (error) throw error
-      if (data && data.length > 0) {
-        setMessage(data[0].message)
-      } else {
-        setMessage('No messages in database yet')
-      }
-    } catch (error) {
-      console.error('Error fetching message:', error)
-      setMessage('Error loading message from Supabase')
-    } finally {
-      setLoading(false)
-    }
-  }
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
-      <div className="bg-white rounded-lg shadow-xl p-8 max-w-md w-full">
-        <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">Weekmenu</h1>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">Weekmenu</h1>
         
-        <div className="text-center">
+        <div className="bg-white rounded-lg shadow-xl p-8 max-w-4xl mx-auto">
           {loading ? (
-            <p className="text-gray-500 animate-pulse">Loading...</p>
+            <p className="text-gray-500 animate-pulse text-center">Loading...</p>
           ) : (
-            <>
-              <p className="text-xl text-gray-700">{message}</p>
-            </>
+            <div className="text-center text-gray-600">
+              <p>Welcome to Weekmenu</p>
+              <p className="text-sm mt-2">Your weekly meal planning app</p>
+            </div>
           )}
-        </div>
-        
-        <div className="mt-8 text-center">
-          <p className="text-sm text-gray-500">Powered by Supabase + GitHub Pages</p>
         </div>
       </div>
     </div>
