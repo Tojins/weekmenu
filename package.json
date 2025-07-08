@@ -5,17 +5,30 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "supabase:start": "supabase start",
+    "supabase:stop": "supabase stop",
+    "supabase:status": "supabase status",
+    "db:reset": "supabase db reset",
+    "db:push": "supabase db push",
+    "db:pull": "supabase db pull",
+    "db:diff": "supabase db diff",
+    "migration:new": "supabase migration new",
+    "migration:list": "supabase migration list",
+    "types:generate": "supabase gen types typescript --local > src/types/database.types.ts",
+    "populate": "node scripts/extract_from_attributes.js && npx supabase db push && psql -h localhost -p 54322 -U postgres -d postgres -f scripts/import_products.sql"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "dotenv": "^17.0.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "@supabase/supabase-js": "^2.45.0"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
+    "supabase": "^2.30.4",
     "tailwindcss": "^3.4.4",
     "vite": "^5.3.4"
   }

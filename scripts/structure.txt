@@ -1,0 +1,13 @@
+  "LongName": "LANDANA kaas olijf-tomaat 150g",
+  "content": "150g",
+  "thumbNail": "https://static.colruytgroup.com/images/200x200/std.lang.all/28/30/asset-2372830.jpg",
+  "price": {
+    "basicPrice": 2.99,
+    "measurementUnitPrice": 19.94,
+  },
+  "IsWeightArticle": false,
+  "brand": "LANDANA",
+  "isAvailable": true,
+  "topCategoryId": "65",
+  "topCategoryName": "Zuivel",
+  "walkRouteSequenceNumber": 15826,
