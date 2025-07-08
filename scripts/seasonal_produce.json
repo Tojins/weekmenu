@@ -1,0 +1,262 @@
+{
+  "aardpeer": {
+    "season_start_month": 3,
+    "season_end_month": 2
+  },
+  "andijvie": {
+    "season_start_month": 5,
+    "season_end_month": 10
+  },
+  "artisjok": {
+    "season_start_month": 6,
+    "season_end_month": 10
+  },
+  "asperge": {
+    "season_start_month": 4,
+    "season_end_month": 5
+  },
+  "aubergine": {
+    "season_start_month": 6,
+    "season_end_month": 9
+  },
+  "bloemkool": {
+    "season_start_month": 6,
+    "season_end_month": 10
+  },
+  "broccoli": {
+    "season_start_month": 7,
+    "season_end_month": 11
+  },
+  "butternutpompoen": {
+    "season_start_month": 9,
+    "season_end_month": 12
+  },
+  "chinese kool": {
+    "season_start_month": 7,
+    "season_end_month": 11
+  },
+  "courgette": {
+    "season_start_month": 7,
+    "season_end_month": 9
+  },
+  "groene selder": {
+    "season_start_month": 5,
+    "season_end_month": 11
+  },
+  "groenekool": {
+    "season_start_month": 9,
+    "season_end_month": 2
+  },
+  "knolselder": {
+    "season_start_month": 4,
+    "season_end_month": 2
+  },
+  "koolrabi": {
+    "season_start_month": 5,
+    "season_end_month": 10
+  },
+  "komkommer": {
+    "season_start_month": 4,
+    "season_end_month": 9
+  },
+  "kropsla": {
+    "season_start_month": 6,
+    "season_end_month": 8
+  },
+  "lente-ui": {
+    "season_start_month": 6,
+    "season_end_month": 10
+  },
+  "mais": {
+    "season_start_month": 8,
+    "season_end_month": 9
+  },
+  "paprika": {
+    "season_start_month": 7,
+    "season_end_month": 9
+  },
+  "pastinaak": {
+    "season_start_month": 3,
+    "season_end_month": 2
+  },
+  "peterseliewortel": {
+    "season_start_month": 3,
+    "season_end_month": 2
+  },
+  "peultjes": {
+    "season_start_month": 7,
+    "season_end_month": 9
+  },
+  "pompoen": {
+    "season_start_month": 10,
+    "season_end_month": 11
+  },
+  "prei": {
+    "season_start_month": 3,
+    "season_end_month": 2
+  },
+  "prinsessenboon": {
+    "season_start_month": 7,
+    "season_end_month": 8
+  },
+  "raap": {
+    "season_start_month": 3,
+    "season_end_month": 2
+  },
+  "radijs": {
+    "season_start_month": 4,
+    "season_end_month": 7
+  },
+  "rammenas": {
+    "season_start_month": 11,
+    "season_end_month": 2
+  },
+  "rode biet": {
+    "season_start_month": 3,
+    "season_end_month": 2
+  },
+  "rodekool": {
+    "season_start_month": 3,
+    "season_end_month": 2
+  },
+  "schorseneer": {
+    "season_start_month": 3,
+    "season_end_month": 2
+  },
+  "snijboon": {
+    "season_start_month": 7,
+    "season_end_month": 9
+  },
+  "spinazie": {
+    "season_start_month": 6,
+    "season_end_month": 12
+  },
+  "spitskool": {
+    "season_start_month": 7,
+    "season_end_month": 12
+  },
+  "spruiten": {
+    "season_start_month": 10,
+    "season_end_month": 2
+  },
+  "tomaat": {
+    "season_start_month": 4,
+    "season_end_month": 8
+  },
+  "veldsla": {
+    "season_start_month": 3,
+    "season_end_month": 2
+  },
+  "venkel": {
+    "season_start_month": 8,
+    "season_end_month": 10
+  },
+  "witte selder": {
+    "season_start_month": 7,
+    "season_end_month": 10
+  },
+  "witloof": {
+    "season_start_month": 3,
+    "season_end_month": 2
+  },
+  "wittekool": {
+    "season_start_month": 3,
+    "season_end_month": 2
+  },
+  "wortel": {
+    "season_start_month": 9,
+    "season_end_month": 2
+  },
+  "wortel met loof": {
+    "season_start_month": 6,
+    "season_end_month": 9
+  },
+  "aalbes": {
+    "season_start_month": 7,
+    "season_end_month": 8
+  },
+  "aardbeien": {
+    "season_start_month": 5,
+    "season_end_month": 6
+  },
+  "abrikoos": {
+    "season_start_month": 6,
+    "season_end_month": 9
+  },
+  "appel": {
+    "season_start_month": 3,
+    "season_end_month": 2
+  },
+  "blauwe bes": {
+    "season_start_month": 6,
+    "season_end_month": 8
+  },
+  "braambes": {
+    "season_start_month": 6,
+    "season_end_month": 9
+  },
+  "citroen": {
+    "season_start_month": 11,
+    "season_end_month": 2
+  },
+  "clementine": {
+    "season_start_month": 10,
+    "season_end_month": 2
+  },
+  "druif": {
+    "season_start_month": 8,
+    "season_end_month": 10
+  },
+  "framboos": {
+    "season_start_month": 7,
+    "season_end_month": 9
+  },
+  "kers": {
+    "season_start_month": 7,
+    "season_end_month": 7
+  },
+  "kiwi": {
+    "season_start_month": 3,
+    "season_end_month": 2
+  },
+  "mandarijn": {
+    "season_start_month": 10,
+    "season_end_month": 11
+  },
+  "meloen": {
+    "season_start_month": 6,
+    "season_end_month": 9
+  },
+  "nectarine": {
+    "season_start_month": 6,
+    "season_end_month": 8
+  },
+  "peer": {
+    "season_start_month": 3,
+    "season_end_month": 2
+  },
+  "perzik": {
+    "season_start_month": 6,
+    "season_end_month": 8
+  },
+  "pruim": {
+    "season_start_month": 8,
+    "season_end_month": 10
+  },
+  "rabarber": {
+    "season_start_month": 5,
+    "season_end_month": 5
+  },
+  "sinaasappel": {
+    "season_start_month": 3,
+    "season_end_month": 2
+  },
+  "stekelbes": {
+    "season_start_month": 7,
+    "season_end_month": 8
+  },
+  "watermeloen": {
+    "season_start_month": 5,
+    "season_end_month": 8
+  }
+}

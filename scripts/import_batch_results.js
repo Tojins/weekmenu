@@ -19,12 +19,12 @@ const EXAMPLE_FORMAT = `
     {
       "index": 1,
       "name": "LANDANA kaas olijf-tomaat 150g",
-      "descriptions": ["olive tomato cheese", "mediterranean cheese", "cheese with olives and tomatoes"]
+      "description": "cheese"
     },
     {
       "index": 2, 
       "name": "kippenborst 500g",
-      "descriptions": ["chicken breast", "boneless chicken", "raw chicken breast"]
+      "description": "chicken"
     }
   ]
 }
@@ -50,6 +50,9 @@ async function importBatchResults() {
     // Read original product data
     const jsonData = JSON.parse(fs.readFileSync('scripts/colruyt_2024-06-15-08-18-48.json', 'utf8'));
     
+    // Read seasonal data
+    const seasonalData = JSON.parse(fs.readFileSync('scripts/seasonal_produce.json', 'utf8'));
+    
     // Get category mappings
     const { data: categories } = await supabase
       .from('store_categories')
@@ -58,6 +61,12 @@ async function importBatchResults() {
     
     const categoryMap = new Map();
     categories.forEach(cat => categoryMap.set(cat.vendor_id, cat.id));
+    
+    // Function to find seasonal info by partial name match (removed - rely on AI instead)
+    function findSeasonalInfo(productName) {
+      // No fallback auto-matching - only use explicit seasonal_key from AI analysis
+      return null;
+    }
     
     // Process each result
     let importedCount = 0;
@@ -86,6 +95,18 @@ async function importBatchResults() {
         continue;
       }
       
+      // Find seasonal information (unless overridden)
+      let seasonalInfo = null;
+      if (!result.override_seasonal) {
+        if (result.seasonal_key) {
+          // Use provided seasonal key
+          seasonalInfo = seasonalData[result.seasonal_key] || null;
+        } else {
+          // Fall back to automatic matching
+          seasonalInfo = findSeasonalInfo(product.LongName);
+        }
+      }
+      
       // Prepare product data
       const productData = {
         name: product.LongName,
@@ -97,7 +118,9 @@ async function importBatchResults() {
         brand: product.brand,
         store_category_id: categoryMap.get(product.topCategoryId),
         walkroutesequencenumber: product.walkRouteSequenceNumber,
-        english_descriptions: result.descriptions || []
+        english_description: result.description || null,
+        season_start_month: seasonalInfo?.season_start_month || null,
+        season_end_month: seasonalInfo?.season_end_month || null
       };
       
       // Insert product
@@ -109,18 +132,30 @@ async function importBatchResults() {
         console.error(`❌ Error inserting ${product.LongName}:`, error.message);
       } else {
         console.log(`✓ Imported: ${product.LongName}`);
-        console.log(`  Descriptions: [${result.descriptions.join(', ')}]`);
+        console.log(`  Description: ${result.description || 'none'}`);
+        if (result.override_seasonal) {
+          console.log(`  Season: overridden (not a raw fruit/vegetable)`);
+        } else if (seasonalInfo) {
+          const source = result.seasonal_key ? `via key "${result.seasonal_key}"` : 'auto-matched';
+          console.log(`  Season: ${seasonalInfo.season_start_month} - ${seasonalInfo.season_end_month} (${source})`);
+        }
         importedCount++;
       }
     }
     
     console.log(`\\n✅ Import complete! Imported ${importedCount} products.`);
     
-    // Clean up
-    const cleanup = await askConfirm('Clean up batch files? (y/N): ');
-    if (cleanup) {
+    // Clean up - check for --cleanup flag or ask user
+    const shouldCleanup = process.argv.includes('--cleanup');
+    if (shouldCleanup) {
       fs.rmSync(batchDir, { recursive: true, force: true });
-      console.log('Batch files cleaned up.');
+      console.log('Batch files cleaned up automatically.');
+    } else {
+      const cleanup = await askConfirm('Clean up batch files? (y/N): ');
+      if (cleanup) {
+        fs.rmSync(batchDir, { recursive: true, force: true });
+        console.log('Batch files cleaned up.');
+      }
     }
     
   } catch (error) {
@@ -129,7 +164,8 @@ async function importBatchResults() {
 }
 
 async function askConfirm(question) {
-  const readline = require('readline').createInterface({
+  const { createInterface } = await import('readline');
+  const readline = createInterface({
     input: process.stdin,
     output: process.stdout
   });

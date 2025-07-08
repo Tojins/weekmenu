@@ -19,7 +19,9 @@
       "Bash(npx supabase:*)",
       "Bash(find:*)",
       "Bash(npm run:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(source:*)",
+      "Bash(psql:*)"
     ],
     "deny": []
   }

@@ -19,21 +19,26 @@ node extract_colruyt_products.js  # Extract from HTML files
 node import_products.js           # Import to Supabase
 
 # Product Import with AI-Generated Descriptions:
-node prepare_products_batch.js     # Download 5 product images for analysis
+node prepare_products_batch.js     # Download 200 product images for analysis
 # Analyze images and create batch_results.json with English descriptions
 node import_batch_results.js       # Import products with descriptions
-node import_products_interactive.js # Alternative: one-by-one interactive import
 ```
 
 ## Database Access
 
 ```bash
 # Direct database access (bypasses RLS)
+# IMPORTANT: Must source .env.local first to load environment variables
+source .env.local
+
 # Uses SUPABASE_PROJECT_REF and SUPABASE_DB_PASSWORD from .env.local
 psql "postgresql://postgres.${SUPABASE_PROJECT_REF}:${SUPABASE_DB_PASSWORD}@aws-0-eu-west-3.pooler.supabase.com:6543/postgres"
 
 # Example query
 psql "postgresql://postgres.${SUPABASE_PROJECT_REF}:${SUPABASE_DB_PASSWORD}@aws-0-eu-west-3.pooler.supabase.com:6543/postgres" -c "SELECT * FROM recipes;"
+
+# One-liner with sourcing
+source .env.local && psql "postgresql://postgres.${SUPABASE_PROJECT_REF}:${SUPABASE_DB_PASSWORD}@aws-0-eu-west-3.pooler.supabase.com:6543/postgres" -c "TRUNCATE TABLE products;"
 ```
 
 ## Architecture
@@ -59,5 +64,4 @@ psql "postgresql://postgres.${SUPABASE_PROJECT_REF}:${SUPABASE_DB_PASSWORD}@aws-
 - IMPORTANT: avoid creating temporary scripts
 
 ## Product Import Batch Procedure
-
-Follow `scripts/batch_import_workflow.md`
+Follow `claude/commands/batch_import_workflow.md` for detailed instructions on the batch import process

@@ -70,8 +70,8 @@ async function prepareBatch() {
       fs.mkdirSync(outputDir, { recursive: true });
     }
     
-    // Prepare batch of 5 products
-    const batchSize = 5;
+    // Prepare batch of 200 products
+    const batchSize = 200;
     const batch = foodProducts.slice(0, batchSize);
     
     const batchData = [];
