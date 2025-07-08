@@ -25,6 +25,17 @@ node import_batch_results.js       # Import products with descriptions
 node import_products_interactive.js # Alternative: one-by-one interactive import
 ```
 
+## Database Access
+
+```bash
+# Direct database access (bypasses RLS)
+# Uses SUPABASE_PROJECT_REF and SUPABASE_DB_PASSWORD from .env.local
+psql "postgresql://postgres.${SUPABASE_PROJECT_REF}:${SUPABASE_DB_PASSWORD}@aws-0-eu-west-3.pooler.supabase.com:6543/postgres"
+
+# Example query
+psql "postgresql://postgres.${SUPABASE_PROJECT_REF}:${SUPABASE_DB_PASSWORD}@aws-0-eu-west-3.pooler.supabase.com:6543/postgres" -c "SELECT * FROM recipes;"
+```
+
 ## Architecture
 
 ### Tech Stack
@@ -45,9 +56,8 @@ node import_products_interactive.js # Alternative: one-by-one interactive import
 - No need for separate dev/staging environments
 - No local Docker/Supabase setup - work directly with remote database
 - When querying database, use echo and pipe commands (e.g., `echo "SELECT * FROM recipes;" | supabase db query`) instead of creating temporary script files
+- IMPORTANT: avoid creating temporary scripts
 
 ## Product Import Batch Procedure
 
-1. `node scripts/prepare_products_batch.js` - Download product images
-2. Analyze images, create `batch_results.json` (follow `scripts/description_guidelines.md`)
-3. `node scripts/import_batch_results.js` - Import with English descriptions
+Follow `scripts/batch_import_workflow.md`
