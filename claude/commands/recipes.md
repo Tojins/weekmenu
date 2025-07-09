@@ -2,19 +2,19 @@ Follow these instructions for searching recipes on the internet and inserting th
 
 ## Phase 1: Create a Unique Recipe Internet Search Query
 - Build an internet search query to search for healthy, fast recipes
-- Try to make the query different by including a random product name:
+- Try to make the search query different by including a random product name:
    - Select a random vegetable from `scripts/product_descriptions.json` that is common in recipes
-   - Each subsequent attempt to make the query unique can have a random vegetable that is a little bit less common in recipes
-- Verify query uniqueness by using: `node scripts/db_insert_search_history.js "search query text"`
+   - Each subsequent attempt to make the search query unique can have a random vegetable that is a little bit less common in recipes
+- Verify search query uniqueness by using: `node scripts/db_insert_search_history.js "search query text"`
 - DO NOT execute the actual web search yet - that happens in Phase 2
 
 ## Phase 2: Find and insert recipes
 Search the internet using the unique query to find recipes. Try to iterate until at least 3 recipes pass all criteria. 
-IMPORTANT: Keep using the same search query that was inserted into recipe_search_history - do not modify or create new search strings during this phase.
+**CRITICAL RULE**: DO NOT modify or create a new search query. You MUST use the EXACT search query that was inserted into recipe_search_history. Any other search query is forbidden.
 For each recipe:
 - Discard recipes based on these criteria:
    - Recipes should be healthy: not too much fat content. Not too much sugar content. Avoid mammal meat.
-   - Recipes should be complete meals (e.g. no soups)
+   - Recipes should be complete meals: no soups; there should be at least 2 out of vegetables, protein and carbs (not all 3 need to be present)
    - Recipes may not contain cucumber (allergy)
    - Recipes should be simple enough to prepare within 30 minutes; do not believe time estimations from the website; make your own time estimation to verify this
 - Create a unique list of ingredients from the recipe (removing duplicates and combining similar ingredients like "parmesan" and "parmesan for garnish")

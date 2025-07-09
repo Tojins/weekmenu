@@ -2,26 +2,12 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Commands
+## Bash Commands
 
 ```bash
-npm run dev      # Start development server
-npm run build    # Build for production
-npm run preview  # Preview production build
-cd scripts && npm run collect  # Populate ingredients from Colruyt (30-60 min)
-
 # Supabase CLI:
 npm run db:push          # Push migrations to remote
 npm run migration:new    # Create new migration
-
-# Scripts folder:
-node extract_colruyt_products.js  # Extract from HTML files
-node import_products.js           # Import to Supabase
-
-# Product Import with AI-Generated Descriptions:
-node prepare_products_batch.js     # Download 200 product images for analysis
-# Analyze images and create batch_results.json with English descriptions
-node import_batch_results.js       # Import products with descriptions
 ```
 
 ## Database Access
@@ -63,5 +49,6 @@ source .env.local && psql "postgresql://postgres.${SUPABASE_PROJECT_REF}:${SUPAB
 - When querying database, use echo and pipe commands (e.g., `echo "SELECT * FROM recipes;" | supabase db query`) instead of creating temporary script files
 - IMPORTANT: avoid creating temporary scripts
 
-## Product Import Batch Procedure
-Follow `claude/commands/batch_import_workflow.md` for detailed instructions on the batch import process
+## claude commands:
+/batch_import_workflow: execute instructions in claude/commands/batch_import_workflow.md
+/recipes: execute instructions in claude/commands/recipes.md
