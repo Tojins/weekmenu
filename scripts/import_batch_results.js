@@ -1,9 +1,10 @@
 import fs from 'fs';
 import { createClient } from '@supabase/supabase-js';
 import dotenv from 'dotenv';
+import path from 'path';
 
 // Load environment variables
-dotenv.config({ path: '.env.local' });
+dotenv.config({ path: './.env.local' });
 
 // Create Supabase client
 const supabase = createClient(
@@ -48,10 +49,10 @@ async function importBatchResults() {
     const results = JSON.parse(fs.readFileSync(resultsFile, 'utf8'));
     
     // Read original product data
-    const jsonData = JSON.parse(fs.readFileSync('scripts/colruyt_2024-06-15-08-18-48.json', 'utf8'));
+    const jsonData = JSON.parse(fs.readFileSync('./scripts/colruyt_2024-06-15-08-18-48.json', 'utf8'));
     
     // Read seasonal data
-    const seasonalData = JSON.parse(fs.readFileSync('scripts/seasonal_produce.json', 'utf8'));
+    const seasonalData = JSON.parse(fs.readFileSync('./scripts/seasonal_produce.json', 'utf8'));
     
     // Get category mappings
     const { data: categories } = await supabase
@@ -123,14 +124,27 @@ async function importBatchResults() {
         season_end_month: seasonalInfo?.season_end_month || null
       };
       
-      // Insert product
-      const { error } = await supabase
+      // Insert product and get the ID
+      const { data: insertedProduct, error } = await supabase
         .from('products')
-        .insert(productData);
+        .insert(productData)
+        .select('id')
+        .single();
       
       if (error) {
         console.error(`❌ Error inserting ${product.LongName}:`, error.message);
       } else {
+        // Copy image to persistent cache
+        const tempImagePath = batchProduct.imageFile;
+        const persistentImagePath = `./images/${insertedProduct.id}.jpg`;
+        
+        if (fs.existsSync(tempImagePath)) {
+          if (!fs.existsSync('./images')) {
+            fs.mkdirSync('./images', { recursive: true });
+          }
+          fs.copyFileSync(tempImagePath, persistentImagePath);
+        }
+        
         console.log(`✓ Imported: ${product.LongName}`);
         console.log(`  Description: ${result.description || 'none'}`);
         if (result.override_seasonal) {
@@ -145,37 +159,18 @@ async function importBatchResults() {
     
     console.log(`\\n✅ Import complete! Imported ${importedCount} products.`);
     
-    // Clean up - check for --cleanup flag or ask user
-    const shouldCleanup = process.argv.includes('--cleanup');
-    if (shouldCleanup) {
+    // Clean up - check for --no-cleanup flag to disable default cleanup
+    const shouldNotCleanup = process.argv.includes('--no-cleanup');
+    if (!shouldNotCleanup) {
       fs.rmSync(batchDir, { recursive: true, force: true });
       console.log('Batch files cleaned up automatically.');
     } else {
-      const cleanup = await askConfirm('Clean up batch files? (y/N): ');
-      if (cleanup) {
-        fs.rmSync(batchDir, { recursive: true, force: true });
-        console.log('Batch files cleaned up.');
-      }
+      console.log('Batch files preserved (--no-cleanup flag used).');
     }
     
   } catch (error) {
     console.error('Import failed:', error);
   }
-}
-
-async function askConfirm(question) {
-  const { createInterface } = await import('readline');
-  const readline = createInterface({
-    input: process.stdin,
-    output: process.stdout
-  });
-  
-  return new Promise((resolve) => {
-    readline.question(question, (answer) => {
-      readline.close();
-      resolve(answer.toLowerCase() === 'y');
-    });
-  });
 }
 
 // Run import

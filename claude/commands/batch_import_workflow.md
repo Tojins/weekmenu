@@ -5,11 +5,13 @@ This workflow imports products from Colruyt with AI-generated English descriptio
 
 ## Steps
 
+**IMPORTANT**: All commands must be run from the project root directory (`/home/unixuser/weekmenu/`), not from the scripts directory.
+
 ### 1. Prepare Batch
 ```bash
 node scripts/prepare_products_batch.js
 ```
-Downloads 200 product images to `./temp/product_batch/`
+Downloads 200 product images to `./images/` (persistent cache) and creates batch info in `./temp/product_batch/`
 
 ### 2. Review Products
 Check `./temp/product_batch/batch_info.json` and decide which products need English descriptions:
@@ -18,7 +20,7 @@ Check `./temp/product_batch/batch_info.json` and decide which products need Engl
 
 ### 3. Generate Descriptions
 For products that need descriptions:
-1. Read the product image file
+1. Read the product image file from `./images/{product_id}.jpg`
 2. Generate a single, simple English description following these rules:
    - One word only, generic and basic
    - Use the most common English term
@@ -47,7 +49,7 @@ node scripts/import_batch_results.js --cleanup
 ```
 Imports products with English descriptions and seasonal information. Uses `seasonal_key` when provided, otherwise falls back to automatic matching against `seasonal_produce.json`. Season fields are set to null if no match is found.
 
-Use `--cleanup` flag to automatically remove batch files after successful import.
+Use `--cleanup` flag to automatically remove batch files after successful import. This removes the `./temp/product_batch/` directory but keeps the `./images/` directory for persistent caching.
 
 **Available seasonal keys** (from `scripts/seasonal_produce.json`):
 - Vegetables: `aardpeer`, `andijvie`, `artisjok`, `asperge`, `aubergine`, `bloemkool`, `broccoli`, `courgette`, `groene selder`, `groenekool`, `knolselder`, `koolrabi`, `komkommer`, `kropsla`, `lente-ui`, `mais`, `paprika`, `pastinaak`, `peterseliewortel`, `peultjes`, `pompoen`, `prei`, `prinsessenboon`, `raap`, `radijs`, `rammenas`, `rode biet`, `rodekool`, `schorseneer`, `snijboon`, `spinazie`, `spitskool`, `spruiten`, `tomaat`, `veldsla`, `venkel`, `witte selder`, `witloof`, `wittekool`, `wortel`

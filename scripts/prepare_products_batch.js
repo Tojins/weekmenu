@@ -4,7 +4,7 @@ import { createClient } from '@supabase/supabase-js';
 import dotenv from 'dotenv';
 
 // Load environment variables
-dotenv.config({ path: '.env.local' });
+dotenv.config({ path: './.env.local' });
 
 // Create Supabase client
 const supabase = createClient(
@@ -44,12 +44,33 @@ async function downloadImage(url, filepath) {
 
 async function prepareBatch() {
   try {
-    const jsonData = JSON.parse(fs.readFileSync('scripts/colruyt_2024-06-15-08-18-48.json', 'utf8'));
+    const jsonData = JSON.parse(fs.readFileSync('./scripts/colruyt_2024-06-15-08-18-48.json', 'utf8'));
     
     // Get existing products to avoid duplicates
-    const { data: existingProducts } = await supabase
-      .from('products')
-      .select('name, brand');
+    let allProducts = [];
+    let from = 0;
+    const limit = 1000;
+    
+    while (true) {
+      const { data: batch, error } = await supabase
+        .from('products')
+        .select('name, brand')
+        .range(from, from + limit - 1);
+      
+      if (error) {
+        console.error('Error fetching products:', error);
+        break;
+      }
+      
+      if (!batch || batch.length === 0) break;
+      
+      allProducts = allProducts.concat(batch);
+      from += limit;
+      
+      if (batch.length < limit) break;
+    }
+    
+    const existingProducts = allProducts;
     
     const existingSet = new Set(
       existingProducts.map(p => `${p.name}|${p.brand}`)
@@ -68,6 +89,12 @@ async function prepareBatch() {
     const outputDir = './temp/product_batch';
     if (!fs.existsSync(outputDir)) {
       fs.mkdirSync(outputDir, { recursive: true });
+    }
+    
+    // Create persistent image cache directory
+    const imagesDir = './images';
+    if (!fs.existsSync(imagesDir)) {
+      fs.mkdirSync(imagesDir, { recursive: true });
     }
     
     // Prepare batch of 200 products

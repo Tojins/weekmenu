@@ -21,7 +21,16 @@
       "Bash(npm run:*)",
       "Bash(rm:*)",
       "Bash(source:*)",
-      "Bash(psql:*)"
+      "Bash(psql:*)",
+      "Bash(rg:*)",
+      "Bash(echo:*)",
+      "Bash(tr:*)",
+      "Bash(sed:*)",
+      "WebFetch(domain:static.colruytgroup.com)",
+      "Bash(curl:*)",
+      "Bash(cat:*)",
+      "Bash(curl:*)",
+      "Bash(curl:*)"
     ],
     "deny": []
   }
