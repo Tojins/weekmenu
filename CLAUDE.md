@@ -13,17 +13,18 @@ npm run migration:new    # Create new migration
 ## Database Access
 
 ```bash
-# Direct database access (bypasses RLS)
-# IMPORTANT: Must source .env.local first to load environment variables
-source .env.local
+# Database utility for AI development (bypasses RLS)
+node scripts/db-utils.js <command> [args...]
 
-# Uses SUPABASE_PROJECT_REF and SUPABASE_DB_PASSWORD from .env.local
-psql "postgresql://postgres.${SUPABASE_PROJECT_REF}:${SUPABASE_DB_PASSWORD}@aws-0-eu-west-3.pooler.supabase.com:6543/postgres"
+# Available commands:
+node scripts/db-utils.js query "SELECT * FROM recipes;"
+node scripts/db-utils.js insert-recipe "title" "instructions" 30 "url" "search_history_id" "image_url"
+node scripts/db-utils.js insert-recipe-ingredients "recipe_id" "product_id:quantity:unit,..."
+node scripts/db-utils.js check-similar-recipes "product_id1,product_id2,..."
+node scripts/db-utils.js insert-search-history "search_text" "user_id"
+node scripts/db-utils.js update-search-history "id" "new_search_text"
 
-# Example query
-psql "postgresql://postgres.${SUPABASE_PROJECT_REF}:${SUPABASE_DB_PASSWORD}@aws-0-eu-west-3.pooler.supabase.com:6543/postgres" -c "SELECT * FROM recipes;"
-
-# One-liner with sourcing
+# Direct psql access (if needed)
 source .env.local && psql "postgresql://postgres.${SUPABASE_PROJECT_REF}:${SUPABASE_DB_PASSWORD}@aws-0-eu-west-3.pooler.supabase.com:6543/postgres" -c "TRUNCATE TABLE products;"
 ```
 

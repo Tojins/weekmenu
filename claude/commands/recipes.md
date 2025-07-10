@@ -4,12 +4,14 @@ Follow these instructions for searching recipes on the internet and inserting th
 - Build an internet search query to search for healthy, fast recipes
 - Try to make the search query different by including a random product name:
    - Select a random vegetable from `scripts/product_descriptions.json` that is common in recipes
-   - Each subsequent attempt to make the search query unique can have a random vegetable that is a little bit less common in recipes
-- Verify search query uniqueness by using: `node scripts/db_insert_search_history.js "search query text"`
+   - Each subsequent attempt to make the query unique can have a random vegetable that is a little bit less common in recipes
+- Verify query uniqueness by trying an insert on a table having a unique constraint. Use: `node scripts/db-utils.js insert-search-history "search query text"`
 - DO NOT execute the actual web search yet - that happens in Phase 2
 
 ## Phase 2: Find and insert recipes
-Search the internet using the unique query to find recipes. Try to iterate until at least 3 recipes pass all criteria. 
+Search the internet using the unique query to find recipes.
+- Try to iterate until at least 3 recipes pass all criteria.
+- Because you can expect more than half of the found recipes to not pass all criteria, evaluate more than 3 websites at a time
 **CRITICAL RULE**: DO NOT modify or create a new search query. You MUST use the EXACT search query that was inserted into recipe_search_history. Any other search query is forbidden.
 For each recipe:
 - Discard recipes based on these criteria:
@@ -23,7 +25,7 @@ For each recipe:
 - If any Task agent's final report returns null or failure:
    - if the Task agent failed due to image processing, try again to execute claude/commands/match_product.md but without a Task agent
    - if the Task agent failed for any other reason, then discard this recipe
-- If a similar recipe with almost all the same ingredients is found, then discard this recipe. Check using: `node scripts/db_check_similar_recipes.js "product_id1,product_id2,product_id3"`
+- If a similar recipe with almost all the same ingredients is found, then discard this recipe. Check using: `node scripts/db-utils.js check-similar-recipes "product_id1,product_id2,product_id3"`
 - Insert into `recipes` and for each matching product_id into `recipe_ingredients`
    - Extract all `recipes` field values from the recipe website (just analyse the website, do not write a new parsing script)
    - Transform all temperature references to C, all volume quantities to ml and all weight quantities to g
@@ -33,8 +35,8 @@ For each recipe:
    - Remove all salt (but not pepper) references from cooking instructions
    - When cooking instructions reference named ingredient groups (like "the sauce ingredients", "marinade", "dressing mixture"), expand those references to list the actual ingredients inline (e.g. "Make the sauce with honey, soy sauce, and cornstarch")
    - Select the website image that shows the finished dish and use its url for image_url
-   - Insert recipe using: `node scripts/db_insert_recipe.js "title" "cooking_instructions" time_estimation "url" "search_history_id" "image_url"`
-   - Insert ingredients using: `node scripts/db_insert_recipe_ingredients.js "recipe_id" "product_id1:quantity1:unit1,product_id2:quantity2:unit2,..."`
+   - Insert recipe using: `node scripts/db-utils.js insert-recipe "title" "cooking_instructions" time_estimation "url" "search_history_id" "image_url"`
+   - Insert ingredients using: `node scripts/db-utils.js insert-recipe-ingredients "recipe_id" "product_id1:quantity1:unit1,product_id2:quantity2:unit2,..."`
 
 ## Phase 3: Update the search query record
-Update the record that was created in `recipe_search_history` status to 'completed' using: `node scripts/db_update_search_history.js "search_history_id"`
+Update the record that was created in `recipe_search_history` status to 'completed' using: `node scripts/db-utils.js update-search-history "search_history_id" "completed"`
