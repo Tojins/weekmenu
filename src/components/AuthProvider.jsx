@@ -111,20 +111,36 @@ export const AuthProvider = ({ children }) => {
 
   const fetchUserProfile = async (userId) => {
     try {
-      const { data, error } = await supabase
+      console.log('Fetching user profile for:', userId)
+      
+      // Add timeout to profile fetch
+      const profilePromise = supabase
         .from('users')
         .select('*')
         .eq('id', userId)
         .single()
+      
+      const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Profile fetch timeout')), 2000)
+      )
+      
+      try {
+        const { data, error } = await Promise.race([profilePromise, timeoutPromise])
+        
+        if (error) {
+          console.error('Error fetching user profile:', error)
+          // Profile is optional, don't block auth
+          return
+        }
 
-      if (error) {
-        console.error('Error fetching user profile:', error)
-        return
+        console.log('User profile fetched successfully')
+        setUserProfile(data)
+      } catch (timeoutError) {
+        console.error('Profile fetch timed out - continuing without profile')
+        // Profile is optional, don't block auth
       }
-
-      setUserProfile(data)
     } catch (error) {
-      console.error('Error fetching user profile:', error)
+      console.error('Error in fetchUserProfile:', error)
     }
   }
 
