@@ -22,30 +22,53 @@ export const AuthProvider = ({ children }) => {
       try {
         console.log('Checking auth session...')
         
-        // Check if there's a session in localStorage (for debugging)
+        // Check if there's a session in localStorage
         const storedSession = localStorage.getItem('sb-padeskjkdetesmfuicvm-auth-token')
         console.log('Stored session exists:', !!storedSession)
         
-        const { data: { session }, error } = await supabase.auth.getSession()
-        
-        if (error) {
-          console.error('Error getting session:', error)
-          // Even with error, check if we have a user from auth state
-          const { data: { user } } = await supabase.auth.getUser()
-          if (user) {
-            console.log('Found user despite session error:', user.email)
-            setUser(user)
-            await fetchUserProfile(user.id)
+        // If we have a stored session, parse it and use it directly
+        if (storedSession) {
+          try {
+            const sessionData = JSON.parse(storedSession)
+            if (sessionData && sessionData.access_token) {
+              console.log('Using stored session directly')
+              
+              // Get user data using the stored token
+              const { data: { user }, error: userError } = await supabase.auth.getUser(sessionData.access_token)
+              
+              if (!userError && user) {
+                console.log('Got user from stored session:', user.email)
+                setUser(user)
+                await fetchUserProfile(user.id)
+                setLoading(false)
+                return
+              }
+            }
+          } catch (parseError) {
+            console.error('Error parsing stored session:', parseError)
           }
-          setLoading(false)
-          return
         }
         
-        console.log('Session check complete:', session ? 'User logged in' : 'No user')
-        setUser(session?.user ?? null)
+        // Fallback to regular session check with shorter timeout
+        const sessionPromise = supabase.auth.getSession()
+        const timeoutPromise = new Promise((_, reject) => 
+          setTimeout(() => reject(new Error('Session check timeout')), 2000)
+        )
         
-        if (session?.user) {
-          await fetchUserProfile(session.user.id)
+        try {
+          const { data: { session }, error } = await Promise.race([sessionPromise, timeoutPromise])
+          
+          if (!error && session) {
+            console.log('Session check complete: User logged in')
+            setUser(session.user)
+            await fetchUserProfile(session.user.id)
+          } else {
+            console.log('No active session')
+            setUser(null)
+          }
+        } catch (timeoutError) {
+          console.error('Session check timed out')
+          setUser(null)
         }
         
         setLoading(false)
