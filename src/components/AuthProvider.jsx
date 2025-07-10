@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
               if (!userError && user) {
                 console.log('Got user from stored session:', user.email)
                 setUser(user)
-                await fetchUserProfile(user.id)
+                // Don't fetch profile here - let onAuthStateChange handle it
                 setLoading(false)
                 return
               }
@@ -78,24 +78,26 @@ export const AuthProvider = ({ children }) => {
       }
     }
 
-    // Add timeout fallback
+    // Add timeout fallback - reduced to 3 seconds since we handle timeouts internally
     const timeout = setTimeout(() => {
       if (loading) {
         console.warn('Auth loading timeout - forcing completion')
         setLoading(false)
       }
-    }, 5000)
+    }, 3000)
 
     getSession()
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
+        console.log('Auth state changed:', event)
         setUser(session?.user ?? null)
         
-        if (session?.user) {
+        if (session?.user && !userProfile) {
+          // Only fetch profile if we don't have it yet
           await fetchUserProfile(session.user.id)
-        } else {
+        } else if (!session?.user) {
           setUserProfile(null)
         }
         
