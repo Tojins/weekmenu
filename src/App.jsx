@@ -47,7 +47,7 @@ function PublicRoute({ children }) {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/weekmenu">
       <AuthProvider>
         <Routes>
           <Route path="/login" element={
