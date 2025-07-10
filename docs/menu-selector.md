@@ -1,38 +1,51 @@
 # Menu Selector Workflow Design
 
 ## Overview
-The menu selector allows users to build a collection of recipes for their weekly menu. Users simply select recipes they want to make during the week, without worrying about specific days or meal times.
+The menu selector is a recipe-first interface where users browse and select recipes for their weekly menu. The focus is on discovering and choosing recipes, with selected items collected in a collapsible sidebar.
 
 ## Core Features
 
-### 1. Weekly Menu View
-- List of selected recipes for the current week
-- Recipe count indicator (e.g., "5 recipes selected")
-- Navigation: Previous/Next week, "This Week" button
-- Week dates clearly visible (e.g., "Jan 6-12, 2025")
+### 1. Recipe Browser (Primary View)
+- Full-screen recipe grid taking up entire viewport
+- Search and filter capabilities prominently displayed
+- Visual feedback for selected recipes
+- Optimized for browsing and discovery
 
-### 2. Recipe Selection Flow
+### 2. Selected Recipes Sidebar
+- Hidden by default until first recipe selected
+- Slides in from right with smooth animation
+- Can be toggled between expanded and collapsed states
+- Collapsed state shows only a badge with recipe count
+- Expanded state shows full recipe list with management options
 
-#### Two-Panel Layout (Recommended)
-1. **Left Panel**: Current week's selected recipes
-   - List view with recipe cards
-   - Remove button on each recipe
-   - "Clear all" button at top
-   - Empty state: "No recipes selected. Browse recipes to add to your menu."
-
-2. **Right Panel**: Recipe browser
+### 3. Recipe Selection Flow
+1. **Main View**: Full-screen recipe browser
    - Search bar at top
-   - Grid of available recipes with image, title, cooking time
-   - "Add to menu" button on hover/tap
+   - Filter buttons (cooking time, ingredients, seasonal)
+   - Grid of recipe cards with image, title, cooking time
+   - "Add to menu" button on each card
    - Visual indicator for already-selected recipes
    - Infinite scroll or pagination
 
-3. **Selection Actions**:
-   - Click "Add to menu" → Recipe appears in left panel
-   - Click "Remove" → Recipe removed from week
-   - Recipes can be added multiple times if desired
+2. **Right Sidebar**: Selected recipes (collapsible)
+   - Initially hidden
+   - Slides in from right when first recipe is selected
+   - Shows badge with recipe count (e.g., "5")
+   - Can be toggled open/closed
+   - Contains:
+     - Week dates header
+     - List of selected recipes
+     - Remove button on each recipe
+     - "Clear all" button
+     - "Generate shopping list" button at bottom
 
-### 3. Recipe Display
+3. **Selection Actions**:
+   - Click "Add to menu" → Recipe added, sidebar appears/updates
+   - Recipe cards show "Added ✓" state
+   - Click "Added ✓" → Removes from menu
+   - Sidebar can be minimized to just show count badge
+
+### 4. Recipe Display
 - Card view: Recipe image, title, cooking time
 - Hover: Show quick actions (remove, view details)
 - Click title: Open recipe details in modal
@@ -91,15 +104,17 @@ The menu selector allows users to build a collection of recipes for their weekly
 - Offline mode indicator
 
 ### 4. Mobile Considerations
-- Single column layout on mobile
-- Recipe browser as full-screen overlay
-- Swipe to remove recipes
-- Bottom tab navigation between menu and browser
+- Full-width recipe grid (2 columns)
+- Selected recipes sidebar as bottom sheet
+- Swipe up to view selected recipes
+- Floating badge shows recipe count when sidebar closed
+- Tap badge to open sidebar
 
 ## Implementation Phases
 
 ### Phase 1: MVP
-- Two-panel layout (selected recipes + browser)
+- Full-screen recipe browser
+- Collapsible sidebar for selected recipes
 - Add/remove recipes functionality
 - localStorage persistence only
 - Current week only
