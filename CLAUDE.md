@@ -32,8 +32,10 @@ source .env.local && psql "postgresql://postgres.${SUPABASE_PROJECT_REF}:${SUPAB
 
 ### Tech Stack
 - **React 18** with Vite - Entry: `index.html` → `src/main.jsx` → `src/App.jsx`
+- **React Router DOM** - Client-side routing with protected/public routes
 - **Tailwind CSS** - Utility-first styling
 - **Supabase** - Backend database service, client in `src/supabaseClient.js`
+- **Supabase Auth** - Authentication with email/password and Google OAuth
 
 ### Key Notes
 - Base path is `/weekmenu/` for GitHub Pages (set in `vite.config.js`)
@@ -47,8 +49,24 @@ source .env.local && psql "postgresql://postgres.${SUPABASE_PROJECT_REF}:${SUPAB
 - The GitHub main branch can be used directly for development  
 - No need for separate dev/staging environments
 - No local Docker/Supabase setup - work directly with remote database
-- When querying database, use echo and pipe commands (e.g., `echo "SELECT * FROM recipes;" | supabase db query`) instead of creating temporary script files
+- For quick database queries, use: `node scripts/db-utils.js query "SELECT * FROM recipes;"`
 - IMPORTANT: avoid creating temporary scripts
+
+## Authentication & Authorization
+
+### User Management
+- **Users table** - Extends auth.users with profile data and subscription_id
+- **Subscriptions table** - Each user gets automatic free subscription on signup
+
+### Access Control
+- **All subscriptions** have read access to all recipes, recipe_ingredients, and products
+- **Future tables** can be subscription-aware by including subscription_id columns
+- **RLS policies** secure user-specific data while keeping core content public
+
+### Authentication Flow
+- **Login/signup** at `/login` with email/password or Google OAuth
+- **Protected routes** require authentication, redirect to login if not authenticated
+- **Auth callback** handled at `/auth/callback` for OAuth redirects
 
 ## claude commands:
 /batch_import_workflow: execute instructions in claude/commands/batch_import_workflow.md

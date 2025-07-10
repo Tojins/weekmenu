@@ -29,6 +29,7 @@ For each recipe:
      - normalize whitespace
      - trim spaces
      - to lowercase
+     - DO NOT remove information (e.g. "shredded cheese" is not the same as "cheese")
   2. Check cache using: `node scripts/db-utils.js find-cached-ingredient "normalized_ingredient"`
      - if result is not "NULL": use the found product_id
      - if not found: launch parallel Task agents using the Task tool with prompt: "Follow the instructions in claude/commands/match_product.md to find a product_id for this ingredient: [ingredient_name]"
