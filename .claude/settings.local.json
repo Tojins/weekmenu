@@ -30,7 +30,8 @@
       "Bash(curl:*)",
       "Bash(cat:*)",
       "Bash(curl:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(npm test:*)"
     ],
     "deny": []
   }
