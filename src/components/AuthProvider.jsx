@@ -96,8 +96,8 @@ export const AuthProvider = ({ children }) => {
         console.log('Auth state changed:', event)
         setUser(session?.user ?? null)
         
-        if (session?.user && !userProfile) {
-          // Only fetch profile if we don't have it yet
+        // Only fetch profile on INITIAL_SESSION to avoid duplicate calls
+        if (event === 'INITIAL_SESSION' && session?.user && !userProfile) {
           await fetchUserProfile(session.user.id)
         } else if (!session?.user) {
           setUserProfile(null)
