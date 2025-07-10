@@ -22,24 +22,18 @@ export const AuthProvider = ({ children }) => {
     // Get initial session
     const getSession = async () => {
       try {
-        console.log('Checking auth session...')
-        
         // Check if there's a session in localStorage
         const storedSession = localStorage.getItem('sb-padeskjkdetesmfuicvm-auth-token')
-        console.log('Stored session exists:', !!storedSession)
         
         // If we have a stored session, parse it and use it directly
         if (storedSession) {
           try {
             const sessionData = JSON.parse(storedSession)
             if (sessionData && sessionData.access_token) {
-              console.log('Using stored session directly')
-              
               // Get user data using the stored token
               const { data: { user }, error: userError } = await supabase.auth.getUser(sessionData.access_token)
               
               if (!userError && user) {
-                console.log('Got user from stored session:', user.email)
                 setUser(user)
                 // Don't fetch profile here - let onAuthStateChange handle it
                 // Don't set loading false here, let onAuthStateChange do it
@@ -61,11 +55,9 @@ export const AuthProvider = ({ children }) => {
           const { data: { session }, error } = await Promise.race([sessionPromise, timeoutPromise])
           
           if (!error && session) {
-            console.log('Session check complete: User logged in')
             setUser(session.user)
             // Don't fetch profile here - let INITIAL_SESSION handle it
           } else {
-            console.log('No active session')
             setUser(null)
           }
         } catch (timeoutError) {
@@ -80,10 +72,9 @@ export const AuthProvider = ({ children }) => {
       }
     }
 
-    // Add timeout fallback - reduced to 3 seconds since we handle timeouts internally
+    // Add timeout fallback
     timeoutId = setTimeout(() => {
       if (loading) {
-        console.warn('Auth loading timeout - forcing completion')
         setLoading(false)
       }
     }, 3000)
@@ -93,7 +84,6 @@ export const AuthProvider = ({ children }) => {
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
-        console.log('Auth state changed:', event)
         setUser(session?.user ?? null)
         
         // Only fetch profile on INITIAL_SESSION to avoid duplicate calls
@@ -120,8 +110,6 @@ export const AuthProvider = ({ children }) => {
 
   const fetchUserProfile = async (userId) => {
     try {
-      console.log('Fetching user profile for:', userId)
-      
       // Add timeout to profile fetch
       const profilePromise = supabase
         .from('users')
@@ -137,25 +125,16 @@ export const AuthProvider = ({ children }) => {
         const { data, error } = await Promise.race([profilePromise, timeoutPromise])
         
         if (error) {
-          console.error('Error fetching user profile:', error)
-          console.error('Error details:', { code: error.code, message: error.message, details: error.details })
           // Profile is optional, don't block auth
           return
         }
 
-        console.log('User profile fetched successfully:', data)
         setUserProfile(data)
       } catch (timeoutError) {
-        console.error('Profile fetch timed out - continuing without profile')
-        // Let's also try to get the actual result to see if there was an error
-        profilePromise.then(result => {
-          console.log('Profile fetch eventually completed:', result)
-        }).catch(err => {
-          console.error('Profile fetch eventually failed:', err)
-        })
+        // Profile is optional, continue without it
       }
     } catch (error) {
-      console.error('Error in fetchUserProfile:', error)
+      // Silent fail - profile is optional
     }
   }
 
