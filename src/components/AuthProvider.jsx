@@ -63,7 +63,7 @@ export const AuthProvider = ({ children }) => {
           if (!error && session) {
             console.log('Session check complete: User logged in')
             setUser(session.user)
-            await fetchUserProfile(session.user.id)
+            // Don't fetch profile here - let INITIAL_SESSION handle it
           } else {
             console.log('No active session')
             setUser(null)
