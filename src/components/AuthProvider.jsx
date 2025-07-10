@@ -17,6 +17,8 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    let timeoutId = null
+    
     // Get initial session
     const getSession = async () => {
       try {
@@ -40,7 +42,7 @@ export const AuthProvider = ({ children }) => {
                 console.log('Got user from stored session:', user.email)
                 setUser(user)
                 // Don't fetch profile here - let onAuthStateChange handle it
-                setLoading(false)
+                // Don't set loading false here, let onAuthStateChange do it
                 return
               }
             }
@@ -79,7 +81,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     // Add timeout fallback - reduced to 3 seconds since we handle timeouts internally
-    const timeout = setTimeout(() => {
+    timeoutId = setTimeout(() => {
       if (loading) {
         console.warn('Auth loading timeout - forcing completion')
         setLoading(false)
@@ -101,12 +103,17 @@ export const AuthProvider = ({ children }) => {
           setUserProfile(null)
         }
         
+        // Clear timeout when auth completes
+        if (timeoutId) {
+          clearTimeout(timeoutId)
+          timeoutId = null
+        }
         setLoading(false)
       }
     )
 
     return () => {
-      clearTimeout(timeout)
+      if (timeoutId) clearTimeout(timeoutId)
       subscription.unsubscribe()
     }
   }, [])
