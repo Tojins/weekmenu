@@ -21,7 +21,17 @@ For each recipe:
    - Recipes should be simple enough to prepare within 30 minutes; do not believe time estimations from the website; make your own time estimation to verify this
 - Create a unique list of ingredients from the recipe (removing duplicates and combining similar ingredients like "parmesan" and "parmesan for garnish")
 - Filter out common pantry items that don't need to be tracked: salt, pepper, olive oil and other extremely common items that are always present in every european household
-- For each remaining unique ingredient launch parallel Task agents using the Task tool with prompt: "Follow the instructions in claude/commands/match_product.md to find a product_id for this ingredient: [ingredient_name]"
+- For each remaining unique ingredient:
+  1. normalize the ingredient string:
+     - remove the quantity (2 tblsp, 50ml, 10g, 1 cup etc.)
+     - remove parentheses and content
+     - remove punctuation
+     - normalize whitespace
+     - trim spaces
+     - to lowercase
+  2. Check cache using: `node scripts/db-utils.js find-cached-ingredient "normalized_ingredient"`
+     - if result is not "NULL": use the found product_id
+     - if not found: launch parallel Task agents using the Task tool with prompt: "Follow the instructions in claude/commands/match_product.md to find a product_id for this ingredient: [ingredient_name]"
 - If any Task agent's final report returns null or failure:
    - if the Task agent failed due to image processing, try again to execute claude/commands/match_product.md but without a Task agent
    - if the Task agent failed for any other reason, then discard this recipe
