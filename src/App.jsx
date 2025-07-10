@@ -4,6 +4,7 @@ import { LoginScreen } from './components/LoginScreen'
 import { ProtectedLayout } from './components/ProtectedLayout'
 import { HomePage } from './components/HomePage'
 import { AuthCallback } from './components/AuthCallback'
+import { MenuSelector } from './components/MenuSelector'
 
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth()
@@ -62,6 +63,14 @@ function App() {
             <ProtectedRoute>
               <ProtectedLayout>
                 <HomePage />
+              </ProtectedLayout>
+            </ProtectedRoute>
+          } />
+          
+          <Route path="/menu-selector" element={
+            <ProtectedRoute>
+              <ProtectedLayout>
+                <MenuSelector />
               </ProtectedLayout>
             </ProtectedRoute>
           } />

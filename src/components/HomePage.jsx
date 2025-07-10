@@ -1,7 +1,9 @@
 import { useAuth } from './AuthProvider'
+import { useNavigate } from 'react-router-dom'
 
 export const HomePage = () => {
   const { user, userProfile } = useAuth()
+  const navigate = useNavigate()
 
   return (
     <div className="space-y-8">
@@ -17,18 +19,37 @@ export const HomePage = () => {
       <div className="grid md:grid-cols-2 gap-8">
         <div className="bg-white rounded-lg shadow-lg p-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-800">Weekly Menu</h2>
+            <h2 className="text-2xl font-bold text-gray-800">Recipe Menu</h2>
             <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center">
               <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
               </svg>
             </div>
           </div>
           <p className="text-gray-600 mb-6">
-            Select recipes for each day of the week. Build your perfect meal plan from our recipe collection.
+            Browse our recipe collection and select your favorites for the week. Customize servings and build your perfect menu.
           </p>
-          <button className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors text-lg font-semibold">
-            Plan This Week
+          <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+            <span className="flex items-center">
+              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              </svg>
+              Up to 28 recipes
+            </span>
+            <span className="flex items-center">
+              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Quick selection
+            </span>
+          </div>
+          <button 
+            onClick={() => navigate('/menu-selector')}
+            className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors text-lg font-semibold flex items-center justify-center">
+            <span>Select Recipes</span>
+            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
           </button>
         </div>
 
