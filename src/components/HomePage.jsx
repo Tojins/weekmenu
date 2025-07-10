@@ -50,23 +50,6 @@ export const HomePage = () => {
         </div>
       </div>
 
-      <div className="bg-gray-50 rounded-lg p-6">
-        <h3 className="text-lg font-semibold text-gray-800 mb-4 text-center">Your Account</h3>
-        <div className="grid grid-cols-3 gap-4 text-center">
-          <div>
-            <div className="text-xl font-bold text-gray-700">{user?.email}</div>
-            <div className="text-sm text-gray-500">Account</div>
-          </div>
-          <div>
-            <div className="text-xl font-bold text-gray-700">Free</div>
-            <div className="text-sm text-gray-500">Plan</div>
-          </div>
-          <div>
-            <div className="text-xl font-bold text-gray-700">{new Date(user?.created_at).toLocaleDateString()}</div>
-            <div className="text-sm text-gray-500">Member Since</div>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }
