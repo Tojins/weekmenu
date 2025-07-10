@@ -138,15 +138,21 @@ export const AuthProvider = ({ children }) => {
         
         if (error) {
           console.error('Error fetching user profile:', error)
+          console.error('Error details:', { code: error.code, message: error.message, details: error.details })
           // Profile is optional, don't block auth
           return
         }
 
-        console.log('User profile fetched successfully')
+        console.log('User profile fetched successfully:', data)
         setUserProfile(data)
       } catch (timeoutError) {
         console.error('Profile fetch timed out - continuing without profile')
-        // Profile is optional, don't block auth
+        // Let's also try to get the actual result to see if there was an error
+        profilePromise.then(result => {
+          console.log('Profile fetch eventually completed:', result)
+        }).catch(err => {
+          console.error('Profile fetch eventually failed:', err)
+        })
       }
     } catch (error) {
       console.error('Error in fetchUserProfile:', error)
