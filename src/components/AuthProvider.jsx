@@ -19,15 +19,35 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     // Get initial session
     const getSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession()
-      setUser(session?.user ?? null)
-      
-      if (session?.user) {
-        await fetchUserProfile(session.user.id)
+      try {
+        const { data: { session }, error } = await supabase.auth.getSession()
+        
+        if (error) {
+          console.error('Error getting session:', error)
+          setLoading(false)
+          return
+        }
+        
+        setUser(session?.user ?? null)
+        
+        if (session?.user) {
+          await fetchUserProfile(session.user.id)
+        }
+        
+        setLoading(false)
+      } catch (error) {
+        console.error('Error in getSession:', error)
+        setLoading(false)
       }
-      
-      setLoading(false)
     }
+
+    // Add timeout fallback
+    const timeout = setTimeout(() => {
+      if (loading) {
+        console.warn('Auth loading timeout - forcing completion')
+        setLoading(false)
+      }
+    }, 5000)
 
     getSession()
 
@@ -46,7 +66,10 @@ export const AuthProvider = ({ children }) => {
       }
     )
 
-    return () => subscription.unsubscribe()
+    return () => {
+      clearTimeout(timeout)
+      subscription.unsubscribe()
+    }
   }, [])
 
   const fetchUserProfile = async (userId) => {
