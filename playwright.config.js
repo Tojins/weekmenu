@@ -21,7 +21,6 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { 
-        ...defineConfig.use,
         headless: false, // Set to false to see the browser
       },
     },

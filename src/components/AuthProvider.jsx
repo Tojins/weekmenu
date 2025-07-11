@@ -14,6 +14,7 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
   const [userProfile, setUserProfile] = useState(null)
+  const [subscription, setSubscription] = useState(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -91,6 +92,7 @@ export const AuthProvider = ({ children }) => {
           await fetchUserProfile(session.user.id)
         } else if (!session?.user) {
           setUserProfile(null)
+          setSubscription(null)
         }
         
         // Clear timeout when auth completes
@@ -113,7 +115,7 @@ export const AuthProvider = ({ children }) => {
       // Add timeout to profile fetch
       const profilePromise = supabase
         .from('users')
-        .select('*')
+        .select('*, subscription:subscriptions(*)')
         .eq('id', userId)
         .single()
       
@@ -130,6 +132,7 @@ export const AuthProvider = ({ children }) => {
         }
 
         setUserProfile(data)
+        setSubscription(data?.subscription)
       } catch (timeoutError) {
         // Profile is optional, continue without it
       }
@@ -175,6 +178,7 @@ export const AuthProvider = ({ children }) => {
   const value = {
     user,
     userProfile,
+    subscription,
     loading,
     signInWithEmail,
     signUpWithEmail,

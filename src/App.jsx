@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from './components/AuthProvider'
+import { WeekMenuProvider } from './contexts/WeekMenuContext'
 import { LoginScreen } from './components/LoginScreen'
 import { ProtectedLayout } from './components/ProtectedLayout'
 import { HomePage } from './components/HomePage'
@@ -50,33 +51,35 @@ function App() {
   return (
     <Router basename="/weekmenu">
       <AuthProvider>
-        <Routes>
-          <Route path="/login" element={
-            <PublicRoute>
-              <LoginScreen />
-            </PublicRoute>
-          } />
-          
-          <Route path="/auth/callback" element={<AuthCallback />} />
-          
-          <Route path="/" element={
-            <ProtectedRoute>
-              <ProtectedLayout>
-                <HomePage />
-              </ProtectedLayout>
-            </ProtectedRoute>
-          } />
-          
-          <Route path="/menu-selector" element={
-            <ProtectedRoute>
-              <ProtectedLayout>
-                <MenuSelector />
-              </ProtectedLayout>
-            </ProtectedRoute>
-          } />
-          
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+        <WeekMenuProvider>
+          <Routes>
+            <Route path="/login" element={
+              <PublicRoute>
+                <LoginScreen />
+              </PublicRoute>
+            } />
+            
+            <Route path="/auth/callback" element={<AuthCallback />} />
+            
+            <Route path="/" element={
+              <ProtectedRoute>
+                <ProtectedLayout>
+                  <HomePage />
+                </ProtectedLayout>
+              </ProtectedRoute>
+            } />
+            
+            <Route path="/menu-selector" element={
+              <ProtectedRoute>
+                <ProtectedLayout>
+                  <MenuSelector />
+                </ProtectedLayout>
+              </ProtectedRoute>
+            } />
+            
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </WeekMenuProvider>
       </AuthProvider>
     </Router>
   )

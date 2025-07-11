@@ -1,7 +1,12 @@
 import { useAuth } from './AuthProvider'
+import { useLocation } from 'react-router-dom'
 
 export const ProtectedLayout = ({ children }) => {
   const { user, userProfile, signOut } = useAuth()
+  const location = useLocation()
+  
+  // Only apply max-width constraint on non-menu-selector pages
+  const isMenuSelector = location.pathname === '/menu-selector'
 
   const handleSignOut = async () => {
     await signOut()
@@ -41,7 +46,7 @@ export const ProtectedLayout = ({ children }) => {
         </div>
       </nav>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className={isMenuSelector ? "w-full" : "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"}>
         {children}
       </main>
     </div>

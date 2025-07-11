@@ -1,9 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-// Configure test to use the local dev server
-test.use({
-  baseURL: 'http://localhost:5173/weekmenu'
-});
 
 test.describe('Menu Selector - Phase 1', () => {
   test.beforeEach(async ({ page }) => {
@@ -14,15 +10,21 @@ test.describe('Menu Selector - Phase 1', () => {
   });
 
   test('can navigate to menu selector', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('http://localhost:5173/weekmenu/');
+    
+    // Wait for page to load
+    await page.waitForLoadState('networkidle');
     
     // Should see the login page since we're not authenticated
-    await expect(page.locator('text=Sign in to your account')).toBeVisible();
+    await expect(page.locator('text=Sign in to your account, text=Welcome')).toBeVisible({ timeout: 10000 });
   });
 
   test('menu selector functionality without auth', async ({ page }) => {
     // Direct navigation to menu selector (will redirect to login)
-    await page.goto('/menu-selector');
+    await page.goto('http://localhost:5173/weekmenu/menu-selector');
+    
+    // Wait for navigation to complete
+    await page.waitForLoadState('networkidle');
     
     // Should redirect to login
     await expect(page).toHaveURL(/.*\/login/);
@@ -30,7 +32,7 @@ test.describe('Menu Selector - Phase 1', () => {
 
   test('localStorage persistence for menu data', async ({ page }) => {
     // Test localStorage directly
-    await page.goto('/');
+    await page.goto('http://localhost:5173/weekmenu/');
     
     // Set mock auth and menu data
     await page.evaluate(() => {
@@ -63,7 +65,10 @@ test.describe('Menu Selector - Phase 1', () => {
     
     // Navigate directly to menu selector component
     // In a real test, we'd mock the auth state
-    await page.goto('/menu-selector');
+    await page.goto('http://localhost:5173/weekmenu/menu-selector');
+    
+    // Wait for navigation to complete
+    await page.waitForLoadState('networkidle');
     
     // Will redirect to login, but shows test structure
     await expect(page).toHaveURL(/.*\/login/);
@@ -81,7 +86,7 @@ test('console output verification', async ({ page }) => {
     });
   });
   
-  await page.goto('/');
+  await page.goto('./');
   
   // Check for any console errors
   const errors = consoleLogs.filter(log => log.type === 'error');

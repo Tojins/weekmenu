@@ -1,45 +1,29 @@
 import { test, expect } from '@playwright/test';
+import { mockAuth } from './helpers/auth-mock.js';
 
 test.describe('Menu Selector with Mocked Auth', () => {
   test('full menu selector workflow', async ({ page }) => {
-    // Navigate to menu selector with mocked auth
-    await page.route('**/auth/v1/user', route => {
-      route.fulfill({
-        status: 200,
-        body: JSON.stringify({
-          id: 'mock-user-id',
-          email: 'test@example.com',
-          app_metadata: {},
-          user_metadata: { full_name: 'Test User' },
-          aud: 'authenticated',
-          role: 'authenticated'
-        })
-      });
-    });
+    // Set up auth mocks BEFORE any navigation
+    await mockAuth(page);
 
-    // Mock auth session in localStorage
-    await page.addInitScript(() => {
-      const mockSession = {
-        access_token: 'mock-token',
-        refresh_token: 'mock-refresh',
-        user: {
-          id: 'mock-user-id',
-          email: 'test@example.com',
-          user_metadata: { full_name: 'Test User' }
-        }
-      };
-      localStorage.setItem('sb-padeskjkdetesmfuicvm-auth-token', JSON.stringify(mockSession));
-    });
 
-    // Go directly to menu selector
-    await page.goto('/menu-selector');
+    // Navigate to home first to initialize auth
+    await page.goto('http://localhost:5173/weekmenu/');
+    await page.waitForLoadState('networkidle');
+    
+    // Now navigate to menu selector
+    await page.goto('http://localhost:5173/weekmenu/menu-selector');
 
     // Capture console logs
     const consoleLogs = [];
     page.on('console', msg => consoleLogs.push(msg.text()));
 
-    // Wait for recipes to load
-    await page.waitForSelector('text=Select Recipes for Your Week', { timeout: 5000 });
+    // Wait for the page to load
+    await page.waitForLoadState('networkidle');
+    
+    // We should now be on the menu selector page
+    // Wait for the grid to be visible (the component should show recipes)
+    await page.waitForSelector('.grid', { timeout: 10000 });
 
     // Test 1: Check recipe cards are displayed
     const recipeCards = await page.locator('.grid > div').count();

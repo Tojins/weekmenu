@@ -1,0 +1,16 @@
+
+> weekmenu@0.0.0 dev
+> vite
+
+
+  VITE v5.4.19  ready in 315 ms
+
+  ➜  Local:   http://localhost:5173/weekmenu/
+  ➜  Network: use --host to expose
+9:08:49 PM [vite] hmr update /src/components/MenuSelector.jsx, /src/index.css
+9:09:02 PM [vite] hmr update /src/components/MenuSelector.jsx, /src/index.css
+9:15:36 PM [vite] hmr update /src/components/MenuSelector.jsx, /src/index.css
+9:15:47 PM [vite] hmr update /src/components/MenuSelector.jsx, /src/index.css
+9:16:08 PM [vite] hmr update /src/components/MenuSelector.jsx, /src/index.css
+9:16:18 PM [vite] hmr update /src/components/MenuSelector.jsx, /src/index.css
+9:16:49 PM [vite] hmr update /src/components/MenuSelector.jsx, /src/index.css

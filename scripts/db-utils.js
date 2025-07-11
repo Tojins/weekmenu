@@ -55,14 +55,14 @@ class DatabaseUtils {
     insertSearchHistory(searchText, userId = null) {
         const escapedText = this.escapeString(searchText);
         const sql = userId 
-            ? `INSERT INTO search_history (search_text, user_id) VALUES ('${escapedText}', '${userId}') RETURNING id;`
-            : `INSERT INTO search_history (search_text) VALUES ('${escapedText}') RETURNING id;`;
+            ? `INSERT INTO recipe_search_history (search_query, status, user_id) VALUES ('${escapedText}', 'initial', '${userId}') RETURNING id;`
+            : `INSERT INTO recipe_search_history (search_query, status) VALUES ('${escapedText}', 'initial') RETURNING id;`;
         return this.query(sql);
     }
 
-    updateSearchHistory(id, searchText) {
-        const escapedText = this.escapeString(searchText);
-        const sql = `UPDATE search_history SET search_text = '${escapedText}', updated_at = NOW() WHERE id = '${id}';`;
+    updateSearchHistory(id, status) {
+        const escapedStatus = this.escapeString(status);
+        const sql = `UPDATE recipe_search_history SET status = '${escapedStatus}', updated_at = NOW() WHERE id = '${id}';`;
         return this.query(sql);
     }
 
