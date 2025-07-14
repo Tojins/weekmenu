@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import { supabase } from '../supabaseClient'
 import { useWeekMenu } from '../contexts/WeekMenuContext'
 import { useAuth } from './AuthProvider'
+import { RecipeControls } from './RecipeControls'
+import { RecipeDetailsModal } from './RecipeDetailsModal'
 
 export function MenuSelector() {
   const { weekmenu, isLoading: menuLoading, isSyncing, isOffline, addRecipe, removeRecipe, updateServings } = useWeekMenu()
@@ -14,6 +16,7 @@ export function MenuSelector() {
   const [hasMore, setHasMore] = useState(true)
   const [totalRecipes, setTotalRecipes] = useState(0)
   const [showSyncToast, setShowSyncToast] = useState(false)
+  const [selectedModalRecipe, setSelectedModalRecipe] = useState(null)
   const loadingRef = useRef(false)
   const observerRef = useRef()
   const lastRecipeRef = useRef()
@@ -48,7 +51,9 @@ export function MenuSelector() {
           id,
           title,
           time_estimation,
-          image_url
+          image_url,
+          url,
+          cooking_instructions
         `)
         .order(orderColumn, { ascending: true })
         .range(pageNum * recipesPerPage, (pageNum + 1) * recipesPerPage - 1)
@@ -71,7 +76,9 @@ export function MenuSelector() {
           cookingTime: recipe.time_estimation || 30,
           category: 'main',
           seasonal: isSeasonalRecipe,
-          imageUrl: recipe.image_url || 'https://via.placeholder.com/300x200'
+          imageUrl: recipe.image_url || 'https://via.placeholder.com/300x200',
+          url: recipe.url,
+          cooking_instructions: recipe.cooking_instructions
         };
       })
 
@@ -226,8 +233,9 @@ export function MenuSelector() {
               return (
                 <div 
                   key={recipe.id} 
-                  className={`recipe-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow ${isLastRecipe ? 'last-recipe' : ''}`}
+                  className={`recipe-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer ${isLastRecipe ? 'last-recipe' : ''}`}
                   data-testid="recipe-card"
+                  onClick={() => setSelectedModalRecipe(recipe)}
                 >
                   <div className="relative">
                     <img src={recipe.imageUrl} alt={recipe.title} className="w-full h-64 sm:h-72 lg:h-80 xl:h-96 object-cover" />
@@ -251,38 +259,14 @@ export function MenuSelector() {
                       <span className="text-sm sm:text-base lg:text-lg text-gray-500 flex-shrink-0">{recipe.cookingTime}m</span>
                     </div>
                     
-                    {!isSelected ? (
-                      <button
-                        onClick={() => handleAddRecipe(recipe.id)}
-                        className="w-full bg-blue-600 text-white py-3 lg:py-4 px-4 lg:px-6 rounded-md hover:bg-blue-700 transition-colors text-base lg:text-lg font-medium"
-                      >
-                        Add to menu
-                      </button>
-                    ) : (
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-2">
-                          <button
-                            onClick={() => handleUpdateServings(recipe.id, -1)}
-                            className="w-9 h-9 lg:w-11 lg:h-11 rounded-md border border-gray-300 hover:bg-gray-100 text-lg lg:text-xl"
-                          >
-                            −
-                          </button>
-                          <span className="text-base lg:text-lg font-medium w-10 lg:w-12 text-center">{selectedRecipe.servings}</span>
-                          <button
-                            onClick={() => handleUpdateServings(recipe.id, 1)}
-                            className="w-9 h-9 lg:w-11 lg:h-11 rounded-md border border-gray-300 hover:bg-gray-100 text-lg lg:text-xl"
-                          >
-                            +
-                          </button>
-                        </div>
-                        <button
-                          onClick={() => removeRecipe(recipe.id)}
-                          className="text-red-600 hover:text-red-700 text-base lg:text-lg font-medium"
-                        >
-                          Remove
-                        </button>
-                      </div>
-                    )}
+                    <RecipeControls
+                      recipe={recipe}
+                      isSelected={isSelected}
+                      selectedRecipe={selectedRecipe}
+                      onAdd={handleAddRecipe}
+                      onRemove={removeRecipe}
+                      onUpdateServings={handleUpdateServings}
+                    />
                   </div>
                 </div>
               )
@@ -444,6 +428,19 @@ export function MenuSelector() {
         </svg>
         <span>Saving changes...</span>
       </div>
+
+      {/* Recipe Details Modal */}
+      {selectedModalRecipe && (
+        <RecipeDetailsModal
+          recipe={selectedModalRecipe}
+          isSelected={isRecipeSelected(selectedModalRecipe.id)}
+          selectedRecipe={getSelectedRecipe(selectedModalRecipe.id)}
+          onClose={() => setSelectedModalRecipe(null)}
+          onAdd={handleAddRecipe}
+          onRemove={removeRecipe}
+          onUpdateServings={handleUpdateServings}
+        />
+      )}
 
     </div>
   )

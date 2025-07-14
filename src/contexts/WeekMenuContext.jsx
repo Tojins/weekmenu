@@ -47,6 +47,12 @@ export const WeekMenuProvider = ({ children }) => {
       return;
     }
 
+    // Skip if already loaded for this subscription
+    if (weekmenu?.subscriptionId === subscription.id) {
+      setIsLoading(false);
+      return;
+    }
+
     const loadFromDatabase = async () => {
       try {
         setIsLoading(true);
@@ -226,15 +232,21 @@ export const WeekMenuProvider = ({ children }) => {
   // Handle offline/online events
   useEffect(() => {
     const handleOnline = () => {
-      setIsOffline(false);
-      // Sync when coming back online
-      if (weekmenu) {
-        syncToDatabase(weekmenu);
+      // Only update state if actually offline to prevent unnecessary re-renders
+      if (isOffline) {
+        setIsOffline(false);
+        // Sync when coming back online
+        if (weekmenu) {
+          syncToDatabase(weekmenu);
+        }
       }
     };
 
     const handleOffline = () => {
-      setIsOffline(true);
+      // Only update state if actually online to prevent unnecessary re-renders
+      if (!isOffline) {
+        setIsOffline(true);
+      }
     };
 
     window.addEventListener('online', handleOnline);
@@ -274,3 +286,4 @@ export const WeekMenuProvider = ({ children }) => {
     </WeekMenuContext.Provider>
   );
 };
+
