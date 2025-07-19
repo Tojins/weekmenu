@@ -21,6 +21,7 @@ For each recipe:
    - Recipes may not contain cucumber (allergy)
    - Recipes should be simple enough to prepare within 35 minutes; do not believe time estimations from the website; make your own time estimation to verify this
    - Recipes url should not exist yet in the table recipes column url
+- **CRITICAL RULE**: DO NOT modify or create a new search query. You MUST use the EXACT search query that was inserted into recipe_search_history. 
 - Create a unique list of ingredients from the recipe (removing duplicates and combining similar ingredients like "parmesan" and "parmesan for garnish")
 - Filter out common pantry items that don't need to be tracked: salt, pepper, olive oil and other extremely common items that are always present in every european household
 - For each remaining unique ingredient:
@@ -41,16 +42,20 @@ For each recipe:
 - If a similar recipe with almost all the same ingredients is found, then discard this recipe. Check the same ingredients using: `node scripts/db-utils.js check-similar-recipes "product_id1,product_id2,product_id3"`. Check also the title and the image url to discard duplicates.
 - Insert into `recipes` and for each matching product_id into `recipe_ingredients`
    - Extract all `recipes` field values from the recipe website (just analyse the website, do not write a new parsing script)
-   - Transform all temperature references to C, all volume quantities to ml and all weight quantities to g
+   - Transform all temperature references in the cooking_instructions to C
    - Translate the recipe title and cooking_instructions to dutch
    - Verify translation errors in the title and cooking_instructions
-   - Format cooking instructions as numbered steps for better readability
+   - Format cooking instructions as numbered steps with line endings between each step for better readability
    - Remove all salt (but not pepper) references from cooking instructions
    - When cooking instructions reference named ingredient groups (like "the sauce ingredients", "marinade", "dressing mixture"), expand those references to list the actual ingredients inline (e.g. "Make the sauce with honey, soy sauce, and cornstarch")
    - Select the website image that shows the finished dish and use its url for image_url
-   - Insert recipe using: `node scripts/db-utils.js insert-recipe "title" "cooking_instructions" time_estimation "url" "search_history_id" "image_url"`
-   - Insert ingredients using: `node scripts/db-utils.js insert-recipe-ingredients "recipe_id" "product_id1:quantity1:unit1,product_id2:quantity2:unit2,..."`
-- **CRITICAL RULE**: DO NOT modify or create a new search query. You MUST use the EXACT search query that was inserted into recipe_search_history. 
+   - Verify that the image_url is a working url
+   - Insert recipe using: `node scripts/db-utils.js insert-recipe "title" "cooking_instructions" time_estimation "url" "recipe_url_candidate_id" "image_url"`
+   - For each recipe ingredient
+      - transform the unit of the ingredient to match the unit of the chosen product. For example 1 cup corresponds to 340g. Note: "st" is the dutch abbreviation for piece(s).
+      - translate the original ingredient description to dutch without the quantity+unit for dutch_description. The original ingredient description is from the website, not the normalized ingredient description.
+   - Insert recipe ingredients using: `node scripts/db-utils.js insert-recipe-ingredients "recipe_id" "product_id1:quantity1:unit1[:dutch_description1],product_id2:quantity2:unit2[:dutch_description2],..."` 
+
 
 ## Phase 3: Update the search query record
 Update the record that was created in `recipe_search_history` status to 'completed' using: `node scripts/db-utils.js update-search-history "search_history_id" "completed"`
