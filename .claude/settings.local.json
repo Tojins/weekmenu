@@ -29,10 +29,17 @@
       "WebFetch(domain:static.colruytgroup.com)",
       "Bash(curl:*)",
       "Bash(cat:*)",
-      "Bash(curl:*)",
-      "Bash(curl:*)",
       "Bash(npm test:*)",
-      "Bash(npx playwright test:*)"
+      "Bash(npx playwright test:*)",
+      "WebFetch(domain:www.mashupmom.com)",
+      "WebFetch(domain:www.peanutbutterandpeppers.com)",
+      "WebFetch(domain:thecozycook.com)",
+      "WebFetch(domain:www.recipetineats.com)",
+      "WebFetch(domain:www.themediterraneandish.com)",
+      "WebFetch(domain:www.bakerita.com)",
+      "WebFetch(domain:ohmyveggies.com)",
+      "WebFetch(domain:spainonafork.com)",
+      "WebFetch(domain:ohmyveggies.com)"
     ],
     "deny": []
   }

@@ -85,6 +85,11 @@ class DatabaseUtils {
         return this.query(sql);
     }
 
+    countInitialSearchQueries() {
+        const sql = `SELECT COUNT(*) as count FROM recipe_search_history WHERE status = 'INITIAL';`;
+        return this.query(sql);
+    }
+
     // Phase 2 methods
     findInitialSearchQuery() {
         const sql = `SELECT id, search_query FROM recipe_search_history WHERE status = 'INITIAL' LIMIT 1;`;
@@ -141,9 +146,14 @@ class DatabaseUtils {
         return this.updateStatus('recipe_url_candidates', urlCandidateId, 'REJECTED');
     }
 
+    storeTimeEstimation(urlCandidateId, timeMinutes) {
+        const sql = `UPDATE recipe_url_candidates SET time_estimation_minutes = ${timeMinutes} WHERE id = '${urlCandidateId}';`;
+        return this.query(sql);
+    }
+
     // Phase 4 methods
     findAcceptedUrlCandidate() {
-        const sql = `SELECT id, url, recipe_search_history_id FROM recipe_url_candidates WHERE status = 'ACCEPTED' LIMIT 1;`;
+        const sql = `SELECT id, url, recipe_search_history_id, time_estimation_minutes FROM recipe_url_candidates WHERE status = 'ACCEPTED' LIMIT 1;`;
         return this.query(sql);
     }
 
@@ -172,6 +182,7 @@ if (!command) {
     console.error('  update-search-history "id" "search_text"');
     console.error('  find-cached-ingredient "ingredient_description"');
     console.error('  get-recent-search-queries [limit]');
+    console.error('  count-initial-search-queries');
     console.error('  find-initial-search-query');
     console.error('  lock-search-query "search_history_id"');
     console.error('  insert-url-candidate "search_history_id" "url"');
@@ -181,6 +192,7 @@ if (!command) {
     console.error('  check-existing-recipe-url "url"');
     console.error('  accept-url-candidate "url_candidate_id"');
     console.error('  reject-url-candidate "url_candidate_id"');
+    console.error('  store-time-estimation "url_candidate_id" time_minutes');
     console.error('  find-accepted-url-candidate');
     console.error('  lock-accepted-url-candidate "url_candidate_id"');
     console.error('  mark-url-candidate-created "url_candidate_id"');
@@ -237,6 +249,10 @@ try {
             result = db.getRecentSearchQueries(limit);
             break;
 
+        case 'count-initial-search-queries':
+            result = db.countInitialSearchQueries();
+            break;
+
         case 'find-initial-search-query':
             result = db.findInitialSearchQuery();
             break;
@@ -278,6 +294,11 @@ try {
         case 'reject-url-candidate':
             if (!args[0]) throw new Error('URL candidate ID required');
             result = db.rejectUrlCandidate(args[0]);
+            break;
+
+        case 'store-time-estimation':
+            if (args.length < 2) throw new Error('URL candidate ID and time minutes required');
+            result = db.storeTimeEstimation(args[0], parseInt(args[1]));
             break;
 
         case 'find-accepted-url-candidate':

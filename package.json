@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:test": "vite --mode test",
     "build": "vite build",
     "preview": "vite preview",
     "supabase:start": "supabase start",
@@ -16,10 +17,15 @@
     "migration:new": "supabase migration new",
     "migration:list": "supabase migration list",
     "types:generate": "supabase gen types typescript --local > src/types/database.types.ts",
+    "types:generate:remote": "supabase gen types typescript --project-id padeskjkdetesmfuicvm > types/database.ts",
+    "test:setup": "npm run types:generate:remote",
+    "test:local:setup": "npm run supabase:start && npm run db:reset",
     "populate": "node scripts/extract_from_attributes.js && npx supabase db push && psql -h localhost -p 54322 -U postgres -d postgres -f scripts/import_products.sql",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
-    "test:headed": "playwright test --headed"
+    "test:headed": "playwright test --headed",
+    "test:local": "playwright test --config=playwright.config.local.js",
+    "test:local:ui": "playwright test --config=playwright.config.local.js --ui"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.0",

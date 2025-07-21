@@ -6,6 +6,9 @@ import { ProtectedLayout } from './components/ProtectedLayout'
 import { HomePage } from './components/HomePage'
 import { AuthCallback } from './components/AuthCallback'
 import { MenuSelector } from './components/MenuSelector'
+import { ShoppingListDetail } from './components/ShoppingListDetail'
+import RecipeMonitor from './components/RecipeMonitor'
+import { Settings } from './components/Settings'
 
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth()
@@ -73,6 +76,30 @@ function App() {
               <ProtectedRoute>
                 <ProtectedLayout>
                   <MenuSelector />
+                </ProtectedLayout>
+              </ProtectedRoute>
+            } />
+            
+            <Route path="/shopping-list/:id" element={
+              <ProtectedRoute>
+                <ProtectedLayout>
+                  <ShoppingListDetail />
+                </ProtectedLayout>
+              </ProtectedRoute>
+            } />
+            
+            <Route path="/recipe-monitor" element={
+              <ProtectedRoute>
+                <ProtectedLayout>
+                  <RecipeMonitor />
+                </ProtectedLayout>
+              </ProtectedRoute>
+            } />
+            
+            <Route path="/settings" element={
+              <ProtectedRoute>
+                <ProtectedLayout>
+                  <Settings />
                 </ProtectedLayout>
               </ProtectedRoute>
             } />

@@ -32,14 +32,16 @@ node scripts/db-utils.js query "SELECT * FROM recipes;"
 - Base path is `/weekmenu/` for GitHub Pages (set in `vite.config.js`)
 - Automatic deployment to GitHub Pages on push to main branch
 - Supabase credentials are hardcoded in the client (typical for public anon key)
+- Hub and Spoke navigation pattern
 
 ### Development Notes
-- The production Supabase database can be used for development and testing
-- No local Docker/Supabase setup - work directly with remote database
+- The production Supabase database can be used for development
+- The local Docker/Supabase setup is only for running automated tests
 - For quick database queries, use: `node scripts/db-utils.js query "SELECT * FROM recipes;"`
 - IMPORTANT: avoid creating temporary scripts
 - For test navigation use full paths that include `/weekmenu/`
 - Tests should be independant of implementation and only depend on requirement intents
+- Never create unit tests that mock the db or auth. For automated testing always use the test db and the test user.
 
 ## Authentication & Authorization
 
@@ -50,7 +52,14 @@ node scripts/db-utils.js query "SELECT * FROM recipes;"
 ### Access Control
 - **All subscriptions** have read access to all recipes, recipe_ingredients, and products
 - **Future tables** can be subscription-aware by including subscription_id columns
-- **RLS policies** secure user-specific data while keeping core content public
+- **RLS policies**
+   - tables that have a subscription_id or a FK to a table with a subscription_id are only available for admins or users of that subscription
+   - tables that do not have a subscription_id nor a FK to a table with a subscription_id can not be have create, update or delete for non admins
+
+## Database Models & Testing
+- **Types**: `npm run types:generate:remote` generates schema types to `types/database.ts` - use in app via `import { Recipe } from '../types/helpers'`
+- **Test data**: Use factories from `tests/factories/index.js` (e.g. `RecipeFactory.create()`)
 
 ## claude commands:
 /recipes: execute instructions in claude/commands/recipes.md
+/recipe-orchestrator: execute instructions in claude/commands/recipe-orchestrator.md

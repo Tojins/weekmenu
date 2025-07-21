@@ -1,11 +1,14 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
 import { useWeekMenu } from '../contexts/WeekMenuContext'
 import { useAuth } from './AuthProvider'
 import { RecipeControls } from './RecipeControls'
 import { RecipeDetailsModal } from './RecipeDetailsModal'
+import { RecipeToShoppingListModal } from './RecipeToShoppingListModal'
 
 export function MenuSelector() {
+  const navigate = useNavigate()
   const { weekmenu, isLoading: menuLoading, isSyncing, isOffline, addRecipe, removeRecipe, updateServings } = useWeekMenu()
   const { subscription } = useAuth()
   const [recipes, setRecipes] = useState([])
@@ -17,6 +20,7 @@ export function MenuSelector() {
   const [totalRecipes, setTotalRecipes] = useState(0)
   const [showSyncToast, setShowSyncToast] = useState(false)
   const [selectedModalRecipe, setSelectedModalRecipe] = useState(null)
+  const [showShoppingListModal, setShowShoppingListModal] = useState(false)
   const loadingRef = useRef(false)
   const observerRef = useRef()
   const lastRecipeRef = useRef()
@@ -210,6 +214,19 @@ export function MenuSelector() {
       {/* Main recipe browser */}
       <div className={`flex-1 overflow-y-auto p-3 sm:p-4 lg:p-6 xl:p-8 transition-all duration-300 ${showSidebar && weekmenu?.recipes?.length > 0 ? 'lg:mr-80' : ''}`}>
         <div className="w-full mx-auto">
+          {/* Back to Home button */}
+          <div className="mb-4">
+            <button
+              onClick={() => navigate('/weekmenu/')}
+              className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Back to Home
+            </button>
+          </div>
+
           <div className="flex justify-end items-center mb-4">
             <div className="flex items-center space-x-4">
               {isOffline && (
@@ -405,7 +422,7 @@ export function MenuSelector() {
             
             <div className="p-4 border-t">
               <button
-                onClick={() => {/* TODO: Generate shopping list */}}
+                onClick={() => setShowShoppingListModal(true)}
                 className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 transition-colors font-medium"
               >
                 Generate shopping list
@@ -439,6 +456,14 @@ export function MenuSelector() {
           onAdd={handleAddRecipe}
           onRemove={removeRecipe}
           onUpdateServings={handleUpdateServings}
+        />
+      )}
+
+      {/* Recipe to Shopping List Modal */}
+      {showShoppingListModal && weekmenu?.recipes?.length > 0 && (
+        <RecipeToShoppingListModal
+          recipes={weekmenu.recipes}
+          onClose={() => setShowShoppingListModal(false)}
         />
       )}
 

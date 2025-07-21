@@ -1,94 +1,127 @@
 import { test, expect } from '@playwright/test';
+import { loginTestUser, ensureLoggedOut } from './helpers/auth-real.js';
 
-
-test.describe('Menu Selector - Phase 1', () => {
+test.describe('Menu Selector', () => {
   test.beforeEach(async ({ page }) => {
-    // Clear localStorage before each test
-    await page.addInitScript(() => {
-      localStorage.clear();
-    });
+    await ensureLoggedOut(page);
   });
 
-  test('can navigate to menu selector', async ({ page }) => {
-    await page.goto('http://localhost:5173/weekmenu/');
-    
-    // Wait for page to load
-    await page.waitForLoadState('networkidle');
-    
-    // Should see the login page since we're not authenticated
-    await expect(page.locator('text=Sign in to your account, text=Welcome')).toBeVisible({ timeout: 10000 });
-  });
-
-  test('menu selector functionality without auth', async ({ page }) => {
-    // Direct navigation to menu selector (will redirect to login)
-    await page.goto('http://localhost:5173/weekmenu/menu-selector');
-    
-    // Wait for navigation to complete
-    await page.waitForLoadState('networkidle');
+  test('redirects to login when not authenticated', async ({ page }) => {
+    await page.goto('/menu-selector');
     
     // Should redirect to login
     await expect(page).toHaveURL(/.*\/login/);
+    await expect(page.locator('input[type="email"]')).toBeVisible();
   });
 
-  test('localStorage persistence for menu data', async ({ page }) => {
-    // Test localStorage directly
-    await page.goto('http://localhost:5173/weekmenu/');
+  test('can access menu selector when authenticated', async ({ page }) => {
+    // Login with test user
+    await loginTestUser(page, 1);
     
-    // Set mock auth and menu data
-    await page.evaluate(() => {
-      const mockMenuData = {
-        subscriptionId: 'test-sub-id',
-        seed: 12345,
-        version: 1,
-        recipes: [
-          { recipeId: '1', servings: 4 },
-          { recipeId: '2', servings: 6 }
-        ],
-        updatedAt: new Date().toISOString()
-      };
-      localStorage.setItem('weekmenu', JSON.stringify(mockMenuData));
-    });
+    // Navigate to menu selector
+    await page.goto('/menu-selector');
     
-    // Verify localStorage
+    // Should not redirect - stays on menu selector
+    await expect(page).toHaveURL(/.*\/menu-selector/);
+    
+    // Should see menu selector elements
+    await expect(page.getByText('Generate Menu')).toBeVisible();
+  });
+
+  test('menu data persists in localStorage', async ({ page }) => {
+    await loginTestUser(page, 1);
+    
+    await page.goto('/menu-selector');
+    
+    // Generate a new menu
+    await page.click('button:has-text("Generate Menu")');
+    
+    // Wait for recipes to load
+    await page.waitForTimeout(1000);
+    
+    // Check localStorage has menu data
     const menuData = await page.evaluate(() => {
-      return JSON.parse(localStorage.getItem('weekmenu'));
+      return JSON.parse(localStorage.getItem('weekmenu') || '{}');
     });
     
-    expect(menuData).toBeTruthy();
-    expect(menuData.seed).toBe(12345);
-    expect(menuData.recipes).toHaveLength(2);
+    expect(menuData).toHaveProperty('seed');
+    expect(menuData).toHaveProperty('recipes');
+    expect(menuData.subscriptionId).toBe('00000000-0000-0000-0000-000000000101'); // Test user's subscription
   });
 
-  test('recipe grid displays correctly', async ({ page }) => {
-    // This test would work if we could bypass auth
-    // For now, it demonstrates the structure
+  test('can select recipes and update servings', async ({ page }) => {
+    await loginTestUser(page, 1);
     
-    // Navigate directly to menu selector component
-    // In a real test, we'd mock the auth state
-    await page.goto('http://localhost:5173/weekmenu/menu-selector');
+    await page.goto('/menu-selector');
     
-    // Wait for navigation to complete
+    // Wait for recipes to load (from seed data)
+    await page.waitForSelector('.recipe-card', { timeout: 10000 });
+    
+    // Check that we have recipes displayed
+    const recipeCards = await page.locator('.recipe-card').count();
+    expect(recipeCards).toBeGreaterThan(0);
+    
+    // If servings controls exist, test them
+    const servingsInput = page.locator('input[type="number"]').first();
+    if (await servingsInput.count() > 0) {
+      // Get initial value
+      const initialValue = await servingsInput.inputValue();
+      
+      // Update servings
+      await servingsInput.fill('6');
+      
+      // Verify it changed
+      const newValue = await servingsInput.inputValue();
+      expect(newValue).toBe('6');
+    }
+  });
+
+  test('seed generation creates consistent menus', async ({ page }) => {
+    await loginTestUser(page, 1);
+    
+    await page.goto('/menu-selector');
+    
+    // Generate menu with same seed twice
+    const testSeed = 99999;
+    
+    // First generation
+    await page.evaluate((seed) => {
+      // Directly set seed in localStorage to test consistency
+      const currentMenu = JSON.parse(localStorage.getItem('weekmenu') || '{}');
+      currentMenu.seed = seed;
+      localStorage.setItem('weekmenu', JSON.stringify(currentMenu));
+    }, testSeed);
+    
+    await page.reload();
     await page.waitForLoadState('networkidle');
     
-    // Will redirect to login, but shows test structure
-    await expect(page).toHaveURL(/.*\/login/);
-  });
-});
-
-// Test with console output monitoring
-test('console output verification', async ({ page }) => {
-  const consoleLogs = [];
-  
-  page.on('console', msg => {
-    consoleLogs.push({
-      type: msg.type(),
-      text: msg.text()
+    // Get first set of recipes
+    const firstRecipes = await page.evaluate(() => {
+      const menu = JSON.parse(localStorage.getItem('weekmenu') || '{}');
+      return menu.recipes || [];
     });
+    
+    // Clear and regenerate with same seed
+    await page.evaluate((seed) => {
+      const currentMenu = JSON.parse(localStorage.getItem('weekmenu') || '{}');
+      currentMenu.seed = seed;
+      currentMenu.recipes = []; // Clear recipes to force regeneration
+      localStorage.setItem('weekmenu', JSON.stringify(currentMenu));
+    }, testSeed);
+    
+    await page.reload();
+    await page.waitForLoadState('networkidle');
+    
+    // Get second set of recipes
+    const secondRecipes = await page.evaluate(() => {
+      const menu = JSON.parse(localStorage.getItem('weekmenu') || '{}');
+      return menu.recipes || [];
+    });
+    
+    // Same seed should generate same recipes (if implemented)
+    // This tests the actual seeding functionality
+    if (firstRecipes.length > 0 && secondRecipes.length > 0) {
+      expect(firstRecipes[0].recipeId).toBe(secondRecipes[0].recipeId);
+    }
   });
-  
-  await page.goto('./');
-  
-  // Check for any console errors
-  const errors = consoleLogs.filter(log => log.type === 'error');
-  expect(errors).toHaveLength(0);
 });

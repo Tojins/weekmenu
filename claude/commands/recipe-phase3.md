@@ -2,12 +2,15 @@
 
 Follow these instructions to evaluate recipe URLs and determine if they meet criteria.
 
+**IMPORTANT: Do not use custom SQL queries with `node scripts/db-utils.js query`. Only use the specific db-utils commands provided in these instructions.**
+
 ## Instructions
 
 - Find in the database a recipe_url_candidates record with status INITIAL using: `node scripts/db-utils.js find-initial-url-candidate`
 - Update recipe_url_candidates status to INVESTIGATING where status='INITIAL' and check that the update actually updated a record using: `node scripts/db-utils.js lock-url-candidate "url_candidate_id"`
 - Fetch the recipe webpage
 - Perform all recipe criteria evaluation and product matching
+- **CRITICAL: Store your time estimation** in the recipe_url_candidates table using: `node scripts/db-utils.js store-time-estimation "url_candidate_id" [YOUR_TIME_ESTIMATE]`
 - Create ingredient_product_cache records during product matching
 - Do not create any recipes or recipe_ingredients records yet, that is for phase 4
 - Update recipe_url_candidates status to REJECTED or ACCEPTED based on if it matches all criteria using: `node scripts/db-utils.js accept-url-candidate "url_candidate_id"` or `node scripts/db-utils.js reject-url-candidate "url_candidate_id"`
@@ -15,10 +18,10 @@ Follow these instructions to evaluate recipe URLs and determine if they meet cri
 ## Recipe Evaluation Criteria
 
 Discard recipes based on these criteria:
-- Recipes should be healthy: not too much fat content. Not too much sugar content. Avoid mammal meat.
-- Recipes should be complete meals: no soups; there should be at least 2 out of vegetables, protein and carbs (not all 3 need to be present)
+- Recipes should be healthy: not too much fat content. Not too much sugar content. Avoid mammal meat and alcohol.
+- Recipes should be complete lunch or dinner meals: no soups; no breakfast; there should be at least 2 out of vegetables, protein and carbs (not all 3 need to be present)
 - Recipes may not contain cucumber (allergy)
-- Recipes should be simple enough to prepare within 35 minutes; **do not believe time estimations from the website; make your own time estimation to verify this**
+- Recipes should be simple enough to prepare within 35 minutes; **do not believe time estimations from the website; make your own time estimation to verify this. Your time estimation must be ≤35 minutes or the recipe must be REJECTED.**
 - Recipes url should not exist yet in the table recipes column url (check using: `node scripts/db-utils.js check-existing-recipe-url "recipe_url"`)
 
 ## Product Matching Process

@@ -2,6 +2,8 @@
 
 Follow these instructions to process search queries and create recipe URL candidates.
 
+**IMPORTANT: Do not use custom SQL queries with `node scripts/db-utils.js query`. Only use the specific db-utils commands provided in these instructions.**
+
 ## Instructions
 
 Iterate through available search queries:

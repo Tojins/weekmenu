@@ -3,14 +3,24 @@
 > vite
 
 
-  VITE v5.4.19  ready in 315 ms
+  VITE v5.4.19  ready in 342 ms
 
   ➜  Local:   http://localhost:5173/weekmenu/
   ➜  Network: use --host to expose
-9:08:49 PM [vite] hmr update /src/components/MenuSelector.jsx, /src/index.css
-9:09:02 PM [vite] hmr update /src/components/MenuSelector.jsx, /src/index.css
-9:15:36 PM [vite] hmr update /src/components/MenuSelector.jsx, /src/index.css
-9:15:47 PM [vite] hmr update /src/components/MenuSelector.jsx, /src/index.css
-9:16:08 PM [vite] hmr update /src/components/MenuSelector.jsx, /src/index.css
-9:16:18 PM [vite] hmr update /src/components/MenuSelector.jsx, /src/index.css
-9:16:49 PM [vite] hmr update /src/components/MenuSelector.jsx, /src/index.css
+10:43:38 PM [vite] hmr update /src/components/ShoppingListDetail.jsx, /src/index.css
+10:43:52 PM [vite] hmr update /src/components/ShoppingListDetail.jsx, /src/index.css
+10:44:08 PM [vite] hmr update /src/components/ShoppingListDetail.jsx, /src/index.css
+10:44:15 PM [vite] hmr update /src/components/ShoppingListDetail.jsx, /src/index.css
+10:44:32 PM [vite] hmr update /src/components/ShoppingListDetail.jsx, /src/index.css
+10:44:50 PM [vite] hmr update /src/components/ShoppingListDetail.jsx, /src/index.css
+10:45:01 PM [vite] hmr update /src/components/ShoppingListDetail.jsx, /src/index.css
+10:48:34 PM [vite] hmr update /src/components/ShoppingListDetail.jsx, /src/index.css
+10:48:45 PM [vite] hmr update /src/components/ShoppingListDetail.jsx, /src/index.css
+3:15:39 PM [vite] vite.config.js changed, restarting server...
+3:15:40 PM [vite] server restarted.
+3:44:11 PM [vite] hmr update /src/App.jsx, /src/index.css
+3:44:20 PM [vite] hmr update /src/App.jsx, /src/index.css
+3:44:42 PM [vite] hmr update /src/components/ProtectedLayout.jsx, /src/index.css
+3:47:35 PM [vite] hmr update /src/components/RecipeMonitor.jsx, /src/index.css
+4:07:47 PM [vite] hmr update /src/components/RecipeMonitor.jsx, /src/index.css
+4:08:08 PM [vite] hmr update /src/components/RecipeMonitor.jsx, /src/index.css

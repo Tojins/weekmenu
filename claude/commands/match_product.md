@@ -11,6 +11,7 @@ These instructions search the id of the best matching record of the `products` t
      - check if image exists: `images/{product_id}.jpg`
      - if the image does not exist, download: `curl -o images/{product_id}.jpg "{image_url}"`
      - use Read tool to analyze image file
+   - preferably do not match to frozen products, unless it is the only option
 4. if none of the products is an acceptable match: finish and return null in the final report
 5. if multiple products are similarly matching: choose the product that has the lowest normalized_price
 6. Add the match to the cache: `node scripts/db-utils.js query "INSERT INTO ingredient_product_cache (ingredient_description, product_id) VALUES ('{normalized_ingredient}', '{chosen_product_id}');"`
