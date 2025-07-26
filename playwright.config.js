@@ -16,7 +16,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'http://localhost:5173/weekmenu',
+    baseURL: 'http://localhost:5174/weekmenu',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
@@ -43,7 +43,7 @@ export default defineConfig({
   // Run dev server with test environment
   webServer: {
     command: 'npm run dev:test',
-    port: 5173,
+    port: 5174,
     reuseExistingServer: !process.env.CI,
     env: {
       VITE_SUPABASE_URL: process.env.VITE_SUPABASE_URL || 'http://localhost:54321',

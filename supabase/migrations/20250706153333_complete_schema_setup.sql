@@ -13,7 +13,7 @@ $$ language plpgsql;
 CREATE TABLE IF NOT EXISTS recipes (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     title TEXT NOT NULL,
-    image_path TEXT,
+    image_url TEXT,
     time_estimation INTEGER, -- in minutes
     cooking_instructions TEXT NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL,

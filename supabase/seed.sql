@@ -43,7 +43,7 @@ BEGIN
   ON CONFLICT (id) DO NOTHING;
 
   -- Create user profile
-  INSERT INTO users (id, email, name, subscription_id, created_at, updated_at)
+  INSERT INTO users (id, email, full_name, subscription_id, created_at, updated_at)
   VALUES (test_user_id, 'test@example.com', 'Test User', test_subscription_id, NOW(), NOW())
   ON CONFLICT (id) DO NOTHING;
 
@@ -78,7 +78,7 @@ BEGIN
   ON CONFLICT (id) DO NOTHING;
 
   -- Create user profile for test user 2
-  INSERT INTO users (id, email, name, subscription_id, created_at, updated_at)
+  INSERT INTO users (id, email, full_name, subscription_id, created_at, updated_at)
   VALUES (
     '00000000-0000-0000-0000-000000000002'::UUID,
     'test2@example.com',
@@ -90,72 +90,67 @@ BEGIN
 END $$;
 
 -- Seed store chains
-INSERT INTO store_chains (id, name, logo_url) VALUES
-  ('chain-001', 'Test Chain 1', 'https://example.com/logo1.png'),
-  ('chain-002', 'Test Chain 2', 'https://example.com/logo2.png')
-ON CONFLICT (id) DO NOTHING;
+-- Store chains are created in the migration, not in seed
+-- Using the Colruyt chain that was created
 
 -- Seed stores
-INSERT INTO stores (id, name, address, chain_id, created_at, updated_at) VALUES
-  ('store-001', 'Test Store 1', '123 Test St', 'chain-001', NOW(), NOW()),
-  ('store-002', 'Test Store 2', '456 Test Ave', 'chain-002', NOW(), NOW())
+INSERT INTO stores (id, name, address, city, postal_code, store_chain_id, created_at, updated_at) VALUES
+  ('00000000-0000-0000-0000-000000000201'::UUID, 'Test Store 1', '123 Test St', 'Test City', '1000', (SELECT id FROM store_chains WHERE name = 'Colruyt' LIMIT 1), NOW(), NOW()),
+  ('00000000-0000-0000-0000-000000000202'::UUID, 'Test Store 2', '456 Test Ave', 'Test City', '2000', (SELECT id FROM store_chains WHERE name = 'Colruyt' LIMIT 1), NOW(), NOW())
 ON CONFLICT (id) DO NOTHING;
 
 -- Seed store categories
-INSERT INTO store_categories (id, category_name, created_at, updated_at) VALUES
-  ('cat-001', 'Fruits & Vegetables', NOW(), NOW()),
-  ('cat-002', 'Dairy', NOW(), NOW()),
-  ('cat-003', 'Meat & Fish', NOW(), NOW()),
-  ('cat-004', 'Bakery', NOW(), NOW())
+INSERT INTO store_categories (id, store_chain_id, category_name, created_at, updated_at) VALUES
+  ('00000000-0000-0000-0000-000000000301'::UUID, (SELECT id FROM store_chains LIMIT 1), 'Fruits & Vegetables', NOW(), NOW()),
+  ('00000000-0000-0000-0000-000000000302'::UUID, (SELECT id FROM store_chains LIMIT 1), 'Dairy', NOW(), NOW()),
+  ('00000000-0000-0000-0000-000000000303'::UUID, (SELECT id FROM store_chains LIMIT 1), 'Meat & Fish', NOW(), NOW()),
+  ('00000000-0000-0000-0000-000000000304'::UUID, (SELECT id FROM store_chains LIMIT 1), 'Bakery', NOW(), NOW())
 ON CONFLICT (id) DO NOTHING;
 
 -- Seed store ordering
-INSERT INTO store_ordering (id, store_id, store_category_id, display_order) VALUES
-  ('order-001', 'store-001', 'cat-001', 1),
-  ('order-002', 'store-001', 'cat-002', 2),
-  ('order-003', 'store-001', 'cat-003', 3),
-  ('order-004', 'store-001', 'cat-004', 4)
-ON CONFLICT (id) DO NOTHING;
+INSERT INTO store_ordering (store_id, store_category_id, display_order) VALUES
+  ('00000000-0000-0000-0000-000000000201'::UUID, '00000000-0000-0000-0000-000000000301'::UUID, 1),
+  ('00000000-0000-0000-0000-000000000201'::UUID, '00000000-0000-0000-0000-000000000302'::UUID, 2),
+  ('00000000-0000-0000-0000-000000000201'::UUID, '00000000-0000-0000-0000-000000000303'::UUID, 3),
+  ('00000000-0000-0000-0000-000000000201'::UUID, '00000000-0000-0000-0000-000000000304'::UUID, 4)
+ON CONFLICT (store_id, store_category_id) DO NOTHING;
 
 -- Seed products
-INSERT INTO products (id, name, quantity, unit, unit_price, image_url, promotion, store_category_id, isweightarticle) VALUES
-  ('prod-001', 'Test Apple', 1, 'kg', 2.50, 'https://example.com/apple.jpg', false, 'cat-001', true),
-  ('prod-002', 'Test Milk', 1, 'L', 1.20, 'https://example.com/milk.jpg', false, 'cat-002', false),
-  ('prod-003', 'Test Chicken', 500, 'g', 5.99, 'https://example.com/chicken.jpg', false, 'cat-003', true),
-  ('prod-004', 'Test Bread', 1, 'st', 2.00, 'https://example.com/bread.jpg', false, 'cat-004', false),
-  ('prod-005', 'Test Banana', 1, 'kg', 1.80, 'https://example.com/banana.jpg', true, 'cat-001', true)
+INSERT INTO products (id, name, quantity, unit, unit_price, image_url, store_category_id, isweightarticle) VALUES
+  ('00000000-0000-0000-0000-000000000401'::UUID, 'Test Apple', 1, 'kg', 2.50, 'https://example.com/apple.jpg', '00000000-0000-0000-0000-000000000301'::UUID, true),
+  ('00000000-0000-0000-0000-000000000402'::UUID, 'Test Milk', 1, 'L', 1.20, 'https://example.com/milk.jpg', '00000000-0000-0000-0000-000000000302'::UUID, false),
+  ('00000000-0000-0000-0000-000000000403'::UUID, 'Test Chicken', 500, 'g', 5.99, 'https://example.com/chicken.jpg', '00000000-0000-0000-0000-000000000303'::UUID, true),
+  ('00000000-0000-0000-0000-000000000404'::UUID, 'Test Bread', 1, 'st', 2.00, 'https://example.com/bread.jpg', '00000000-0000-0000-0000-000000000304'::UUID, false),
+  ('00000000-0000-0000-0000-000000000405'::UUID, 'Test Banana', 1, 'kg', 1.80, 'https://example.com/banana.jpg', '00000000-0000-0000-0000-000000000301'::UUID, true)
 ON CONFLICT (id) DO NOTHING;
 
 -- Seed recipes for test user 1
-INSERT INTO recipes (id, name, servings, prep_time, cook_time, instructions, notes, subscription_id, created_at, updated_at) VALUES
-  ('recipe-001', 'Test Recipe 1', 4, 15, 30, 'Test instructions 1', 'Test notes 1', '00000000-0000-0000-0000-000000000101'::UUID, NOW(), NOW()),
-  ('recipe-002', 'Test Recipe 2', 2, 10, 20, 'Test instructions 2', 'Test notes 2', '00000000-0000-0000-0000-000000000101'::UUID, NOW(), NOW())
+INSERT INTO recipes (id, title, time_estimation, cooking_instructions, created_at, updated_at) VALUES
+  ('00000000-0000-0000-0000-000000000501'::UUID, 'Test Recipe 1', 45, 'Test instructions 1', NOW(), NOW()),
+  ('00000000-0000-0000-0000-000000000502'::UUID, 'Test Recipe 2', 30, 'Test instructions 2', NOW(), NOW())
 ON CONFLICT (id) DO NOTHING;
 
 -- Seed recipe ingredients
-INSERT INTO recipe_ingredients (id, recipe_id, product_id, quantity, unit, notes, ingredient_order) VALUES
-  ('ring-001', 'recipe-001', 'prod-001', 2, 'st', 'Sliced', 1),
-  ('ring-002', 'recipe-001', 'prod-002', 500, 'ml', NULL, 2),
-  ('ring-003', 'recipe-002', 'prod-003', 300, 'g', 'Diced', 1),
-  ('ring-004', 'recipe-002', 'prod-004', 2, 'st', NULL, 2)
+INSERT INTO recipe_ingredients (id, recipe_id, product_id, quantity, unit, ingredient_order) VALUES
+  ('00000000-0000-0000-0000-000000000601'::UUID, '00000000-0000-0000-0000-000000000501'::UUID, '00000000-0000-0000-0000-000000000401'::UUID, 2, 'st', 1),
+  ('00000000-0000-0000-0000-000000000602'::UUID, '00000000-0000-0000-0000-000000000501'::UUID, '00000000-0000-0000-0000-000000000402'::UUID, 500, 'ml', 2),
+  ('00000000-0000-0000-0000-000000000603'::UUID, '00000000-0000-0000-0000-000000000502'::UUID, '00000000-0000-0000-0000-000000000403'::UUID, 300, 'g', 1),
+  ('00000000-0000-0000-0000-000000000604'::UUID, '00000000-0000-0000-0000-000000000502'::UUID, '00000000-0000-0000-0000-000000000404'::UUID, 2, 'st', 2)
 ON CONFLICT (id) DO NOTHING;
 
 -- Seed shopping lists for test user 1
-INSERT INTO shopping_lists (id, name, subscription_id, store_id, is_active, created_at, updated_at) VALUES
-  ('list-001', 'Test Shopping List 1', '00000000-0000-0000-0000-000000000101'::UUID, 'store-001', true, NOW(), NOW()),
-  ('list-002', 'Test Shopping List 2', '00000000-0000-0000-0000-000000000101'::UUID, 'store-002', false, NOW() - INTERVAL '7 days', NOW() - INTERVAL '7 days')
+INSERT INTO shopping_lists (id, subscription_id, store_id, is_active, created_at, updated_at) VALUES
+  ('00000000-0000-0000-0000-000000000701'::UUID, '00000000-0000-0000-0000-000000000101'::UUID, '00000000-0000-0000-0000-000000000201'::UUID, true, NOW(), NOW()),
+  ('00000000-0000-0000-0000-000000000702'::UUID, '00000000-0000-0000-0000-000000000101'::UUID, '00000000-0000-0000-0000-000000000202'::UUID, false, NOW() - INTERVAL '7 days', NOW() - INTERVAL '7 days')
 ON CONFLICT (id) DO NOTHING;
 
 -- Seed shopping list items
-INSERT INTO shopping_list_items (id, shopping_list_id, product_id, recipe_id, quantity, unit, is_checked, display_order) VALUES
-  ('item-001', 'list-001', 'prod-001', 'recipe-001', 2, 'st', false, 1),
-  ('item-002', 'list-001', 'prod-002', 'recipe-001', 500, 'ml', false, 2),
-  ('item-003', 'list-001', 'prod-005', NULL, 3, 'kg', false, 1),
-  ('item-004', 'list-001', NULL, NULL, 1, 'st', true, 999) -- Custom item
+INSERT INTO shopping_list_items (id, shopping_list_id, product_id, recipe_id, quantity, unit, is_checked, display_order, custom_name) VALUES
+  ('00000000-0000-0000-0000-000000000801'::UUID, '00000000-0000-0000-0000-000000000701'::UUID, '00000000-0000-0000-0000-000000000401'::UUID, '00000000-0000-0000-0000-000000000501'::UUID, 2, 'st', false, 1, NULL),
+  ('00000000-0000-0000-0000-000000000802'::UUID, '00000000-0000-0000-0000-000000000701'::UUID, '00000000-0000-0000-0000-000000000402'::UUID, '00000000-0000-0000-0000-000000000501'::UUID, 500, 'ml', false, 2, NULL),
+  ('00000000-0000-0000-0000-000000000803'::UUID, '00000000-0000-0000-0000-000000000701'::UUID, '00000000-0000-0000-0000-000000000405'::UUID, NULL, 3, 'kg', false, 1, NULL),
+  ('00000000-0000-0000-0000-000000000804'::UUID, '00000000-0000-0000-0000-000000000701'::UUID, NULL, NULL, 1, 'st', true, 999, 'Custom Test Item') -- Custom item
 ON CONFLICT (id) DO NOTHING;
-
--- Update custom item name
-UPDATE shopping_list_items SET custom_name = 'Custom Test Item' WHERE id = 'item-004';
 
 -- Grant permissions for test data (if needed)
 GRANT ALL ON ALL TABLES IN SCHEMA public TO postgres, anon, authenticated;

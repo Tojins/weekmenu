@@ -12,6 +12,17 @@ DROP POLICY IF EXISTS "Users can create recipe ingredients in their subscription
 DROP POLICY IF EXISTS "Users can update recipe ingredients in their subscription" ON recipe_ingredients;
 DROP POLICY IF EXISTS "Users can delete recipe ingredients in their subscription" ON recipe_ingredients;
 
+-- Drop existing public policies first
+DROP POLICY IF EXISTS "Allow public read access" ON recipes;
+DROP POLICY IF EXISTS "Allow public insert access" ON recipes;
+DROP POLICY IF EXISTS "Allow public update access" ON recipes;
+DROP POLICY IF EXISTS "Allow public delete access" ON recipes;
+
+DROP POLICY IF EXISTS "Allow public read recipe_ingredients" ON recipe_ingredients;
+DROP POLICY IF EXISTS "Allow public insert recipe_ingredients" ON recipe_ingredients;
+DROP POLICY IF EXISTS "Allow public update recipe_ingredients" ON recipe_ingredients;
+DROP POLICY IF EXISTS "Allow public delete recipe_ingredients" ON recipe_ingredients;
+
 -- Recreate public access policies for recipes
 CREATE POLICY "Allow public read access" ON recipes
     FOR SELECT USING (true);

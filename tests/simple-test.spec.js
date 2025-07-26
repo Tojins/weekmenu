@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Basic App Tests', () => {
   test('app loads and shows login page', async ({ page }) => {
-    await page.goto('http://localhost:5173/weekmenu/');
+    await page.goto('http://localhost:5174/weekmenu/');
     
     // Should see login page elements
     await expect(page.locator('text=Sign in to your account').or(page.locator('text=Welcome back'))).toBeVisible({ timeout: 10000 });
@@ -18,17 +18,17 @@ test.describe('Basic App Tests', () => {
   });
 
   test('navigation structure exists', async ({ page }) => {
-    await page.goto('http://localhost:5173/weekmenu/');
+    await page.goto('http://localhost:5174/weekmenu/');
     
     // Try to navigate to menu-selector (should redirect to login)
-    await page.goto('http://localhost:5173/weekmenu/menu-selector');
+    await page.goto('http://localhost:5174/weekmenu/menu-selector');
     
     // Should be redirected back to login
     await expect(page.locator('input[type="email"]')).toBeVisible({ timeout: 10000 });
   });
 
   test('localStorage works correctly', async ({ page }) => {
-    await page.goto('http://localhost:5173/weekmenu/');
+    await page.goto('http://localhost:5174/weekmenu/');
     
     // Set test data in localStorage
     await page.evaluate(() => {
@@ -52,7 +52,7 @@ test.describe('Basic App Tests', () => {
       }
     });
     
-    await page.goto('http://localhost:5173/weekmenu/');
+    await page.goto('http://localhost:5174/weekmenu/');
     await page.waitForTimeout(2000); // Wait for any async errors
     
     // Should have no console errors

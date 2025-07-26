@@ -23,7 +23,7 @@ async function globalSetup() {
   
   try {
     // Navigate to login
-    await page.goto('http://localhost:5173/weekmenu/login');
+    await page.goto('http://localhost:5174/weekmenu/login');
     
     // Login with test user
     await page.fill('input[type="email"]', 'test@example.com');

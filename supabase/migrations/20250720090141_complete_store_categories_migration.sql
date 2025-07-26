@@ -64,7 +64,11 @@ BEGIN
         ADD CONSTRAINT store_categories_store_chain_id_category_name_key UNIQUE (store_chain_id, category_name);
         
         ALTER TABLE store_categories 
-        ADD CONSTRAINT store_categories_store_chain_id_external_id_key UNIQUE (store_chain_id, external_id);
+        ADD CONSTRAINT store_categories_store_chain_id_vendor_id_key UNIQUE (store_chain_id, vendor_id);
+        
+        -- Rename vendor_id to external_id to match production
+        ALTER TABLE store_categories 
+        RENAME COLUMN vendor_id TO external_id;
         
         -- Update the index for category lookup
         DROP INDEX IF EXISTS idx_store_categories_lookup;

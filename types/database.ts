@@ -201,6 +201,7 @@ export type Database = {
           id: string
           recipe_search_history_id: string | null
           status: string
+          time_estimation_minutes: number | null
           updated_at: string | null
           url: string
         }
@@ -209,6 +210,7 @@ export type Database = {
           id?: string
           recipe_search_history_id?: string | null
           status: string
+          time_estimation_minutes?: number | null
           updated_at?: string | null
           url: string
         }
@@ -217,6 +219,7 @@ export type Database = {
           id?: string
           recipe_search_history_id?: string | null
           status?: string
+          time_estimation_minutes?: number | null
           updated_at?: string | null
           url?: string
         }
@@ -404,7 +407,6 @@ export type Database = {
           created_at: string | null
           id: string
           is_active: boolean | null
-          name: string
           store_id: string | null
           subscription_id: string
           updated_at: string | null
@@ -414,7 +416,6 @@ export type Database = {
           created_at?: string | null
           id?: string
           is_active?: boolean | null
-          name: string
           store_id?: string | null
           subscription_id: string
           updated_at?: string | null
@@ -424,7 +425,6 @@ export type Database = {
           created_at?: string | null
           id?: string
           is_active?: boolean | null
-          name?: string
           store_id?: string | null
           subscription_id?: string
           updated_at?: string | null
@@ -639,6 +639,7 @@ export type Database = {
           email: string
           full_name: string | null
           id: string
+          is_admin: boolean
           subscription_id: string | null
           updated_at: string
         }
@@ -648,6 +649,7 @@ export type Database = {
           email: string
           full_name?: string | null
           id: string
+          is_admin?: boolean
           subscription_id?: string | null
           updated_at?: string
         }
@@ -657,6 +659,7 @@ export type Database = {
           email?: string
           full_name?: string | null
           id?: string
+          is_admin?: boolean
           subscription_id?: string | null
           updated_at?: string
         }
@@ -713,7 +716,24 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_recipe_search_history_counts: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          status: string
+          count: number
+        }[]
+      }
+      get_recipe_url_candidates_counts: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          status: string
+          count: number
+        }[]
+      }
+      is_admin: {
+        Args: Record<PropertyKey, never>
+        Returns: boolean
+      }
     }
     Enums: {
       [_ in never]: never
