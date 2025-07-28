@@ -188,6 +188,8 @@ export function MenuSelector() {
 
   const handleAddRecipe = (recipeId) => {
     addRecipe(recipeId, subscription?.default_servings || 4)
+    // Close the modal after adding recipe
+    setSelectedModalRecipe(null)
   }
 
   const handleUpdateServings = (recipeId, delta) => {

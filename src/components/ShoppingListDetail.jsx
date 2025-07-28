@@ -2,12 +2,28 @@ import { useState, useEffect, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
 import { useAuth } from './AuthProvider'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { queryKeys } from '../queries/keys'
+import { updateShoppingList } from '../queries/shoppingLists'
 
 export const ShoppingListDetail = () => {
   const { id } = useParams()
   const navigate = useNavigate()
   const { userProfile } = useAuth()
+  const queryClient = useQueryClient()
   const searchInputRef = useRef(null)
+  
+  // Update shopping list mutation
+  const updateListMutation = useMutation({
+    mutationFn: updateShoppingList,
+    onSuccess: (updatedList) => {
+      // Update the list in the cache
+      queryClient.setQueryData(
+        queryKeys.shoppingLists(userProfile?.subscription_id),
+        (old = []) => old.map(list => list.id === updatedList.id ? updatedList : list)
+      )
+    },
+  })
   
   const [list, setList] = useState(null)
   const [items, setItems] = useState([])
@@ -215,15 +231,26 @@ export const ShoppingListDetail = () => {
       // Check if all items are checked and the list has items
       if (updatedItems.length > 0 && updatedItems.every(item => item.is_checked)) {
         // Mark the list as complete
-        const { error: listError } = await supabase
-          .from('shopping_lists')
-          .update({ 
-            is_active: false,
-            completed_at: new Date().toISOString()
-          })
-          .eq('id', id)
+        try {
+          const { error } = await supabase
+            .from('shopping_lists')
+            .update({ 
+              is_active: false,
+              completed_at: new Date().toISOString()
+            })
+            .eq('id', id)
           
-        if (listError) {
+          if (error) throw error
+          
+          // Update local state to reflect completion
+          setList(prev => ({ ...prev, is_active: false, completed_at: new Date().toISOString() }))
+          
+          // Update the list using the mutation
+          updateListMutation.mutate({
+            id,
+            updates: { is_active: false, completed_at: new Date().toISOString() }
+          })
+        } catch (listError) {
           console.error('Error auto-completing list:', listError)
         }
       }

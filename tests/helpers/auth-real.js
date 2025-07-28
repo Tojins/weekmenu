@@ -7,8 +7,8 @@ export async function loginTestUser(page, userNumber = 1) {
   const email = userNumber === 1 ? 'test@example.com' : 'test2@example.com';
   const password = 'testpassword123';
   
-  // Navigate to login page
-  await page.goto('/weekmenu/login');
+  // Navigate to login page - optimized to skip network idle
+  await page.goto('/weekmenu/login', { waitUntil: 'domcontentloaded' });
   
   // Fill in credentials
   await page.fill('input[type="email"]', email);

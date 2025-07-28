@@ -25,11 +25,6 @@ export function StoreSelector({
           </option>
         ))}
       </select>
-      {showActiveListWarning && (
-        <p className="mt-2 text-sm text-gray-500">
-          Stores with existing active lists are disabled. You can only have one active list per store.
-        </p>
-      )}
     </>
   )
 }

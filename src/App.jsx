@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { AuthProvider, useAuth } from './components/AuthProvider'
 import { WeekMenuProvider } from './contexts/WeekMenuContext'
 import { LoginScreen } from './components/LoginScreen'
@@ -50,12 +51,29 @@ function PublicRoute({ children }) {
   return user ? <Navigate to="/" /> : children
 }
 
+// Create a query client with sensible defaults
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      // Keep data fresh for 5 minutes
+      staleTime: 5 * 60 * 1000,
+      // Keep data in cache for 10 minutes
+      cacheTime: 10 * 60 * 1000,
+      // Retry failed requests
+      retry: 1,
+      // Refetch on window focus
+      refetchOnWindowFocus: false,
+    },
+  },
+})
+
 function App() {
   return (
     <Router basename="/weekmenu">
-      <AuthProvider>
-        <WeekMenuProvider>
-          <Routes>
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <WeekMenuProvider>
+            <Routes>
             <Route path="/login" element={
               <PublicRoute>
                 <LoginScreen />
@@ -106,8 +124,9 @@ function App() {
             
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
-        </WeekMenuProvider>
-      </AuthProvider>
+          </WeekMenuProvider>
+        </AuthProvider>
+      </QueryClientProvider>
     </Router>
   )
 }

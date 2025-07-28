@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { loginTestUser } from '../helpers/auth-real.js';
+import { loginTestUser } from '../../helpers/auth-real.js';
 
 test.describe('Week Menu to Shopping List', () => {
   test.beforeEach(async ({ page }) => {

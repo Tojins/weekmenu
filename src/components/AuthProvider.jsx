@@ -158,10 +158,8 @@ export const AuthProvider = ({ children }) => {
     })
     console.timeEnd('AuthProvider:signInWithPassword')
     
-    // If login successful, fetch the user profile immediately
-    if (!error && data?.user) {
-      await fetchUserProfile(data.user.id)
-    }
+    // Don't fetch profile here - the auth state change listener will handle it
+    // This prevents duplicate requests
     console.timeEnd('AuthProvider:signInWithEmail')
     
     return { data, error }

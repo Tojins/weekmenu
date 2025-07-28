@@ -36,12 +36,14 @@ node scripts/db-utils.js query "SELECT * FROM recipes;"
 - **Tailwind CSS** - Utility-first styling
 - **Supabase** - Backend database service, client in `src/supabaseClient.js`
 - **Supabase Auth** - Authentication with email/password and Google OAuth
+- **React Query** - Data fetching and caching layer
 
 ### Key Notes
 - Base path is `/weekmenu/` for GitHub Pages (set in `vite.config.js`)
 - Automatic deployment to GitHub Pages on push to main branch
 - Supabase credentials are hardcoded in the client (typical for public anon key)
 - Hub and Spoke navigation pattern
+- **Data Fetching**: All data fetching uses React Query directly with centralized query keys and fetch functions
 
 ### Development Notes
 - The production Supabase database can be used for development

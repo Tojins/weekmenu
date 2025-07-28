@@ -1,45 +1,18 @@
-import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { supabase } from '../supabaseClient'
 import { useWeekMenu } from '../contexts/WeekMenuContext'
+import { useQuery } from '@tanstack/react-query'
+import { queryKeys } from '../queries/keys'
+import { fetchRecipePreview } from '../queries/recipes'
 
 export const RecipeSelectorPanel = () => {
   const navigate = useNavigate()
   const { weekmenu } = useWeekMenu()
-  const [recipes, setRecipes] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetchRecipes()
-  }, [weekmenu])
-
-  const fetchRecipes = async () => {
-    try {
-      // Always fetch the first 4 recipes that would be shown in the recipe selector
-      // using the same seed-based ordering as MenuSelector
-      if (!weekmenu?.seed) {
-        setLoading(false)
-        return
-      }
-
-      // Calculate which random_order column to use based on seed
-      const orderColumn = `random_order_${((weekmenu.seed - 1) % 20) + 1}`
-      
-      const { data, error } = await supabase
-        .from('recipes')
-        .select('id, title, image_url')
-        .order(orderColumn)
-        .limit(4)
-      
-      if (!error && data) {
-        setRecipes(data)
-      }
-    } catch (error) {
-      console.error('Error fetching recipes:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
+  
+  const { data: recipes = [], isLoading: loading } = useQuery({
+    queryKey: queryKeys.recipePreview(weekmenu?.seed),
+    queryFn: () => fetchRecipePreview(weekmenu?.seed),
+    enabled: !!weekmenu?.seed,
+  })
 
   const selectedCount = weekmenu?.recipes?.length || 0
 
