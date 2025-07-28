@@ -1,9 +1,7 @@
 node_modules
 .env.local
 .env.production
-images
-temp
-backup
-
-# Build output
+test-results/
+playwright-report/
 dist/
+dev.log
