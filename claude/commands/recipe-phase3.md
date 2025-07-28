@@ -8,7 +8,7 @@ Follow these instructions to evaluate recipe URLs and determine if they meet cri
 
 - Find in the database a recipe_url_candidates record with status INITIAL using: `node scripts/db-utils.js find-initial-url-candidate`
 - Update recipe_url_candidates status to INVESTIGATING where status='INITIAL' and check that the update actually updated a record using: `node scripts/db-utils.js lock-url-candidate "url_candidate_id"`
-- Fetch the recipe webpage
+- Fetch the recipe webpage using the WebFetch tool
 - Perform all recipe criteria evaluation and product matching
 - **CRITICAL: Store your time estimation** in the recipe_url_candidates table using: `node scripts/db-utils.js store-time-estimation "url_candidate_id" [YOUR_TIME_ESTIMATE]`
 - Create ingredient_product_cache records during product matching

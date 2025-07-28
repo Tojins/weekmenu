@@ -22,16 +22,21 @@ class DatabaseUtils {
         return str.replace(/'/g, "''");
     }
 
-    insertRecipe(title, cookingInstructions, timeEstimation, url, recipeUrlCandidateId, imageUrl = null) {
+    insertRecipe(title, cookingInstructions, timeEstimation, url, recipeUrlCandidateId, imageUrl, numberOfServings = null) {
         const escapedTitle = this.escapeString(title);
         const escapedInstructions = this.escapeString(cookingInstructions);
         const escapedUrl = this.escapeString(url);
-        const escapedImageUrl = imageUrl ? this.escapeString(imageUrl) : null;
+        const escapedImageUrl = this.escapeString(imageUrl);
 
-        const sql = imageUrl 
-            ? `INSERT INTO recipes (title, cooking_instructions, time_estimation, url, recipe_url_candidate_id, image_url) VALUES ('${escapedTitle}', '${escapedInstructions}', ${timeEstimation}, '${escapedUrl}', '${recipeUrlCandidateId}', '${escapedImageUrl}') RETURNING id;`
-            : `INSERT INTO recipes (title, cooking_instructions, time_estimation, url, recipe_url_candidate_id) VALUES ('${escapedTitle}', '${escapedInstructions}', ${timeEstimation}, '${escapedUrl}', '${recipeUrlCandidateId}') RETURNING id;`;
+        const columns = ['title', 'cooking_instructions', 'time_estimation', 'url', 'recipe_url_candidate_id', 'image_url'];
+        const values = [`'${escapedTitle}'`, `'${escapedInstructions}'`, timeEstimation, `'${escapedUrl}'`, `'${recipeUrlCandidateId}'`, `'${escapedImageUrl}'`];
 
+        if (numberOfServings !== null) {
+            columns.push('number_of_servings');
+            values.push(numberOfServings);
+        }
+
+        const sql = `INSERT INTO recipes (${columns.join(', ')}) VALUES (${values.join(', ')}) RETURNING id;`;
         return this.query(sql);
     }
 
@@ -184,6 +189,43 @@ class DatabaseUtils {
         `;
         return this.query(sql);
     }
+
+    // Timeout reversion methods
+    revertStuckRecords() {
+        const sql = `
+            WITH stuck_searches AS (
+                UPDATE recipe_search_history 
+                SET status = 'INITIAL', started_at = NULL 
+                WHERE status = 'ONGOING' 
+                AND started_at < NOW() - INTERVAL '10 minutes'
+                RETURNING 'search_history' as table_name, id
+            ),
+            stuck_candidates AS (
+                UPDATE recipe_url_candidates 
+                SET status = CASE 
+                    WHEN status = 'INVESTIGATING' THEN 'INITIAL'
+                    WHEN status = 'CREATING' THEN 'ACCEPTED'
+                END, 
+                started_at = NULL 
+                WHERE status IN ('INVESTIGATING', 'CREATING') 
+                AND started_at < NOW() - INTERVAL '10 minutes'
+                RETURNING 'url_candidates' as table_name, id
+            )
+            SELECT * FROM stuck_searches
+            UNION ALL
+            SELECT * FROM stuck_candidates;`;
+        return this.query(sql);
+    }
+
+    viewStuckSearchQueries() {
+        const sql = `SELECT * FROM stuck_search_queries;`;
+        return this.query(sql);
+    }
+
+    viewStuckUrlCandidates() {
+        const sql = `SELECT * FROM stuck_url_candidates;`;
+        return this.query(sql);
+    }
 }
 
 const db = new DatabaseUtils();
@@ -195,7 +237,7 @@ if (!command) {
     console.error('Usage: node db-utils.js <command> [args...]');
     console.error('Commands:');
     console.error('  query "SQL"');
-    console.error('  insert-recipe "title" "instructions" time_estimation "url" "recipe_url_candidate_id" ["image_url"]');
+    console.error('  insert-recipe "title" "instructions" time_estimation "url" "recipe_url_candidate_id" "image_url" [number_of_servings]');
     console.error('  insert-recipe-ingredients "recipe_id" "product_id:quantity:unit[:dutch_description],..."');
     console.error('  check-similar-recipes "product_id1,product_id2,..."');
     console.error('  insert-search-history "search_text" ["user_id"]');
@@ -217,6 +259,9 @@ if (!command) {
     console.error('  lock-accepted-url-candidate "url_candidate_id"');
     console.error('  mark-url-candidate-created "url_candidate_id"');
     console.error('  get-products-by-descriptions "description1,description2,..."');
+    console.error('  revert-stuck-records');
+    console.error('  view-stuck-search-queries');
+    console.error('  view-stuck-url-candidates');
     process.exit(1);
 }
 
@@ -230,8 +275,9 @@ try {
             break;
             
         case 'insert-recipe':
-            if (args.length < 5) throw new Error('Missing required arguments');
-            result = db.insertRecipe(args[0], args[1], args[2], args[3], args[4], args[5]);
+            if (args.length < 6) throw new Error('Missing required arguments - need title, instructions, time_estimation, url, recipe_url_candidate_id, and image_url');
+            const numberOfServings = args[6] ? parseInt(args[6]) : null;
+            result = db.insertRecipe(args[0], args[1], args[2], args[3], args[4], args[5], numberOfServings);
             break;
             
         case 'insert-recipe-ingredients':
@@ -339,6 +385,18 @@ try {
         case 'get-products-by-descriptions':
             if (!args[0]) throw new Error('Descriptions required (comma-separated)');
             result = db.getProductsByDescriptions(args[0]);
+            break;
+
+        case 'revert-stuck-records':
+            result = db.revertStuckRecords();
+            break;
+
+        case 'view-stuck-search-queries':
+            result = db.viewStuckSearchQueries();
+            break;
+
+        case 'view-stuck-url-candidates':
+            result = db.viewStuckUrlCandidates();
             break;
             
         default:

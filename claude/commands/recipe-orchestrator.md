@@ -13,10 +13,11 @@ This command orchestrates the 4-phase recipe pipeline by launching agents to exe
 
 The orchestrator will:
 1. Record the start time when beginning orchestration
-2. Check all phases for available work using the queries above
-3. **CRITICAL: Launch agents concurrently for ALL phases that have work in a SINGLE message with multiple Task tool calls** - do not launch agents sequentially
-4. When any agent completes, if less than 2.5 minutes have elapsed, check **ALL** inactive phases again and launch agents for all phases that have work (again, all in parallel in one message)
-5. Wait for all running agents to complete before exiting
+2. Clean up stuck records by running: `node scripts/db-utils.js revert-stuck-records`
+3. Check all phases for available work using the queries above
+4. **CRITICAL: Launch agents concurrently for ALL phases that have work in a SINGLE message with multiple Task tool calls** - do not launch agents sequentially
+5. When any agent completes, if less than 2.5 minutes have elapsed, check **ALL** inactive phases again and launch agents for all phases that have work (again, all in parallel in one message)
+6. Wait for all running agents to complete before exiting
 
 ## Implementation
 

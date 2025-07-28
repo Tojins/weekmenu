@@ -22,6 +22,7 @@ export const AuthProvider = ({ children }) => {
     
     // Get initial session
     const getSession = async () => {
+      console.time('AuthProvider:getSession')
       try {
         // Check if there's a session in localStorage
         const storedSession = localStorage.getItem('sb-padeskjkdetesmfuicvm-auth-token')
@@ -47,6 +48,7 @@ export const AuthProvider = ({ children }) => {
         }
         
         // Fallback to regular session check with shorter timeout
+        console.time('AuthProvider:supabase.getSession')
         const sessionPromise = supabase.auth.getSession()
         const timeoutPromise = new Promise((_, reject) => 
           setTimeout(() => reject(new Error('Session check timeout')), 2000)
@@ -54,6 +56,7 @@ export const AuthProvider = ({ children }) => {
         
         try {
           const { data: { session }, error } = await Promise.race([sessionPromise, timeoutPromise])
+          console.timeEnd('AuthProvider:supabase.getSession')
           
           if (!error && session) {
             setUser(session.user)
@@ -71,6 +74,7 @@ export const AuthProvider = ({ children }) => {
         console.error('Error in getSession:', error)
         setLoading(false)
       }
+      console.timeEnd('AuthProvider:getSession')
     }
 
     // Add timeout fallback
@@ -111,8 +115,10 @@ export const AuthProvider = ({ children }) => {
   }, [])
 
   const fetchUserProfile = async (userId) => {
+    console.time('AuthProvider:fetchUserProfile')
     try {
       // Add timeout to profile fetch
+      console.time('AuthProvider:profileQuery')
       const profilePromise = supabase
         .from('users')
         .select('*, subscription:subscriptions(*)')
@@ -125,6 +131,7 @@ export const AuthProvider = ({ children }) => {
       
       try {
         const { data, error } = await Promise.race([profilePromise, timeoutPromise])
+        console.timeEnd('AuthProvider:profileQuery')
         
         if (error) {
           // Profile is optional, don't block auth
@@ -139,18 +146,23 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       // Silent fail - profile is optional
     }
+    console.timeEnd('AuthProvider:fetchUserProfile')
   }
 
   const signInWithEmail = async (email, password) => {
+    console.time('AuthProvider:signInWithEmail')
+    console.time('AuthProvider:signInWithPassword')
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     })
+    console.timeEnd('AuthProvider:signInWithPassword')
     
     // If login successful, fetch the user profile immediately
     if (!error && data?.user) {
       await fetchUserProfile(data.user.id)
     }
+    console.timeEnd('AuthProvider:signInWithEmail')
     
     return { data, error }
   }

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { supabase } from '../supabaseClient'
 import { useAuth } from './AuthProvider'
 import { useNavigate } from 'react-router-dom'
+import { StoreSelector } from './StoreSelector'
 
 export function RecipeToShoppingListModal({ recipes, onClose }) {
   const navigate = useNavigate()
@@ -12,7 +13,6 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
   const [shoppingLists, setShoppingLists] = useState([])
   const [selectedListId, setSelectedListId] = useState('')
   const [createNewList, setCreateNewList] = useState(true)
-  const [newListName, setNewListName] = useState('Recipe Shopping List')
   const [selectedStore, setSelectedStore] = useState('')
   const [stores, setStores] = useState([])
 
@@ -79,19 +79,15 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
       if (listsError) throw listsError
       setShoppingLists(listsData || [])
       
-      
-      // If user has a default store, check for existing list or auto-create
-      if (subscription?.default_store_id && listsData) {
-        const defaultStoreList = listsData.find(list => 
-          list.store_id === subscription.default_store_id && list.is_active
-        )
-        
-        if (defaultStoreList) {
-          // Use existing list
-          setCreateNewList(false)
-          setSelectedListId(defaultStoreList.id)
-        } else {
-          // Set to create new list with default store
+      // Default to existing list if available
+      if (listsData && listsData.length > 0) {
+        setCreateNewList(false)
+        setSelectedListId(listsData[0].id)
+      } else {
+        // No existing lists, must create new
+        setCreateNewList(true)
+        // Set default store if available
+        if (subscription?.default_store_id) {
           setSelectedStore(subscription.default_store_id)
         }
       }
@@ -103,7 +99,24 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
         .order('name')
 
       if (storesError) throw storesError
-      setStores(storesData || [])
+      
+      // Get active shopping lists to mark stores that already have lists
+      const { data: activeListsData, error: activeListsError } = await supabase
+        .from('shopping_lists')
+        .select('store_id')
+        .eq('subscription_id', userProfile.subscription_id)
+        .eq('is_active', true)
+
+      if (activeListsError) throw activeListsError
+
+      // Mark stores that have active lists
+      const activeStoreIds = new Set(activeListsData?.map(list => list.store_id) || [])
+      const storesWithStatus = storesData?.map(store => ({
+        ...store,
+        hasActiveList: activeStoreIds.has(store.id)
+      })) || []
+
+      setStores(storesWithStatus)
 
     } catch (error) {
       console.error('Error fetching data:', error)
@@ -196,6 +209,18 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
 
       // Create new list if needed
       if (createNewList) {
+        // If no default store is set and a store is selected, set it as default
+        if (!subscription?.default_store_id && selectedStore) {
+          const { error: updateError } = await supabase
+            .from('subscriptions')
+            .update({ default_store_id: selectedStore })
+            .eq('id', subscription.id)
+          
+          if (updateError) {
+            console.error('Error setting default store:', updateError)
+          }
+        }
+
         const { data: newList, error: listError } = await supabase
           .from('shopping_lists')
           .insert({
@@ -342,40 +367,7 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
         <div className="flex-1 overflow-y-auto p-6">
           {/* List Selection */}
           <div className="mb-6 p-4 bg-gray-50 rounded-lg">
-            <h3 className="font-semibold text-gray-800 mb-3">Select Shopping List</h3>
             <div className="space-y-3">
-              <label className="flex items-center">
-                <input
-                  type="radio"
-                  checked={createNewList}
-                  onChange={() => setCreateNewList(true)}
-                  className="mr-2"
-                />
-                <span>Create new list</span>
-              </label>
-              
-              {createNewList && (
-                <div className="ml-6 space-y-3">
-                  <input
-                    type="text"
-                    value={newListName}
-                    onChange={(e) => setNewListName(e.target.value)}
-                    placeholder="List name"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                  <select
-                    value={selectedStore}
-                    onChange={(e) => setSelectedStore(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  >
-                    <option value="">Select store (optional)</option>
-                    {stores.map(store => (
-                      <option key={store.id} value={store.id}>{store.name}</option>
-                    ))}
-                  </select>
-                </div>
-              )}
-
               {shoppingLists.length > 0 && (
                 <>
                   <label className="flex items-center">
@@ -390,14 +382,14 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
                       }}
                       className="mr-2"
                     />
-                    <span>Add to existing list</span>
+                    <span className="font-medium">Add to existing shopping list</span>
                   </label>
                   
                   {!createNewList && (
                     <select
                       value={selectedListId}
                       onChange={(e) => setSelectedListId(e.target.value)}
-                      className="ml-6 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="ml-6 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                     >
                       {shoppingLists.map(list => (
                         <option key={list.id} value={list.id}>
@@ -407,6 +399,29 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
                     </select>
                   )}
                 </>
+              )}
+              
+              <label className={`flex items-center ${shoppingLists.length === 0 ? 'text-gray-800' : ''}`}>
+                <input
+                  type="radio"
+                  checked={createNewList}
+                  onChange={() => setCreateNewList(true)}
+                  className="mr-2"
+                  disabled={shoppingLists.length === 0}
+                />
+                <span className="font-medium">Create new shopping list</span>
+              </label>
+              
+              {createNewList && (
+                <div className="ml-6">
+                  <StoreSelector
+                    stores={stores}
+                    selectedStore={selectedStore}
+                    onChange={setSelectedStore}
+                    showActiveListWarning={true}
+                    autoFocus={false}
+                  />
+                </div>
               )}
             </div>
           </div>
@@ -511,7 +526,7 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
           </button>
           <button
             onClick={handleSave}
-            disabled={saving || (!createNewList && !selectedListId) || (createNewList && !newListName.trim())}
+            disabled={saving || (!createNewList && !selectedListId)}
             className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {saving ? 'Adding...' : 'Add to Shopping List'}

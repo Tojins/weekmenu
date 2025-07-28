@@ -1,9 +1,72 @@
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from './AuthProvider'
+import { useState, useEffect } from 'react'
+import { supabase } from '../supabaseClient'
 
 export function Settings() {
   const navigate = useNavigate()
-  const { user, userProfile, signOut } = useAuth()
+  const { user, userProfile, signOut, subscription } = useAuth()
+  const [stores, setStores] = useState([])
+  const [selectedStoreId, setSelectedStoreId] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+  const [success, setSuccess] = useState(false)
+
+  useEffect(() => {
+    fetchStores()
+  }, [])
+
+  useEffect(() => {
+    if (subscription?.default_store_id) {
+      setSelectedStoreId(subscription.default_store_id)
+    }
+  }, [subscription])
+
+  const fetchStores = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('stores')
+        .select('id, name, chain:store_chains(name)')
+        .order('name')
+
+      if (error) throw error
+      setStores(data || [])
+    } catch (err) {
+      console.error('Error fetching stores:', err)
+      setError('Failed to load stores')
+    }
+  }
+
+  const handleDefaultStoreChange = async (e) => {
+    const newStoreId = e.target.value
+    setSelectedStoreId(newStoreId)
+    setError(null)
+    setSuccess(false)
+    setLoading(true)
+
+    if (!subscription?.id) {
+      setError('No subscription found')
+      setLoading(false)
+      return
+    }
+
+    try {
+      const { error } = await supabase
+        .from('subscriptions')
+        .update({ default_store_id: newStoreId || null })
+        .eq('id', subscription.id)
+
+      if (error) throw error
+      
+      setSuccess(true)
+      setTimeout(() => setSuccess(false), 3000)
+    } catch (err) {
+      console.error('Error updating default store:', err)
+      setError('Failed to update default store')
+    } finally {
+      setLoading(false)
+    }
+  }
 
   const handleSignOut = async () => {
     await signOut()
@@ -52,6 +115,37 @@ export function Settings() {
             <p className="text-sm text-gray-600">{user?.email}</p>
           </div>
         </div>
+      </div>
+
+      {/* Default Store Section */}
+      <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+        <h2 className="text-lg font-semibold text-gray-900 mb-4">Default Store</h2>
+        
+        <p className="text-sm text-gray-600 mb-4">
+          Select your preferred store for new shopping lists
+        </p>
+
+        <select
+          value={selectedStoreId}
+          onChange={handleDefaultStoreChange}
+          disabled={loading}
+          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          <option value="">No default store</option>
+          {stores.map(store => (
+            <option key={store.id} value={store.id}>
+              {store.chain?.name} - {store.name}
+            </option>
+          ))}
+        </select>
+
+        {error && (
+          <p className="mt-2 text-sm text-red-600">{error}</p>
+        )}
+        
+        {success && (
+          <p className="mt-2 text-sm text-green-600">Default store updated successfully</p>
+        )}
       </div>
 
       {/* Account Actions Section */}

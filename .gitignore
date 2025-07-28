@@ -1,7 +1,7 @@
 node_modules
 .env.local
-.env.production
 test-results/
 playwright-report/
 dist/
+temp/
 dev.log

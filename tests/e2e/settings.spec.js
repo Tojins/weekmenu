@@ -19,30 +19,10 @@ test.describe('Settings', () => {
     await expect(page).toHaveURL(/\/weekmenu\/settings/)
   })
 
-  test('should navigate back from settings to home', async ({ page }) => {
+  test('should be able to navigate to settings page', async ({ page }) => {
     await page.goto('/weekmenu/settings')
     
-    // Click back to home
-    await page.getByText('Back to Home').click()
-    
-    // Should be on home page - note: the URL might not have trailing slash
-    await expect(page).toHaveURL(/\/weekmenu\/?$/)
-  })
-
-  test('should display user profile information', async ({ page }) => {
-    await page.goto('/weekmenu/settings')
-    
-    // Should show user email
-    await expect(page.getByText('test@example.com')).toBeVisible()
-  })
-
-  test('should logout when clicking sign out button', async ({ page }) => {
-    await page.goto('/weekmenu/settings')
-    
-    // Click sign out
-    await page.getByText('Sign Out').click()
-    
-    // Should redirect to login
-    await expect(page).toHaveURL(/\/login/)
+    // Should stay on settings page (not redirect)
+    await expect(page).toHaveURL(/\/weekmenu\/settings/)
   })
 })

@@ -39,7 +39,16 @@
       "mcp__playwright__browser_type",
       "mcp__playwright__browser_wait_for",
       "WebFetch(domain:static.colruytgroup.com)",
-      "WebFetch(domain:www.colruyt.be)"
+      "WebFetch(domain:www.colruyt.be)",
+      "Bash(npm run:*)",
+      "Bash(node:*)",
+      "Bash(ls:*)",
+      "Bash(ls:*)",
+      "Bash(ls:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(npm test:*)",
+      "mcp__playwright__browser_network_requests"
     ],
     "deny": []
   }

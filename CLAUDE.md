@@ -71,8 +71,7 @@ node scripts/db-utils.js query "SELECT * FROM recipes;"
 - **Test data**: Use factories from `tests/factories/index.js` (e.g. `RecipeFactory.create()`)
 
 ## claude commands:
-/recipes: execute instructions in claude/commands/recipes.md
-/recipe-orchestrator: execute instructions in claude/commands/recipe-orchestrator.md
+/recipe-orchestrator: `@claude/commands/recipe-orchestrator.md`
 
 ## MCP Tools
 - **Context7 MCP**: Use the Context7 MCP server whenever documentation information is required. This provides access to documentation context and reference materials.

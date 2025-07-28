@@ -9,7 +9,7 @@ Follow these instructions to process search queries and create recipe URL candid
 Iterate through available search queries:
 - Find in the database a recipe_search_history record with status INITIAL using: `node scripts/db-utils.js find-initial-search-query`
 - Update recipe_search_history status to ONGOING where status='INITIAL' and check that the update actually updated a record using: `node scripts/db-utils.js lock-search-query "search_history_id"`
-- Perform the internet search query using the EXACT search query text from the database
+- Perform the internet search query using the EXACT search query text from the database using the WebSearch tool
 - Insert records in recipe_url_candidates for each search result that merits further investigation using: `node scripts/db-utils.js insert-url-candidate "search_history_id" "recipe_url"` (the unique constraint on URL will prevent duplicates automatically)
 - Do not perform detailed investigation of the recipe_url_candidate yet, that is for phase 3
 - Update recipe_search_history status to COMPLETED using: `node scripts/db-utils.js complete-search-query "search_history_id"`

@@ -8,7 +8,7 @@ Follow these instructions to create complete recipe records from accepted URL ca
 
 - Find in the database a recipe_url_candidates record with status ACCEPTED using: `node scripts/db-utils.js find-accepted-url-candidate`
 - Update recipe_url_candidates status to CREATING where status='ACCEPTED' and check that the update actually updated a record (this atomic status-based locking is ideal for AI workflows) using: `node scripts/db-utils.js lock-accepted-url-candidate "url_candidate_id"`
-- Fetch the recipe webpage
+- Fetch the recipe webpage using the WebFetch tool
 - Process all ingredients and verify product matches from cache
 - Create the recipes and recipe_ingredients records using the time_estimation_minutes from Phase 3
 - Release the lock by marking URL candidate as CREATED using: `node scripts/db-utils.js mark-url-candidate-created "url_candidate_id"`
@@ -17,6 +17,8 @@ Follow these instructions to create complete recipe records from accepted URL ca
 
 **Extract and prepare recipe data:**
 - Extract all recipe field values (title, cooking instructions, ingredients, etc.)
+- Extract the number of servings/portions from the recipe (look for "Serves", "Servings", "Makes", "Yield" or similar indicators)
+  - If servings information cannot be found, use NULL (not a default value)
 - Transform all temperature references in the cooking_instructions to Celsius
 - Translate the recipe title and cooking_instructions to Dutch
 - Verify translation errors in the title and cooking_instructions
@@ -53,7 +55,8 @@ Follow these instructions to create complete recipe records from accepted URL ca
 
 **Create recipe and recipe ingredients:**
 - **Use the time_estimation_minutes from Phase 3** (retrieved from the recipe_url_candidates table) for consistency
-- Insert recipe using: `node scripts/db-utils.js insert-recipe "title" "cooking_instructions" time_estimation "url" "recipe_url_candidate_id" "image_url"`
+- Insert recipe using: `node scripts/db-utils.js insert-recipe "title" "cooking_instructions" time_estimation "url" "recipe_url_candidate_id" "image_url" number_of_servings`
+  - If servings information was not found, omit the last parameter (it will be stored as NULL)
 - Insert recipe ingredients using: `node scripts/db-utils.js insert-recipe-ingredients "recipe_id" "product_id1:quantity1:unit1[:dutch_description1],product_id2:quantity2:unit2[:dutch_description2],..."`
 
 

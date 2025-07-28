@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
 import { useAuth } from './AuthProvider'
+import { StoreSelector } from './StoreSelector'
 
 export const ShoppingListPanel = () => {
   const navigate = useNavigate()
@@ -51,13 +52,31 @@ export const ShoppingListPanel = () => {
 
   const fetchStores = async () => {
     try {
-      const { data, error } = await supabase
+      // First get all stores
+      const { data: storesData, error: storesError } = await supabase
         .from('stores')
         .select('id, name, chain:store_chains(name)')
         .order('name')
 
-      if (error) throw error
-      setStores(data || [])
+      if (storesError) throw storesError
+
+      // Then get active shopping lists for this subscription
+      const { data: activeListsData, error: activeListsError } = await supabase
+        .from('shopping_lists')
+        .select('store_id')
+        .eq('subscription_id', userProfile.subscription_id)
+        .eq('is_active', true)
+
+      if (activeListsError) throw activeListsError
+
+      // Mark stores that have active lists
+      const activeStoreIds = new Set(activeListsData?.map(list => list.store_id) || [])
+      const storesWithStatus = storesData?.map(store => ({
+        ...store,
+        hasActiveList: activeStoreIds.has(store.id)
+      })) || []
+
+      setStores(storesWithStatus)
     } catch (error) {
       console.error('Error fetching stores:', error)
     }
@@ -84,6 +103,18 @@ export const ShoppingListPanel = () => {
   const createList = async (storeId) => {
     setCreating(true)
     try {
+      // If no default store is set and a store is selected, set it as default
+      if (!subscription?.default_store_id && storeId) {
+        const { error: updateError } = await supabase
+          .from('subscriptions')
+          .update({ default_store_id: storeId })
+          .eq('id', subscription.id)
+        
+        if (updateError) {
+          console.error('Error setting default store:', updateError)
+        }
+      }
+
       const { data, error } = await supabase
         .from('shopping_lists')
         .insert({
@@ -204,19 +235,13 @@ export const ShoppingListPanel = () => {
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Store
               </label>
-              <select
-                value={selectedStore}
-                onChange={(e) => setSelectedStore(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-                autoFocus
-              >
-                <option value="">Select a store...</option>
-                {stores.map((store) => (
-                  <option key={store.id} value={store.id}>
-                    {store.name}
-                  </option>
-                ))}
-              </select>
+              <StoreSelector
+                stores={stores}
+                selectedStore={selectedStore}
+                onChange={setSelectedStore}
+                showActiveListWarning={true}
+                autoFocus={true}
+              />
             </div>
 
             <div className="flex justify-end space-x-3 mt-6">
