@@ -3,7 +3,100 @@
 > vite
 
 
-  VITE v5.4.19  ready in 621 ms
+  VITE v5.4.19  ready in 437 ms
 
-  ➜  Local:   http://localhost:5173/weekmenu/
+  ➜  Local:   http://localhost:5174/weekmenu/
   ➜  Network: use --host to expose
+9:00:56 PM [vite] page reload playwright-report/index.html
+9:09:39 PM [vite] page reload playwright-report/index.html
+9:23:43 PM [vite] vite.config.js changed, restarting server...
+9:23:43 PM [vite] server restarted.
+
+  ➜  Local:   http://localhost:5175/weekmenu/
+  ➜  Network: use --host to expose
+10:13:42 PM [vite] page reload playwright-report/index.html
+10:13:43 PM [vite] page reload playwright-report/index.html
+10:32:23 PM [vite] page reload playwright-report/index.html
+10:34:42 PM [vite] page reload playwright-report/index.html
+10:35:11 PM [vite] page reload playwright-report/index.html
+10:35:11 PM [vite] page reload playwright-report/index.html
+10:41:59 PM [vite] page reload playwright-report/index.html
+10:41:59 PM [vite] page reload playwright-report/index.html
+10:50:56 PM [vite] page reload playwright-report/index.html
+7:14:53 AM [vite] page reload playwright-report/index.html
+7:27:23 AM [vite] page reload playwright-report/index.html
+7:30:03 AM [vite] page reload playwright-report/index.html
+7:32:32 AM [vite] page reload playwright-report/index.html
+7:38:38 AM [vite] page reload playwright-report/index.html
+7:39:15 AM [vite] page reload playwright-report/index.html
+7:41:32 AM [vite] page reload playwright-report/index.html
+7:44:09 AM [vite] page reload playwright-report/index.html
+7:48:31 AM [vite] page reload playwright-report/index.html
+7:59:04 AM [vite] page reload playwright-report/index.html
+8:07:02 AM [vite] page reload playwright-report/index.html
+8:09:40 AM [vite] page reload playwright-report/index.html
+8:26:57 AM [vite] page reload playwright-report/index.html
+9:13:02 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+9:17:15 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+9:18:28 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+9:19:05 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+9:21:52 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+9:22:20 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+9:22:26 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+9:22:31 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+9:22:37 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+9:22:44 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+9:22:50 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+9:22:55 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+9:23:01 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+9:23:06 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+9:23:14 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+10:12:32 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+10:12:46 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+10:12:59 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+10:13:05 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+10:13:43 AM [vite] hmr update /src/components/ShoppingListDetail.jsx, /src/index.css
+10:13:56 AM [vite] hmr update /src/components/ShoppingListDetail.jsx, /src/index.css
+10:14:21 AM [vite] hmr update /src/components/ShoppingListDetail.jsx, /src/index.css
+10:14:28 AM [vite] hmr update /src/components/ShoppingListDetail.jsx, /src/index.css
+10:15:15 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+10:17:02 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+10:17:28 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+11:45:06 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+11:45:14 AM [vite] hmr update /src/components/RecipeToShoppingListModal.jsx, /src/index.css
+11:46:00 AM [vite] hmr update /src/components/ShoppingListDetail.jsx, /src/index.css
+11:46:29 AM [vite] hmr update /src/components/ShoppingListDetail.jsx, /src/index.css
+2:12:12 PM [vite] hmr update /src/components/ProtectedLayout.jsx, /src/index.css
+2:15:33 PM [vite] hmr update /src/components/ProtectedLayout.jsx, /src/index.css
+2:27:09 PM [vite] hmr update /src/components/SettingsPanel.jsx, /src/index.css
+2:27:15 PM [vite] hmr update /src/components/Settings.jsx, /src/index.css
+2:27:20 PM [vite] hmr update /src/components/ProtectedLayout.jsx, /src/index.css
+10:25:28 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+10:25:28 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+10:25:28 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/MenuSelector.jsx, /src/components/SettingsPanel.jsx, /src/components/ShoppingListPanel.jsx, /src/components/RecipeToShoppingListModal.jsx
+10:25:29 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+10:25:29 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/RecipeSelectorPanel.jsx
+10:25:45 PM [vite] hmr update /src/components/ShoppingListPanel.jsx, /src/index.css
+10:26:49 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+10:26:49 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+10:26:49 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/MenuSelector.jsx, /src/components/SettingsPanel.jsx, /src/components/ShoppingListPanel.jsx, /src/components/RecipeToShoppingListModal.jsx
+10:26:49 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+10:26:49 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/RecipeSelectorPanel.jsx
+10:27:01 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+10:27:02 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+10:27:02 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/MenuSelector.jsx, /src/components/SettingsPanel.jsx, /src/components/ShoppingListPanel.jsx, /src/components/RecipeToShoppingListModal.jsx
+10:27:02 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+10:27:02 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/RecipeSelectorPanel.jsx
+10:27:12 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+10:27:12 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+10:27:12 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/MenuSelector.jsx, /src/components/SettingsPanel.jsx, /src/components/ShoppingListPanel.jsx, /src/components/RecipeToShoppingListModal.jsx
+10:27:12 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+10:27:12 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/RecipeSelectorPanel.jsx
+10:44:28 PM [vite] page reload playwright-report/index.html
+10:45:50 PM [vite] page reload playwright-report/index.html
+10:45:51 PM [vite] page reload playwright-report/index.html
+10:48:17 PM [vite] page reload playwright-report/index.html
+10:48:17 PM [vite] page reload playwright-report/index.html
+10:49:10 PM [vite] page reload playwright-report/index.html
+11:02:52 PM [vite] page reload playwright-report/index.html
+11:02:52 PM [vite] page reload playwright-report/index.html

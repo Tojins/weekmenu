@@ -2,7 +2,7 @@ These instructions search the id of the best matching record of the `products` t
 
 1. Read `scripts/product_descriptions.json` and select all single word descriptions that have a meaning which more or less corresponds to the recipe ingredient. (e.g. `'pasta'` corresponds to `'brown tagliatelli'`).
    - if none are found: finish and return null in the final report
-2. Query products using: `node scripts/db_get_products_by_descriptions.js "description1,description2,description3"`
+2. Query products using: `node scripts/db-utils.js get-products-by-descriptions "description1,description2,description3"`
    - Pass comma-separated single word descriptions from product_descriptions.json (e.g., `pasta,noodles`)
 3. Analyze each product query result to decide if it matches the recipe ingredient:
    - use the category_name

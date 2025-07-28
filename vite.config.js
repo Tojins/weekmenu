@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     base: '/weekmenu/',
     server: {
-      port: 5174,
+      port: 5175,
       watch: {
         usePolling: true
       }

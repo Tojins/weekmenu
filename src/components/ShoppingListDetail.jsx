@@ -113,6 +113,23 @@ export const ShoppingListDetail = () => {
 
   const addProductToList = async (product, quantity = 1, unit = null) => {
     try {
+      const productUnit = unit || product.unit || 'st'
+      
+      // Check if this product with this unit already exists in the list
+      const existingItem = items.find(item => 
+        item.product_id === product.id && 
+        (item.unit || 'st') === productUnit
+      )
+      
+      if (existingItem) {
+        // Update quantity instead of adding duplicate
+        const newQuantity = existingItem.quantity + quantity
+        await updateItemQuantity(existingItem.id, newQuantity, productUnit)
+        setSearchQuery('')
+        setSearchResults([])
+        return
+      }
+      
       // Get display order from store_ordering if available
       let displayOrder = 999 // Default order - store_categories doesn't have display_order
       
@@ -135,7 +152,7 @@ export const ShoppingListDetail = () => {
           shopping_list_id: id,
           product_id: product.id,
           quantity,
-          unit: unit || product.unit,
+          unit: productUnit,
           display_order: displayOrder
         })
         .select(`
@@ -234,6 +251,19 @@ export const ShoppingListDetail = () => {
     if (!customItemName.trim()) return
 
     try {
+      // Check if this custom item already exists in the list
+      const existingItem = items.find(item => 
+        item.custom_name === customItemName.trim()
+      )
+      
+      if (existingItem) {
+        // Update quantity instead of adding duplicate
+        await updateItemQuantity(existingItem.id, existingItem.quantity + 1, existingItem.unit)
+        setCustomItemName('')
+        setShowCustomItemForm(false)
+        return
+      }
+      
       const { data, error } = await supabase
         .from('shopping_list_items')
         .insert({
@@ -430,6 +460,7 @@ export const ShoppingListDetail = () => {
         {items.map((item) => (
           <div
             key={item.id}
+            data-testid="shopping-list-item"
             className={`bg-white rounded-lg shadow p-4 transition-all ${
               item.is_checked ? 'opacity-60' : ''
             }`}
@@ -453,7 +484,7 @@ export const ShoppingListDetail = () => {
               </button>
 
               <div className="flex-1 min-w-0">
-                <p className={`font-medium text-gray-800 text-base sm:text-base truncate ${
+                <p data-testid="product-name" className={`font-medium text-gray-800 text-base sm:text-base truncate ${
                   item.is_checked ? 'line-through' : ''
                 }`}>
                   {item.products ? item.products.name : item.custom_name}
@@ -482,6 +513,7 @@ export const ShoppingListDetail = () => {
                 
                 {item.products?.isweightarticle ? (
                   <select
+                    data-testid="unit"
                     value={item.unit}
                     onChange={(e) => updateItemQuantity(
                       item.id,
@@ -495,7 +527,7 @@ export const ShoppingListDetail = () => {
                     <option value="st">st</option>
                   </select>
                 ) : (
-                  <span className="text-gray-600 text-xs sm:text-sm w-8 sm:w-12 text-center">
+                  <span data-testid="unit" className="text-gray-600 text-xs sm:text-sm w-8 sm:w-12 text-center">
                     {item.unit || 'st'}
                   </span>
                 )}

@@ -4,6 +4,3 @@
 ALTER TABLE recipe_url_candidates 
 ADD COLUMN time_estimation_minutes INTEGER;
 
--- Add comment to explain the column purpose
-COMMENT ON COLUMN recipe_url_candidates.time_estimation_minutes 
-IS 'Time estimation in minutes from Phase 3 evaluation, must be d35 for ACCEPTED status';

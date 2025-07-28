@@ -5,7 +5,7 @@ import { useAuth } from './AuthProvider'
 
 export const ShoppingListPanel = () => {
   const navigate = useNavigate()
-  const { userProfile, subscription } = useAuth()
+  const { user, userProfile, subscription } = useAuth()
   const [loading, setLoading] = useState(true)
   const [lists, setLists] = useState([])
   const [stores, setStores] = useState([])
@@ -17,8 +17,14 @@ export const ShoppingListPanel = () => {
     if (userProfile?.subscription_id) {
       fetchLists()
       fetchStores()
+    } else if (user && !userProfile) {
+      // User is logged in but profile not loaded yet, keep loading state
+      setLoading(true)
+    } else if (!user) {
+      // No user, stop loading
+      setLoading(false)
     }
-  }, [userProfile])
+  }, [user, userProfile])
 
   const fetchLists = async () => {
     try {

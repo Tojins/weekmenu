@@ -8,7 +8,7 @@ export function SettingsPanel() {
   return (
     <div 
       className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow cursor-pointer h-full"
-      onClick={() => navigate('/weekmenu/settings')}
+      onClick={() => navigate('/settings')}
     >
       <div className="flex items-center mb-4">
         <div className="p-3 bg-gray-100 rounded-lg mr-4">

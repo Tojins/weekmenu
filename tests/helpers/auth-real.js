@@ -8,7 +8,7 @@ export async function loginTestUser(page, userNumber = 1) {
   const password = 'testpassword123';
   
   // Navigate to login page
-  await page.goto('/login');
+  await page.goto('/weekmenu/login');
   
   // Fill in credentials
   await page.fill('input[type="email"]', email);
@@ -17,8 +17,8 @@ export async function loginTestUser(page, userNumber = 1) {
   // Submit form
   await page.click('button[type="submit"]');
   
-  // Wait for redirect to home page
-  await page.waitForURL('**/weekmenu/', { timeout: 10000 });
+  // Wait for navigation away from login page
+  await page.waitForURL((url) => !url.pathname.includes('/login'), { timeout: 10000 });
   
   // Return user info
   return {
@@ -33,12 +33,21 @@ export async function loginTestUser(page, userNumber = 1) {
 }
 
 export async function ensureLoggedOut(page) {
-  // Clear all storage
+  // Clear all cookies
   await page.context().clearCookies();
-  await page.evaluate(() => {
-    localStorage.clear();
-    sessionStorage.clear();
-  });
+  
+  // Navigate to a page first to access localStorage
+  try {
+    // Only clear storage if we're on a valid page
+    if (page.url() !== 'about:blank') {
+      await page.evaluate(() => {
+        localStorage.clear();
+        sessionStorage.clear();
+      });
+    }
+  } catch (e) {
+    // If we can't access storage, that's fine - we're logged out
+  }
 }
 
 export async function getSupabaseClient(page) {

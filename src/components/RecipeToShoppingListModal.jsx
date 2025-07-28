@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 export function RecipeToShoppingListModal({ recipes, onClose }) {
   const navigate = useNavigate()
-  const { userProfile } = useAuth()
+  const { userProfile, subscription } = useAuth()
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [ingredients, setIngredients] = useState([])
@@ -25,11 +25,12 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
     try {
       // Fetch all recipe ingredients
       const recipeIds = recipes.map(r => r.recipeId)
+      console.log('Fetching ingredients for recipes:', recipeIds)
       const { data: ingredientsData, error: ingredientsError } = await supabase
         .from('recipe_ingredients')
         .select(`
           *,
-          recipe:recipes(title, default_servings),
+          recipe:recipes(title),
           product:products(
             *,
             store_category:store_categories(category_name)
@@ -39,11 +40,12 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
         .order('ingredient_order')
 
       if (ingredientsError) throw ingredientsError
+      
 
       // Group and process ingredients
       const processedIngredients = ingredientsData.map(ing => {
         const recipe = recipes.find(r => r.recipeId === ing.recipe_id)
-        const servingRatio = recipe && ing.recipe ? recipe.servings / (ing.recipe.default_servings || 4) : 1
+        const servingRatio = recipe ? recipe.servings / 4 : 1  // Default to 4 servings
         
         return {
           id: ing.id,
@@ -63,16 +65,36 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
 
       setIngredients(processedIngredients)
 
-      // Fetch shopping lists
+      // Fetch shopping lists with store information
       const { data: listsData, error: listsError } = await supabase
         .from('shopping_lists')
-        .select('*')
+        .select(`
+          *,
+          store:stores(name)
+        `)
         .eq('subscription_id', userProfile.subscription_id)
         .eq('is_active', true)
         .order('created_at', { ascending: false })
 
       if (listsError) throw listsError
       setShoppingLists(listsData || [])
+      
+      
+      // If user has a default store, check for existing list or auto-create
+      if (subscription?.default_store_id && listsData) {
+        const defaultStoreList = listsData.find(list => 
+          list.store_id === subscription.default_store_id && list.is_active
+        )
+        
+        if (defaultStoreList) {
+          // Use existing list
+          setCreateNewList(false)
+          setSelectedListId(defaultStoreList.id)
+        } else {
+          // Set to create new list with default store
+          setSelectedStore(subscription.default_store_id)
+        }
+      }
 
       // Fetch stores
       const { data: storesData, error: storesError } = await supabase
@@ -136,6 +158,37 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
     ))
   }
 
+  const mergeDuplicateItems = (items) => {
+    const mergedMap = new Map()
+    
+    items.forEach(item => {
+      // Create a key that includes unit to match the database constraint
+      // This allows same product with different units (e.g., "2 lemons" vs "100g lemon juice")
+      const unit = item.unit || ''
+      const key = item.product_id 
+        ? `product_${item.product_id}_${unit}`
+        : `custom_${item.custom_name}_${unit}`
+      
+      if (mergedMap.has(key)) {
+        const existing = mergedMap.get(key)
+        
+        // Only merge if units are exactly the same
+        // This respects the unique constraint and avoids inaccurate conversions
+        if (existing.unit === item.unit) {
+          existing.quantity += item.quantity
+          // Remove recipe_id when merging - we don't need to track which recipe it came from
+          delete existing.recipe_id
+        }
+      } else {
+        // First occurrence - clone the item without product_name
+        const { product_name, ...itemWithoutName } = item
+        mergedMap.set(key, { ...itemWithoutName })
+      }
+    })
+    
+    return Array.from(mergedMap.values())
+  }
+
   const handleSave = async () => {
     setSaving(true)
     try {
@@ -146,7 +199,6 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
         const { data: newList, error: listError } = await supabase
           .from('shopping_lists')
           .insert({
-            name: newListName.trim(),
             subscription_id: userProfile.subscription_id,
             store_id: selectedStore || null
           })
@@ -172,6 +224,7 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
             return {
               ...baseItem,
               product_id: ing.productId,
+              product_name: ing.product?.name || '', // Store product name for merging
               display_order: 999 // Default order - store_categories doesn't have display_order
             }
           } else {
@@ -183,19 +236,76 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
           }
         })
 
-      // Add items to list
-      if (itemsToAdd.length > 0) {
-        const { error: itemsError } = await supabase
-          .from('shopping_list_items')
-          .insert(itemsToAdd)
+      // Merge duplicates before adding
+      const mergedItems = mergeDuplicateItems(itemsToAdd)
 
-        if (itemsError) throw itemsError
+      // Check if we're adding to an existing list
+      if (!createNewList && selectedListId) {
+        // Fetch existing items from the list
+        const { data: existingItems, error: fetchError } = await supabase
+          .from('shopping_list_items')
+          .select('*')
+          .eq('shopping_list_id', selectedListId)
+
+        if (fetchError) throw fetchError
+
+        // Merge new items with existing items
+        const allItems = [...(existingItems || []), ...mergedItems]
+        const finalMergedItems = mergeDuplicateItems(allItems)
+
+        // Delete all existing items
+        if (existingItems && existingItems.length > 0) {
+          const { error: deleteError } = await supabase
+            .from('shopping_list_items')
+            .delete()
+            .eq('shopping_list_id', selectedListId)
+
+          if (deleteError) throw deleteError
+        }
+
+        // Insert all merged items
+        if (finalMergedItems.length > 0) {
+          const itemsWithListId = finalMergedItems.map(item => ({
+            ...item,
+            shopping_list_id: selectedListId
+          }))
+          
+          const { error: insertError } = await supabase
+            .from('shopping_list_items')
+            .insert(itemsWithListId)
+
+          if (insertError) throw insertError
+        }
+      } else {
+        // Creating new list - just add the merged items
+        if (mergedItems.length > 0) {
+          const { error: itemsError } = await supabase
+            .from('shopping_list_items')
+            .insert(mergedItems)
+
+          if (itemsError) throw itemsError
+        }
       }
 
       // Navigate to the shopping list
       navigate(`/shopping-list/${listId}`)
     } catch (error) {
       console.error('Error saving to shopping list:', error)
+      
+      // Handle duplicate key error - use existing list instead
+      if (error.code === '23505' && error.message?.includes('unique_active_shopping_list')) {
+        
+        // Find the existing active list for this store
+        const existingList = shoppingLists.find(list => 
+          list.store_id === selectedStore && list.is_active
+        )
+        
+        if (existingList) {
+          navigate(`/shopping-list/${existingList.id}`)
+          return
+        }
+      }
+      
       alert('Failed to add items to shopping list')
     } finally {
       setSaving(false)
@@ -274,7 +384,9 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
                       checked={!createNewList}
                       onChange={() => {
                         setCreateNewList(false)
-                        setSelectedListId(shoppingLists[0].id)
+                        if (shoppingLists.length > 0 && !selectedListId) {
+                          setSelectedListId(shoppingLists[0].id)
+                        }
                       }}
                       className="mr-2"
                     />
@@ -288,7 +400,9 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
                       className="ml-6 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                       {shoppingLists.map(list => (
-                        <option key={list.id} value={list.id}>{list.name}</option>
+                        <option key={list.id} value={list.id}>
+                          {list.store?.name || 'Shopping List'} - {new Date(list.created_at).toLocaleDateString()}
+                        </option>
                       ))}
                     </select>
                   )}

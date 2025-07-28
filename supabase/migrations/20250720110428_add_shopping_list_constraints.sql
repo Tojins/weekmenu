@@ -16,6 +16,3 @@ CREATE UNIQUE INDEX idx_unique_active_shopping_list_per_subscription_store
 ON shopping_lists(subscription_id, COALESCE(store_id, '00000000-0000-0000-0000-000000000000'::uuid)) 
 WHERE is_active = true;
 
--- Add a comment to explain the constraint
-COMMENT ON INDEX idx_unique_active_shopping_list_per_subscription_store IS 
-'Ensures only one active shopping list per subscription+store combination. NULL store_id is treated as a special case.';

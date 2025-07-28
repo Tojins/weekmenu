@@ -164,6 +164,26 @@ class DatabaseUtils {
     markUrlCandidateCreated(urlCandidateId) {
         return this.updateStatus('recipe_url_candidates', urlCandidateId, 'CREATED');
     }
+
+    getProductsByDescriptions(descriptions) {
+        const descArray = descriptions.split(',').map(desc => `'${this.escapeString(desc.trim())}'`);
+        const sql = `
+            SELECT 
+                p.id,
+                p.name,
+                p.image_url,
+                p.normalized_price,
+                p.english_description,
+                p.season_start_month,
+                p.season_end_month,
+                sc.category_name
+            FROM products p
+            LEFT JOIN store_categories sc ON p.store_category_id = sc.id
+            WHERE p.english_description IN (${descArray.join(', ')})
+            ORDER BY p.normalized_price ASC
+        `;
+        return this.query(sql);
+    }
 }
 
 const db = new DatabaseUtils();
@@ -196,6 +216,7 @@ if (!command) {
     console.error('  find-accepted-url-candidate');
     console.error('  lock-accepted-url-candidate "url_candidate_id"');
     console.error('  mark-url-candidate-created "url_candidate_id"');
+    console.error('  get-products-by-descriptions "description1,description2,..."');
     process.exit(1);
 }
 
@@ -313,6 +334,11 @@ try {
         case 'mark-url-candidate-created':
             if (!args[0]) throw new Error('URL candidate ID required');
             result = db.markUrlCandidateCreated(args[0]);
+            break;
+
+        case 'get-products-by-descriptions':
+            if (!args[0]) throw new Error('Descriptions required (comma-separated)');
+            result = db.getProductsByDescriptions(args[0]);
             break;
             
         default:

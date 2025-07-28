@@ -39,7 +39,23 @@
       "WebFetch(domain:www.bakerita.com)",
       "WebFetch(domain:ohmyveggies.com)",
       "WebFetch(domain:spainonafork.com)",
-      "WebFetch(domain:ohmyveggies.com)"
+      "WebFetch(domain:ohmyveggies.com)",
+      "Bash(supabase status:*)",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs",
+      "Bash(supabase db dump:*)",
+      "Bash(export PGPASSWORD=postgres)",
+      "Bash(docker exec:*)",
+      "Bash(docker restart:*)",
+      "Bash(docker logs:*)",
+      "mcp__playwright__browser_type",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_console_messages",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_close",
+      "mcp__playwright__browser_evaluate"
     ],
     "deny": []
   }

@@ -7,6 +7,9 @@ CREATE TABLE recipe_search_history (
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
+-- Enable RLS
+ALTER TABLE recipe_search_history ENABLE ROW LEVEL SECURITY;
+
 -- Add index on created_at for ordering
 CREATE INDEX idx_recipe_search_history_created_at ON recipe_search_history(created_at DESC);
 

@@ -2,12 +2,21 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Bash Commands
+## Database Workflow
 
+### Schema Changes
+- **All schema changes must use migrations**: `npm run migration:new <name>`
+- **Never modify production schema directly**
+- **Never edit existing migrations after applied**
+- **Test locally first**: `npm run db:reset`
+- **Apply to production after PR merge**: `npm run db:push`
+
+### Key Commands
 ```bash
-# Supabase CLI:
-npm run db:push          # Push migrations to remote
 npm run migration:new    # Create new migration
+npm run migration:list   # Check migration status
+npm run db:reset        # Reset local DB with all migrations
+npm run db:push         # Apply migrations to production
 ```
 
 ## Database Access
@@ -42,6 +51,7 @@ node scripts/db-utils.js query "SELECT * FROM recipes;"
 - For test navigation use full paths that include `/weekmenu/`
 - Tests should be independant of implementation and only depend on requirement intents
 - Never create unit tests that mock the db or auth. For automated testing always use the test db and the test user.
+- **For fast test feedback**: Use `npm test -- <test-file> -x --reporter=dot` to run tests in parallel and stop on first failure
 
 ## Authentication & Authorization
 
@@ -63,3 +73,11 @@ node scripts/db-utils.js query "SELECT * FROM recipes;"
 ## claude commands:
 /recipes: execute instructions in claude/commands/recipes.md
 /recipe-orchestrator: execute instructions in claude/commands/recipe-orchestrator.md
+
+## MCP Tools
+- **Context7 MCP**: Use the Context7 MCP server whenever documentation information is required. This provides access to documentation context and reference materials.
+- **Playwright MCP**: Use for development testing and debugging:
+  - Quick manual testing of UI changes without writing test scripts
+  - Debugging user-reported issues by reproducing their actions
+  - Verifying deployed features work correctly in production
+  - Testing OAuth flows and third-party integrations

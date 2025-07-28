@@ -6,7 +6,7 @@ dotenv.config({ path: '.env.test' });
 
 export default defineConfig({
   testDir: './tests',
-  timeout: 30 * 1000,
+  timeout: 15 * 1000,  // 15 seconds instead of 30
   expect: {
     timeout: 5000
   },
@@ -14,9 +14,9 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: 'html',
+  reporter: [['html', { open: 'never' }]],
   use: {
-    baseURL: 'http://localhost:5174/weekmenu',
+    baseURL: 'http://localhost:5176/weekmenu',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
@@ -42,8 +42,8 @@ export default defineConfig({
 
   // Run dev server with test environment
   webServer: {
-    command: 'npm run dev:test',
-    port: 5174,
+    command: 'npm run dev:test -- --port 5176',
+    port: 5176,
     reuseExistingServer: !process.env.CI,
     env: {
       VITE_SUPABASE_URL: process.env.VITE_SUPABASE_URL || 'http://localhost:54321',

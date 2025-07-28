@@ -87,8 +87,8 @@ export const AuthProvider = ({ children }) => {
       async (event, session) => {
         setUser(session?.user ?? null)
         
-        // Only fetch profile on INITIAL_SESSION to avoid duplicate calls
-        if (event === 'INITIAL_SESSION' && session?.user && !userProfile) {
+        // Fetch profile on auth events that indicate a new session
+        if ((event === 'INITIAL_SESSION' || event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session?.user) {
           await fetchUserProfile(session.user.id)
         } else if (!session?.user) {
           setUserProfile(null)
@@ -146,6 +146,12 @@ export const AuthProvider = ({ children }) => {
       email,
       password,
     })
+    
+    // If login successful, fetch the user profile immediately
+    if (!error && data?.user) {
+      await fetchUserProfile(data.user.id)
+    }
+    
     return { data, error }
   }
 
