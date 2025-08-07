@@ -10,6 +10,7 @@ import { MenuSelector } from './components/MenuSelector'
 import { ShoppingListDetail } from './components/ShoppingListDetail'
 import RecipeMonitor from './components/RecipeMonitor'
 import { Settings } from './components/Settings'
+import AddToShoppingList from './components/AddToShoppingList'
 
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth()
@@ -94,6 +95,14 @@ function App() {
               <ProtectedRoute>
                 <ProtectedLayout>
                   <MenuSelector />
+                </ProtectedLayout>
+              </ProtectedRoute>
+            } />
+            
+            <Route path="/add-to-list" element={
+              <ProtectedRoute>
+                <ProtectedLayout>
+                  <AddToShoppingList />
                 </ProtectedLayout>
               </ProtectedRoute>
             } />

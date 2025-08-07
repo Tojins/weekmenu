@@ -1,7 +1,7 @@
 # Add to Shopping List UI Redesign
 
 ## Current State
-The shopping list selection UI in the RecipeToShoppingListModal currently uses radio buttons and takes up significant space. The StoreSelector component shows a warning message that has been removed.
+The shopping list selection UI in the RecipeToShoppingListModal currently uses radio buttons and takes up significant space.
 
 ## Design Goal
 Create a compact UI that assumes the default action (add to default store's list) while keeping alternatives accessible but not prominent.
@@ -22,7 +22,7 @@ Adding to: Default Store list • [change]
 - Determine default based on:
   - If user has active list for default store → use that
   - If no active list for default store → create new list for default store
-  - If no default store set → show expanded view immediately
+  - If no default store set → show modal for default store selection immediately
 - The "change" link reveals alternatives without taking permanent UI space
 - Keep the existing logic for stores with active lists being disabled
 
@@ -33,6 +33,6 @@ Adding to: Default Store list • [change]
 - Follows established UI patterns
 - Optimizes for the common path
 
-### Files to Modify
+### Files to Modify or use
 - `/src/components/RecipeToShoppingListModal.jsx` - Main implementation
-- `/src/components/StoreSelector.jsx` - Already updated to remove warning text
+- `/src/components/StoreSelector.jsx`

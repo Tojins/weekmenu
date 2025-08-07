@@ -61,16 +61,16 @@ Launch agents for each phase that has work:
 
 1. **Phase 1 Agent**:
    - Task: "Generate recipe search queries"
-   - Prompt: "Execute instructions in claude/commands/recipe-phase1.md to generate search queries for recipes"
+   - Prompt: "Execute instructions in `@.claude/subcommands/recipe-phase1.md` to generate search queries for recipes"
 
 2. **Phase 2 Agent**:
    - Task: "Process search queries to find URLs"
-   - Prompt: "Execute instructions in claude/commands/recipe-phase2.md to process INITIAL search queries and find recipe URL candidates"
+   - Prompt: "Execute instructions in `@.claude/subcommands/recipe-phase2.md` to process INITIAL search queries and find recipe URL candidates"
 
 3. **Phase 3 Agent**:
    - Task: "Evaluate recipes from URLs"
-   - Prompt: "Execute instructions in claude/commands/recipe-phase3.md to evaluate recipes from INITIAL URL candidates"
+   - Prompt: "Execute instructions in `@.claude/subcommands/recipe-phase3.md` to evaluate recipes from INITIAL URL candidates"
 
 4. **Phase 4 Agent**:
    - Task: "Insert recipes and ingredients"
-   - Prompt: "Execute instructions in claude/commands/recipe-phase4.md to insert recipes and recipe_ingredients for ACCEPTED recipes"
+   - Prompt: "Execute instructions in `@.claude/subcommands/recipe-phase4.md` to insert recipes and recipe_ingredients for ACCEPTED recipes"

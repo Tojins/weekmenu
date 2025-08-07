@@ -5,7 +5,8 @@ import { useAuth } from './AuthProvider'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { queryKeys } from '../queries/keys'
 import { fetchShoppingLists, createShoppingList } from '../queries/shoppingLists'
-import { StoreSelectorModal } from './StoreSelectorModal'
+import { NewListModal } from './NewListModal'
+import { useStores } from '../hooks/useStores'
 
 export const ShoppingListPanel = () => {
   const navigate = useNavigate()
@@ -35,45 +36,10 @@ export const ShoppingListPanel = () => {
   })
   
   const [showStoreModal, setShowStoreModal] = useState(false)
-  const [selectedStore, setSelectedStore] = useState('')
-  const [allStores, setAllStores] = useState([])
 
-  // Extract active store IDs from shopping lists
-  const activeStoreIds = new Set(
-    shoppingLists
-      .filter(list => list.is_active && list.store_id)
-      .map(list => list.store_id)
-  )
+  // Get all stores
+  const { data: allStores } = useStores()
 
-  // Only fetch all stores when store modal is opened
-  const fetchAllStores = async () => {
-    try {
-      const { data: storesData, error } = await supabase
-        .from('stores')
-        .select('id, name, chain:store_chains(name)')
-        .order('name')
-
-      if (error) throw error
-
-      // Mark stores that have active lists
-      const storesWithStatus = storesData?.map(store => ({
-        ...store,
-        hasActiveList: activeStoreIds.has(store.id)
-      })) || []
-
-      setAllStores(storesWithStatus)
-    } catch (error) {
-      console.error('Error fetching all stores:', error)
-    }
-  }
-
-  const handleOpenStoreModal = () => {
-    setShowStoreModal(true)
-    // Fetch all stores only when modal opens
-    if (allStores.length === 0) {
-      fetchAllStores()
-    }
-  }
 
   const handleCreateList = async () => {
     console.log('handleCreateList called, subscription:', subscription)
@@ -85,21 +51,9 @@ export const ShoppingListPanel = () => {
       return
     }
     
-    // Check if we need to show store selection
-    if (!subscription.default_store_id) {
-      handleOpenStoreModal()
-    } else {
-      // Check if list exists for default store
-      const existingList = shoppingLists.find(list => 
-        list.store_id === subscription.default_store_id && list.is_active
-      )
-      
-      if (existingList) {
-        handleOpenStoreModal()
-      } else {
-        await createList(subscription.default_store_id)
-      }
-    }
+    // Always show the list selector modal
+    // It will handle showing existing lists and option to create new ones
+    setShowStoreModal(true)
   }
 
   const createList = async (storeId) => {
@@ -222,15 +176,14 @@ export const ShoppingListPanel = () => {
       </div>
 
       {showStoreModal && (
-        <StoreSelectorModal
+        <NewListModal
           stores={allStores}
-          selectedStore={selectedStore}
-          onSelectStore={setSelectedStore}
-          onConfirm={() => createList(selectedStore)}
-          onCancel={() => {
-            setShowStoreModal(false)
+          shoppingLists={shoppingLists}
+          onSelectStore={async (storeId) => {
+            await createList(storeId)
           }}
-          creating={createMutation.isLoading}
+          onClose={() => setShowStoreModal(false)}
+          embedded={false}
         />
       )}
     </>

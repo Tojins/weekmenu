@@ -72,9 +72,6 @@ node scripts/db-utils.js query "SELECT * FROM recipes;"
 - **Types**: `npm run types:generate:remote` generates schema types to `types/database.ts` - use in app via `import { Recipe } from '../types/helpers'`
 - **Test data**: Use factories from `tests/factories/index.js` (e.g. `RecipeFactory.create()`)
 
-## claude commands:
-/recipe-orchestrator: `@claude/commands/recipe-orchestrator.md`
-
 ## MCP Tools
 - **Context7 MCP**: Use the Context7 MCP server whenever documentation information is required. This provides access to documentation context and reference materials.
 - **Playwright MCP**: Use for development testing and debugging:

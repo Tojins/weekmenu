@@ -49,7 +49,10 @@
       "Bash(rg:*)",
       "Bash(npm test:*)",
       "mcp__playwright__browser_network_requests",
-      "mcp__playwright__browser_snapshot"
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_navigate_back",
+      "mcp__playwright__browser_press_key",
+      "mcp__playwright__browser_resize"
     ],
     "deny": []
   }

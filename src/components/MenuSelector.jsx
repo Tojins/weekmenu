@@ -5,7 +5,6 @@ import { useWeekMenu } from '../contexts/WeekMenuContext'
 import { useAuth } from './AuthProvider'
 import { RecipeControls } from './RecipeControls'
 import { RecipeDetailsModal } from './RecipeDetailsModal'
-import { RecipeToShoppingListModal } from './RecipeToShoppingListModal'
 
 export function MenuSelector() {
   const navigate = useNavigate()
@@ -20,7 +19,6 @@ export function MenuSelector() {
   const [totalRecipes, setTotalRecipes] = useState(0)
   const [showSyncToast, setShowSyncToast] = useState(false)
   const [selectedModalRecipe, setSelectedModalRecipe] = useState(null)
-  const [showShoppingListModal, setShowShoppingListModal] = useState(false)
   const loadingRef = useRef(false)
   const observerRef = useRef()
   const lastRecipeRef = useRef()
@@ -219,7 +217,7 @@ export function MenuSelector() {
           {/* Back to Home button */}
           <div className="mb-4">
             <button
-              onClick={() => navigate('/weekmenu/')}
+              onClick={() => navigate('/')}
               className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -424,7 +422,13 @@ export function MenuSelector() {
             
             <div className="p-4 border-t">
               <button
-                onClick={() => setShowShoppingListModal(true)}
+                onClick={() => {
+                  if (!weekmenu?.recipes?.length) {
+                    alert('No recipes selected')
+                    return
+                  }
+                  navigate('/add-to-list')
+                }}
                 className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 transition-colors font-medium"
               >
                 Generate shopping list
@@ -461,13 +465,6 @@ export function MenuSelector() {
         />
       )}
 
-      {/* Recipe to Shopping List Modal */}
-      {showShoppingListModal && weekmenu?.recipes?.length > 0 && (
-        <RecipeToShoppingListModal
-          recipes={weekmenu.recipes}
-          onClose={() => setShowShoppingListModal(false)}
-        />
-      )}
 
     </div>
   )

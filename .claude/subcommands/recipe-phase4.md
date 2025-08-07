@@ -44,9 +44,9 @@ Follow these instructions to create complete recipe records from accepted URL ca
      - DO NOT remove information (e.g. "shredded cheese" is not the same as "cheese")
   2. Check cache using: `node scripts/db-utils.js find-cached-ingredient "normalized_ingredient"`
      - If result is not "NULL": use the found product_id
-     - If cache miss (not found): launch Task agent using the Task tool with prompt: "Follow the instructions in claude/commands/match_product.md to find a product_id for this ingredient: [ingredient_name]"
+     - If cache miss (not found): launch Task agent using the Task tool with prompt: "Follow the instructions in .claude/subcommands/match_product.md to find a product_id for this ingredient: [ingredient_name]"
      - If Task agent fails:
-       - If the Task agent failed due to image processing, try again to execute claude/commands/match_product.md but without a Task agent
+       - If the Task agent failed due to image processing, try again to execute .claude/subcommands/match_product.md but without a Task agent
        - If the Task agent failed for any other reason, reject this recipe by updating status to REJECTED using: `node scripts/db-utils.js reject-url-candidate "url_candidate_id"` and stop processing
   3. Transform the unit of the ingredient to match the unit of the chosen product (e.g. 1 cup corresponds to 340g, "st" is the Dutch abbreviation for piece(s))
   4. Translate the original ingredient description (as it appears on the website before normalization, but without quantity+unit) to Dutch for dutch_description (e.g. "freshly grated parmesan cheese" becomes "vers geraspte parmezaanse kaas", not just "kaas")

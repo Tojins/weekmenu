@@ -15,6 +15,8 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
   const [createNewList, setCreateNewList] = useState(true)
   const [selectedStore, setSelectedStore] = useState('')
   const [stores, setStores] = useState([])
+  const [showChangeOptions, setShowChangeOptions] = useState(false)
+  const [showDefaultStorePrompt, setShowDefaultStorePrompt] = useState(false)
 
   useEffect(() => {
     fetchInitialData()
@@ -79,17 +81,33 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
       if (listsError) throw listsError
       setShoppingLists(listsData || [])
       
-      // Default to existing list if available
-      if (listsData && listsData.length > 0) {
+      // Smart default logic
+      if (subscription?.default_store_id) {
+        // Check if there's an active list for the default store
+        const defaultStoreList = listsData?.find(list => 
+          list.store_id === subscription.default_store_id && list.is_active
+        )
+        
+        if (defaultStoreList) {
+          // Use existing list for default store
+          setCreateNewList(false)
+          setSelectedListId(defaultStoreList.id)
+          setSelectedStore(subscription.default_store_id)
+        } else {
+          // Create new list - default to no store selected
+          setCreateNewList(true)
+          setSelectedStore('')
+        }
+      } else if (listsData && listsData.length > 0) {
+        // No default store, but have existing lists - use the first one
         setCreateNewList(false)
         setSelectedListId(listsData[0].id)
+        setSelectedStore(listsData[0].store_id)
       } else {
-        // No existing lists, must create new
+        // No default store and no existing lists
         setCreateNewList(true)
-        // Set default store if available
-        if (subscription?.default_store_id) {
-          setSelectedStore(subscription.default_store_id)
-        }
+        setShowDefaultStorePrompt(true)
+        setShowChangeOptions(true) // Show options immediately
       }
 
       // Fetch stores
@@ -169,6 +187,16 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
         ? { ...ing, customName, productId: null, product: null }
         : ing
     ))
+  }
+
+  const getSelectedListDisplay = () => {
+    if (createNewList) {
+      const store = stores.find(s => s.id === selectedStore)
+      return store ? <><span className="font-medium text-gray-900">{store.name}</span> shopping list</> : 'new shopping list'
+    } else {
+      const list = shoppingLists.find(l => l.id === selectedListId)
+      return list ? <><span className="font-medium text-gray-900">{list.store?.name || 'your'}</span> shopping list</> : 'shopping list'
+    }
   }
 
   const mergeDuplicateItems = (items) => {
@@ -350,9 +378,99 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] flex flex-col">
-        <div className="p-6 border-b">
-          <div className="flex justify-between items-center">
-            <h2 className="text-2xl font-bold text-gray-800">Add Recipes to Shopping List</h2>
+        <div className="flex-1 overflow-y-auto p-6">
+          {/* List Selection - Compact UI */}
+          <div className="flex items-start gap-4 mb-6">
+            <div className="flex-1 p-4 bg-gray-50 rounded-lg">
+              {showDefaultStorePrompt && !subscription?.default_store_id && (
+                <div className="mb-3 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                  <p className="text-sm text-yellow-800">
+                    Please select a default store to streamline your shopping experience.
+                  </p>
+                </div>
+              )}
+              
+              <div className="flex items-center">
+                <div className="text-lg text-gray-700">
+                  Adding recipes to {getSelectedListDisplay()}
+                  <button
+                    onClick={() => setShowChangeOptions(!showChangeOptions)}
+                    className="ml-3 inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium text-gray-600 bg-gray-100 hover:bg-gray-200 rounded transition-colors"
+                  >
+                    Change
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={showChangeOptions ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"} />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            
+            {/* Expanded options when "change" is clicked */}
+            {showChangeOptions && (
+              <div className="mt-4 space-y-3 border-t pt-4">
+                {shoppingLists.length > 0 && (
+                  <>
+                    <label className="flex items-center">
+                      <input
+                        type="radio"
+                        checked={!createNewList}
+                        onChange={() => {
+                          setCreateNewList(false)
+                          if (shoppingLists.length > 0 && !selectedListId) {
+                            setSelectedListId(shoppingLists[0].id)
+                          }
+                        }}
+                        className="mr-2"
+                      />
+                      <span className="font-medium">Add to existing shopping list</span>
+                    </label>
+                    
+                    {!createNewList && (
+                      <div className="ml-6">
+                        <select
+                          value={selectedListId}
+                          onChange={(e) => setSelectedListId(e.target.value)}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                        >
+                          {shoppingLists.map(list => (
+                            <option key={list.id} value={list.id}>
+                              {list.store?.name || 'Shopping List'} - {new Date(list.created_at).toLocaleDateString()}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    )}
+                  </>
+                )}
+                
+                <label className={`flex items-center ${shoppingLists.length === 0 ? 'text-gray-800' : ''}`}>
+                  <input
+                    type="radio"
+                    checked={createNewList}
+                    onChange={() => {
+                      setCreateNewList(true)
+                      setSelectedStore('') // Default to "Select a store..."
+                    }}
+                    className="mr-2"
+                    disabled={shoppingLists.length === 0}
+                  />
+                  <span className="font-medium">Create new shopping list</span>
+                </label>
+                
+                {createNewList && (
+                  <div className="ml-6">
+                    <StoreSelector
+                      stores={stores}
+                      selectedStore={selectedStore}
+                      onChange={setSelectedStore}
+                      showActiveListWarning={true}
+                      autoFocus={false}
+                    />
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
             <button
               onClick={onClose}
               className="text-gray-500 hover:text-gray-700"
@@ -361,69 +479,6 @@ export function RecipeToShoppingListModal({ recipes, onClose }) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-          </div>
-        </div>
-
-        <div className="flex-1 overflow-y-auto p-6">
-          {/* List Selection */}
-          <div className="mb-6 p-4 bg-gray-50 rounded-lg">
-            <div className="space-y-3">
-              {shoppingLists.length > 0 && (
-                <>
-                  <label className="flex items-center">
-                    <input
-                      type="radio"
-                      checked={!createNewList}
-                      onChange={() => {
-                        setCreateNewList(false)
-                        if (shoppingLists.length > 0 && !selectedListId) {
-                          setSelectedListId(shoppingLists[0].id)
-                        }
-                      }}
-                      className="mr-2"
-                    />
-                    <span className="font-medium">Add to existing shopping list</span>
-                  </label>
-                  
-                  {!createNewList && (
-                    <select
-                      value={selectedListId}
-                      onChange={(e) => setSelectedListId(e.target.value)}
-                      className="ml-6 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-                    >
-                      {shoppingLists.map(list => (
-                        <option key={list.id} value={list.id}>
-                          {list.store?.name || 'Shopping List'} - {new Date(list.created_at).toLocaleDateString()}
-                        </option>
-                      ))}
-                    </select>
-                  )}
-                </>
-              )}
-              
-              <label className={`flex items-center ${shoppingLists.length === 0 ? 'text-gray-800' : ''}`}>
-                <input
-                  type="radio"
-                  checked={createNewList}
-                  onChange={() => setCreateNewList(true)}
-                  className="mr-2"
-                  disabled={shoppingLists.length === 0}
-                />
-                <span className="font-medium">Create new shopping list</span>
-              </label>
-              
-              {createNewList && (
-                <div className="ml-6">
-                  <StoreSelector
-                    stores={stores}
-                    selectedStore={selectedStore}
-                    onChange={setSelectedStore}
-                    showActiveListWarning={true}
-                    autoFocus={false}
-                  />
-                </div>
-              )}
-            </div>
           </div>
 
           {/* Ingredients */}
