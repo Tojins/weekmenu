@@ -120,9 +120,62 @@ export type Database = {
           },
         ]
       }
+      recipe_ingredient_overrides: {
+        Row: {
+          created_at: string | null
+          custom_name: string | null
+          id: string
+          product_id: string | null
+          recipe_ingredient_id: string
+          subscription_id: string
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          custom_name?: string | null
+          id?: string
+          product_id?: string | null
+          recipe_ingredient_id: string
+          subscription_id: string
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          custom_name?: string | null
+          id?: string
+          product_id?: string | null
+          recipe_ingredient_id?: string
+          subscription_id?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "recipe_ingredient_overrides_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recipe_ingredient_overrides_recipe_ingredient_id_fkey"
+            columns: ["recipe_ingredient_id"]
+            isOneToOne: false
+            referencedRelation: "recipe_ingredients"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recipe_ingredient_overrides_subscription_id_fkey"
+            columns: ["subscription_id"]
+            isOneToOne: false
+            referencedRelation: "subscriptions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       recipe_ingredients: {
         Row: {
           created_at: string | null
+          description: string | null
           dutch_description: string | null
           id: string
           ingredient_order: number | null
@@ -134,6 +187,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string | null
+          description?: string | null
           dutch_description?: string | null
           id?: string
           ingredient_order?: number | null
@@ -145,6 +199,7 @@ export type Database = {
         }
         Update: {
           created_at?: string | null
+          description?: string | null
           dutch_description?: string | null
           id?: string
           ingredient_order?: number | null
@@ -176,6 +231,7 @@ export type Database = {
           created_at: string | null
           id: string
           search_query: string
+          started_at: string | null
           status: string
           updated_at: string | null
         }
@@ -183,6 +239,7 @@ export type Database = {
           created_at?: string | null
           id?: string
           search_query: string
+          started_at?: string | null
           status: string
           updated_at?: string | null
         }
@@ -190,6 +247,7 @@ export type Database = {
           created_at?: string | null
           id?: string
           search_query?: string
+          started_at?: string | null
           status?: string
           updated_at?: string | null
         }
@@ -200,6 +258,7 @@ export type Database = {
           created_at: string | null
           id: string
           recipe_search_history_id: string | null
+          started_at: string | null
           status: string
           time_estimation_minutes: number | null
           updated_at: string | null
@@ -209,6 +268,7 @@ export type Database = {
           created_at?: string | null
           id?: string
           recipe_search_history_id?: string | null
+          started_at?: string | null
           status: string
           time_estimation_minutes?: number | null
           updated_at?: string | null
@@ -218,6 +278,7 @@ export type Database = {
           created_at?: string | null
           id?: string
           recipe_search_history_id?: string | null
+          started_at?: string | null
           status?: string
           time_estimation_minutes?: number | null
           updated_at?: string | null
@@ -231,6 +292,13 @@ export type Database = {
             referencedRelation: "recipe_search_history"
             referencedColumns: ["id"]
           },
+          {
+            foreignKeyName: "recipe_url_candidates_recipe_search_history_id_fkey"
+            columns: ["recipe_search_history_id"]
+            isOneToOne: false
+            referencedRelation: "stuck_search_queries"
+            referencedColumns: ["id"]
+          },
         ]
       }
       recipes: {
@@ -239,6 +307,7 @@ export type Database = {
           created_at: string
           id: string
           image_url: string | null
+          number_of_servings: number | null
           random_order_1: number | null
           random_order_10: number | null
           random_order_11: number | null
@@ -270,6 +339,7 @@ export type Database = {
           created_at?: string
           id?: string
           image_url?: string | null
+          number_of_servings?: number | null
           random_order_1?: number | null
           random_order_10?: number | null
           random_order_11?: number | null
@@ -301,6 +371,7 @@ export type Database = {
           created_at?: string
           id?: string
           image_url?: string | null
+          number_of_servings?: number | null
           random_order_1?: number | null
           random_order_10?: number | null
           random_order_11?: number | null
@@ -333,6 +404,13 @@ export type Database = {
             columns: ["recipe_url_candidate_id"]
             isOneToOne: false
             referencedRelation: "recipe_url_candidates"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recipes_recipe_url_candidate_id_fkey"
+            columns: ["recipe_url_candidate_id"]
+            isOneToOne: false
+            referencedRelation: "stuck_url_candidates"
             referencedColumns: ["id"]
           },
         ]
@@ -713,7 +791,81 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      stuck_search_queries: {
+        Row: {
+          created_at: string | null
+          id: string | null
+          search_query: string | null
+          started_at: string | null
+          status: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string | null
+          search_query?: string | null
+          started_at?: string | null
+          status?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string | null
+          search_query?: string | null
+          started_at?: string | null
+          status?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      stuck_url_candidates: {
+        Row: {
+          created_at: string | null
+          id: string | null
+          recipe_search_history_id: string | null
+          started_at: string | null
+          status: string | null
+          time_estimation_minutes: number | null
+          updated_at: string | null
+          url: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string | null
+          recipe_search_history_id?: string | null
+          started_at?: string | null
+          status?: string | null
+          time_estimation_minutes?: number | null
+          updated_at?: string | null
+          url?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string | null
+          recipe_search_history_id?: string | null
+          started_at?: string | null
+          status?: string | null
+          time_estimation_minutes?: number | null
+          updated_at?: string | null
+          url?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "recipe_url_candidates_recipe_search_history_id_fkey"
+            columns: ["recipe_search_history_id"]
+            isOneToOne: false
+            referencedRelation: "recipe_search_history"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recipe_url_candidates_recipe_search_history_id_fkey"
+            columns: ["recipe_search_history_id"]
+            isOneToOne: false
+            referencedRelation: "stuck_search_queries"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Functions: {
       get_recipe_search_history_counts: {

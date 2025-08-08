@@ -1,12 +1,13 @@
 import { useQuery } from '@tanstack/react-query'
 import { useAuth } from '../components/AuthProvider'
 import { fetchShoppingLists } from '../queries/shoppingLists'
+import { queryKeys } from '../queries/keys'
 
 export function useShoppingLists() {
   const { subscription } = useAuth()
 
   const { data: lists, isLoading, error } = useQuery({
-    queryKey: ['shopping-lists', subscription?.subscription_id],
+    queryKey: queryKeys.shoppingLists(subscription?.subscription_id),
     queryFn: () => fetchShoppingLists(subscription?.subscription_id),
     enabled: !!subscription?.subscription_id,
   })

@@ -40,15 +40,19 @@ export const WeekMenuProvider = ({ children }) => {
     loadLocalMenu();
   }, []);
 
-  // Load weekmenu from database when user/subscription changes
+  // Load weekmenu immediately when user is available
   useEffect(() => {
-    if (!user || !subscription?.id) {
+    console.log('[WeekMenuContext] User effect triggered - user:', user?.id)
+    
+    if (!user) {
+      console.log('[WeekMenuContext] No user, setting loading false')
       setIsLoading(false);
       return;
     }
 
-    // Skip if already loaded for this subscription
-    if (weekmenu?.subscriptionId === subscription.id) {
+    // If we already have a weekmenu loaded, don't reload
+    if (weekmenu?.seed) {
+      console.log('[WeekMenuContext] Weekmenu already loaded with seed:', weekmenu.seed)
       setIsLoading(false);
       return;
     }
@@ -56,6 +60,37 @@ export const WeekMenuProvider = ({ children }) => {
     const loadFromDatabase = async () => {
       try {
         setIsLoading(true);
+        
+        // Check localStorage first for immediate availability
+        const localMenu = JSON.parse(localStorage.getItem('weekmenu') || '{}');
+        if (localMenu.seed) {
+          // Use local menu immediately
+          console.log('[WeekMenuContext] Using local menu with seed:', localMenu.seed)
+          setWeekmenu(localMenu);
+          setIsLoading(false);
+          return; // We have what we need
+        }
+        
+        // No local menu, create one immediately so UI can render
+        console.log('[WeekMenuContext] No local menu, creating new weekmenu')
+        const tempMenu = {
+          subscriptionId: null,
+          seed: Math.floor(Math.random() * 999999) + 1,
+          version: 1,
+          recipes: [],
+          updatedAt: new Date().toISOString()
+        };
+        setWeekmenu(tempMenu);
+        localStorage.setItem('weekmenu', JSON.stringify(tempMenu));
+        setIsLoading(false);
+        
+        // If we have subscription, we'll sync with database in a separate effect
+        if (subscription?.id) {
+          // Continue to load from database
+        } else {
+          return; // No subscription yet, use temp menu
+        }
+        
         const { data, error } = await supabase
           .from('weekmenus')
           .select('*')
@@ -107,7 +142,22 @@ export const WeekMenuProvider = ({ children }) => {
     };
 
     loadFromDatabase();
-  }, [user, subscription?.id]);
+  }, [user]); // Only depend on user, not subscription
+
+  // Separate effect to sync with database when subscription becomes available
+  useEffect(() => {
+    if (!user || !subscription?.id || !weekmenu) return;
+    
+    // If weekmenu doesn't have a subscription ID, update it
+    if (!weekmenu.subscriptionId) {
+      console.log('[WeekMenuContext] Updating weekmenu with subscription ID')
+      const updatedMenu = { ...weekmenu, subscriptionId: subscription.id };
+      setWeekmenu(updatedMenu);
+      localStorage.setItem('weekmenu', JSON.stringify(updatedMenu));
+      // Sync to database
+      syncToDatabase(updatedMenu);
+    }
+  }, [user, subscription?.id, weekmenu?.subscriptionId]);
 
   // Debounced sync to database
   const syncToDatabase = useCallback(async (menuData) => {

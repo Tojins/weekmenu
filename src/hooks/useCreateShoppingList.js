@@ -1,9 +1,10 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { supabase } from '../supabaseClient'
 import { useAuth } from '../components/AuthProvider'
+import { queryKeys } from '../queries/keys'
 
 export function useCreateShoppingList() {
-  const { subscription } = useAuth()
+  const { userProfile } = useAuth()
   const queryClient = useQueryClient()
 
   return useMutation({
@@ -12,7 +13,7 @@ export function useCreateShoppingList() {
         .from('shopping_lists')
         .insert({
           store_id: storeId,
-          subscription_id: subscription.subscription_id,
+          subscription_id: userProfile.subscription_id,
           is_active: true
         })
         .select('*, store:stores(name, chain:store_chains(name, logo_url))')
@@ -23,7 +24,7 @@ export function useCreateShoppingList() {
     },
     onSuccess: () => {
       // Invalidate shopping lists query to refetch
-      queryClient.invalidateQueries(['shopping-lists', subscription?.subscription_id])
+      queryClient.invalidateQueries({ queryKey: queryKeys.shoppingLists(userProfile?.subscription_id) })
     }
   })
 }

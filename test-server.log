@@ -1,0 +1,1929 @@
+
+> weekmenu@0.0.0 dev:test
+> vite --mode test
+
+Port 5175 is in use, trying another one...
+
+  VITE v5.4.19  ready in 175 ms
+
+  ➜  Local:   http://localhost:5176/weekmenu/
+  ➜  Network: use --host to expose
+12:38:21 PM [vite] page reload playwright-report/index.html
+12:38:32 PM [vite] page reload playwright-report/index.html
+12:55:36 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css
+12:55:46 PM [vite] hmr update /src/components/ListSelectorModal.jsx, /src/index.css
+12:56:01 PM [vite] hmr update /src/components/NewListModal.jsx, /src/index.css
+12:56:09 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css
+2:43:04 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css
+2:43:16 PM [vite] hmr update /src/components/ListSelectorModal.jsx, /src/index.css
+2:43:26 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css
+2:43:38 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css
+2:44:06 PM [vite] hmr update /src/components/ListSelectorModal.jsx, /src/index.css
+2:45:05 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css, /src/components/ListSelectorModal.jsx
+2:45:19 PM [vite] hmr update /src/components/ListSelectorModal.jsx, /src/index.css
+2:45:30 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css
+2:45:38 PM [vite] hmr update /src/components/NewListModal.jsx, /src/index.css
+2:46:21 PM [vite] hmr update /src/components/ListSelectorModal.jsx, /src/index.css
+2:47:38 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css, /src/components/ListSelectorModal.jsx
+2:47:49 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css
+2:48:03 PM [vite] hmr update /src/components/ListSelectorModal.jsx, /src/index.css
+2:49:45 PM [vite] hmr update /src/components/ShoppingListDetail.jsx, /src/index.css, /src/components/AddToShoppingList.jsx, /src/components/ListSelectorModal.jsx, /src/components/ShoppingListPanel.jsx
+2:50:06 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+2:50:06 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+2:50:06 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/MenuSelector.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/AddToShoppingList.jsx, /src/components/ListSelectorModal.jsx, /src/components/ShoppingListPanel.jsx, /src/components/SettingsPanel.jsx
+2:50:06 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+2:50:06 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+2:51:25 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css
+2:51:37 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css
+2:51:53 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+2:51:53 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+2:51:53 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/MenuSelector.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/AddToShoppingList.jsx, /src/components/ListSelectorModal.jsx, /src/components/ShoppingListPanel.jsx, /src/components/SettingsPanel.jsx
+2:51:53 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+2:51:53 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+2:52:31 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css
+2:55:29 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css, /src/components/ListSelectorModal.jsx
+2:56:56 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css
+2:57:16 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css
+2:58:11 PM [vite] hmr update /src/components/ShoppingListPanel.jsx, /src/index.css
+2:58:17 PM [vite] hmr update /src/components/ShoppingListPanel.jsx, /src/index.css
+2:58:23 PM [vite] hmr update /src/components/ShoppingListPanel.jsx, /src/index.css
+2:58:32 PM [vite] hmr update /src/components/ShoppingListDetail.jsx, /src/index.css
+2:59:17 PM [vite] hmr update /src/components/ShoppingListPanel.jsx, /src/index.css
+2:59:24 PM [vite] hmr update /src/components/ShoppingListPanel.jsx, /src/index.css
+2:59:40 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css, /src/components/ListSelectorModal.jsx
+2:59:56 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css
+3:00:06 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css
+3:01:41 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css, /src/components/ListSelectorModal.jsx
+3:03:57 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css, /src/components/ListSelectorModal.jsx
+3:04:04 PM [vite] hmr update /src/components/ShoppingListPanel.jsx, /src/index.css
+3:05:36 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+3:05:36 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:05:36 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/MenuSelector.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/AddToShoppingList.jsx, /src/components/ListSelectorModal.jsx, /src/components/ShoppingListPanel.jsx, /src/components/SettingsPanel.jsx
+3:05:36 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:05:36 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:16:10 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+3:16:10 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:16:10 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/MenuSelector.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/AddToShoppingList.jsx, /src/components/ListSelectorModal.jsx, /src/components/ShoppingListPanel.jsx, /src/components/SettingsPanel.jsx
+3:16:10 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:16:10 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:16:21 PM [vite] hmr update /src/App.jsx, /src/index.css
+3:16:31 PM [vite] hmr update /src/App.jsx, /src/index.css
+3:21:15 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+3:21:15 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:21:15 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/MenuSelector.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/AddToShoppingList.jsx, /src/components/ListSelectorModal.jsx, /src/components/ShoppingListPanel.jsx, /src/components/SettingsPanel.jsx
+3:21:15 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:21:15 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:22:51 PM [vite] hmr update /src/contexts/WeekMenuContext.jsx, /src/index.css
+3:22:51 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:22:51 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:23:06 PM [vite] hmr update /src/contexts/WeekMenuContext.jsx, /src/index.css
+3:23:06 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:23:06 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:33:01 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+3:33:01 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:33:01 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/MenuSelector.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/AddToShoppingList.jsx, /src/components/ListSelectorModal.jsx, /src/components/ShoppingListPanel.jsx, /src/components/SettingsPanel.jsx
+3:33:01 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:33:01 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:33:11 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+3:33:11 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:33:11 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/MenuSelector.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/AddToShoppingList.jsx, /src/components/ListSelectorModal.jsx, /src/components/ShoppingListPanel.jsx, /src/components/SettingsPanel.jsx
+3:33:12 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:33:12 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:33:35 PM [vite] hmr update /src/contexts/WeekMenuContext.jsx, /src/index.css
+3:33:35 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:33:35 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:34:06 PM [vite] hmr update /src/contexts/WeekMenuContext.jsx, /src/index.css
+3:34:06 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:34:06 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:35:10 PM [vite] hmr update /src/contexts/WeekMenuContext.jsx, /src/index.css
+3:35:10 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:35:10 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:35:32 PM [vite] hmr update /src/contexts/WeekMenuContext.jsx, /src/index.css
+3:35:32 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:35:32 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:35:47 PM [vite] hmr update /src/contexts/WeekMenuContext.jsx, /src/index.css
+3:35:47 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:35:47 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:35:59 PM [vite] hmr update /src/contexts/WeekMenuContext.jsx, /src/index.css
+3:35:59 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:35:59 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:37:23 PM [vite] hmr update /src/App.jsx, /src/index.css
+3:39:22 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+3:39:22 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:39:22 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/MenuSelector.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/AddToShoppingList.jsx, /src/components/ListSelectorModal.jsx, /src/components/ShoppingListPanel.jsx, /src/components/SettingsPanel.jsx
+3:39:22 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:39:22 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:39:27 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+3:39:27 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:39:27 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/MenuSelector.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/AddToShoppingList.jsx, /src/components/ListSelectorModal.jsx, /src/components/ShoppingListPanel.jsx, /src/components/SettingsPanel.jsx
+3:39:28 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:39:28 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:39:36 PM [vite] hmr update /src/components/RecipeSelectorPanel.jsx, /src/index.css
+3:40:18 PM [vite] hmr update /src/index.css, /src/components/RecipeSelectorPanel.jsx
+3:41:54 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+3:41:54 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:41:54 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/MenuSelector.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/AddToShoppingList.jsx, /src/components/ListSelectorModal.jsx, /src/components/ShoppingListPanel.jsx, /src/components/SettingsPanel.jsx
+3:41:55 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:41:55 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:42:27 PM [vite] hmr update /src/index.css, /src/components/RecipeSelectorPanel.jsx
+3:42:56 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+3:42:56 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:42:56 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/MenuSelector.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/AddToShoppingList.jsx, /src/components/ListSelectorModal.jsx, /src/components/ShoppingListPanel.jsx, /src/components/SettingsPanel.jsx
+3:42:56 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:42:56 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:49:07 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+3:49:07 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:49:07 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/MenuSelector.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/AddToShoppingList.jsx, /src/components/ListSelectorModal.jsx, /src/components/ShoppingListPanel.jsx, /src/components/SettingsPanel.jsx
+3:49:07 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:49:07 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:49:42 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+3:49:42 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:49:42 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/MenuSelector.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/AddToShoppingList.jsx, /src/components/ListSelectorModal.jsx, /src/components/ShoppingListPanel.jsx, /src/components/SettingsPanel.jsx
+3:49:42 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:49:42 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:50:46 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+3:50:46 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:50:46 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/MenuSelector.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/AddToShoppingList.jsx, /src/components/ListSelectorModal.jsx, /src/components/ShoppingListPanel.jsx, /src/components/SettingsPanel.jsx
+3:50:46 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:50:46 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:50:58 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+3:50:58 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:50:58 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/MenuSelector.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/AddToShoppingList.jsx, /src/components/ListSelectorModal.jsx, /src/components/ShoppingListPanel.jsx, /src/components/SettingsPanel.jsx
+3:50:58 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:50:58 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:53:15 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+3:53:15 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:53:15 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/MenuSelector.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/AddToShoppingList.jsx, /src/components/ListSelectorModal.jsx, /src/components/ShoppingListPanel.jsx, /src/components/SettingsPanel.jsx
+3:53:16 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:53:16 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:54:59 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+3:54:59 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:54:59 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/MenuSelector.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/AddToShoppingList.jsx, /src/components/ListSelectorModal.jsx, /src/components/ShoppingListPanel.jsx, /src/components/SettingsPanel.jsx
+3:54:59 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+3:54:59 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+3:55:05 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+3:55:05 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:52:7
+  51 |          setLoading(false)
+  52 |        } catch (error) {
+  53 |          console.error('Error in getSession:', error)
+     |                                    ^
+  54 |          setLoading(false)
+  55 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+3:55:05 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:52:7
+  51 |          setLoading(false)
+  52 |        } catch (error) {
+  53 |          console.error('Error in getSession:', error)
+     |                                    ^
+  54 |          setLoading(false)
+  55 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+3:59:58 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+3:59:58 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (53:7)
+
+  51 |         
+  52 |         setLoading(false)
+> 53 |       } catch (error) {
+     |        ^
+  54 |         console.error('Error in getSession:', error)
+  55 |         setLoading(false)
+  56 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:53:7
+  52 |          setLoading(false)
+  53 |        } catch (error) {
+  54 |          console.error('Error in getSession:', error)
+     |                                     ^
+  55 |          setLoading(false)
+  56 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+3:59:59 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (53:7)
+
+  51 |         
+  52 |         setLoading(false)
+> 53 |       } catch (error) {
+     |        ^
+  54 |         console.error('Error in getSession:', error)
+  55 |         setLoading(false)
+  56 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:53:7
+  52 |          setLoading(false)
+  53 |        } catch (error) {
+  54 |          console.error('Error in getSession:', error)
+     |                                     ^
+  55 |          setLoading(false)
+  56 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:00:04 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+4:00:04 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (53:7)
+
+  51 |         
+  52 |         setLoading(false)
+> 53 |       } catch (error) {
+     |        ^
+  54 |         console.error('Error in getSession:', error)
+  55 |         setLoading(false)
+  56 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:53:7
+  52 |          setLoading(false)
+  53 |        } catch (error) {
+  54 |          console.error('Error in getSession:', error)
+     |                                     ^
+  55 |          setLoading(false)
+  56 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:00:04 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (53:7)
+
+  51 |         
+  52 |         setLoading(false)
+> 53 |       } catch (error) {
+     |        ^
+  54 |         console.error('Error in getSession:', error)
+  55 |         setLoading(false)
+  56 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:53:7
+  52 |          setLoading(false)
+  53 |        } catch (error) {
+  54 |          console.error('Error in getSession:', error)
+     |                                     ^
+  55 |          setLoading(false)
+  56 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:00:09 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+4:00:09 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:52:7
+  51 |          setLoading(false)
+  52 |        } catch (error) {
+  53 |          console.error('Error in getSession:', error)
+     |                                    ^
+  54 |          setLoading(false)
+  55 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:00:09 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:52:7
+  51 |          setLoading(false)
+  52 |        } catch (error) {
+  53 |          console.error('Error in getSession:', error)
+     |                                    ^
+  54 |          setLoading(false)
+  55 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:00:14 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+4:00:14 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:52:7
+  51 |          setLoading(false)
+  52 |        } catch (error) {
+  53 |          console.error('Error in getSession:', error)
+     |                                    ^
+  54 |          setLoading(false)
+  55 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:00:14 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:52:7
+  51 |          setLoading(false)
+  52 |        } catch (error) {
+  53 |          console.error('Error in getSession:', error)
+     |                                    ^
+  54 |          setLoading(false)
+  55 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:00:18 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+4:00:18 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:52:7
+  51 |          setLoading(false)
+  52 |        } catch (error) {
+  53 |          console.error('Error in getSession:', error)
+     |                                    ^
+  54 |          setLoading(false)
+  55 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:00:18 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:52:7
+  51 |          setLoading(false)
+  52 |        } catch (error) {
+  53 |          console.error('Error in getSession:', error)
+     |                                    ^
+  54 |          setLoading(false)
+  55 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:00:32 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+4:00:32 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:52:7
+  51 |          setLoading(false)
+  52 |        } catch (error) {
+  53 |          console.error('Error in getSession:', error)
+     |                                    ^
+  54 |          setLoading(false)
+  55 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:00:32 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:52:7
+  51 |          setLoading(false)
+  52 |        } catch (error) {
+  53 |          console.error('Error in getSession:', error)
+     |                                    ^
+  54 |          setLoading(false)
+  55 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:00:40 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+4:00:40 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:52:7
+  51 |          setLoading(false)
+  52 |        } catch (error) {
+  53 |          console.error('Error in getSession:', error)
+     |                                    ^
+  54 |          setLoading(false)
+  55 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:00:40 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:52:7
+  51 |          setLoading(false)
+  52 |        } catch (error) {
+  53 |          console.error('Error in getSession:', error)
+     |                                    ^
+  54 |          setLoading(false)
+  55 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:01:02 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+4:01:02 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:52:7
+  51 |          setLoading(false)
+  52 |        } catch (error) {
+  53 |          console.error('Error in getSession:', error)
+     |                                    ^
+  54 |          setLoading(false)
+  55 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:01:02 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:52:7
+  51 |          setLoading(false)
+  52 |        } catch (error) {
+  53 |          console.error('Error in getSession:', error)
+     |                                    ^
+  54 |          setLoading(false)
+  55 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:01:08 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+4:01:08 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:52:7
+  51 |          setLoading(false)
+  52 |        } catch (error) {
+  53 |          console.error('Error in getSession:', error)
+     |                                    ^
+  54 |          setLoading(false)
+  55 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:01:08 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:52:7
+  51 |          setLoading(false)
+  52 |        } catch (error) {
+  53 |          console.error('Error in getSession:', error)
+     |                                    ^
+  54 |          setLoading(false)
+  55 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:01:13 PM [vite] hmr update /src/App.jsx, /src/index.css
+4:01:13 PM [vite] Pre-transform error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+4:01:13 PM [vite] Pre-transform error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+4:01:13 PM [vite] Pre-transform error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+4:01:13 PM [vite] Pre-transform error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+4:01:13 PM [vite] Pre-transform error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+4:01:13 PM [vite] Pre-transform error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+4:01:13 PM [vite] Pre-transform error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+4:01:13 PM [vite] Pre-transform error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+4:01:13 PM [vite] Pre-transform error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+4:01:13 PM [vite] Pre-transform error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+4:01:13 PM [vite] Pre-transform error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+4:01:13 PM [vite] Pre-transform error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+4:01:13 PM [vite] Pre-transform error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+4:01:31 PM [vite] hmr update /src/App.jsx, /src/index.css
+4:01:31 PM [vite] Pre-transform error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+4:01:47 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:52:7
+  51 |          setLoading(false)
+  52 |        } catch (error) {
+  53 |          console.error('Error in getSession:', error)
+     |                                    ^
+  54 |          setLoading(false)
+  55 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:01:47 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:52:7
+  51 |          setLoading(false)
+  52 |        } catch (error) {
+  53 |          console.error('Error in getSession:', error)
+     |                                    ^
+  54 |          setLoading(false)
+  55 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:01:47 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:52:7
+  51 |          setLoading(false)
+  52 |        } catch (error) {
+  53 |          console.error('Error in getSession:', error)
+     |                                    ^
+  54 |          setLoading(false)
+  55 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:01:47 PM [vite] Internal server error: /home/unixuser/weekmenu/src/components/AuthProvider.jsx: Missing semicolon. (52:7)
+
+  50 |         
+  51 |         setLoading(false)
+> 52 |       } catch (error) {
+     |        ^
+  53 |         console.error('Error in getSession:', error)
+  54 |         setLoading(false)
+  55 |       }
+  Plugin: vite:react-babel
+  File: /home/unixuser/weekmenu/src/components/AuthProvider.jsx:52:7
+  51 |          setLoading(false)
+  52 |        } catch (error) {
+  53 |          console.error('Error in getSession:', error)
+     |                                    ^
+  54 |          setLoading(false)
+  55 |        }
+      at constructor (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6627:19)
+      at JSXParserMixin.semicolon (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:6923:10)
+      at JSXParserMixin.parseVarStatement (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13231:10)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12851:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11686:12)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11326:23)
+      at JSXParserMixin.parseExprAtom (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:4794:20)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11076:23)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12427:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10795:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12494:17)
+      at JSXParserMixin.parseExprListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12176:18)
+      at JSXParserMixin.parseCallExpressionArguments (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11247:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11181:29)
+      at JSXParserMixin.parseSubscript (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11115:19)
+      at JSXParserMixin.parseSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11089:19)
+      at JSXParserMixin.parseExprSubscripts (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11080:17)
+      at JSXParserMixin.parseUpdate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11061:21)
+      at JSXParserMixin.parseMaybeUnary (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:11041:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10894:61)
+      at JSXParserMixin.parseExprOps (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10899:23)
+      at JSXParserMixin.parseMaybeConditional (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10876:23)
+      at JSXParserMixin.parseMaybeAssign (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10826:21)
+      at JSXParserMixin.parseExpressionBase (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10779:23)
+      at /home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:39
+      at JSXParserMixin.allowInAnd (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12422:16)
+      at JSXParserMixin.parseExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:10775:17)
+      at JSXParserMixin.parseStatementContent (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12895:23)
+      at JSXParserMixin.parseStatementLike (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12767:17)
+      at JSXParserMixin.parseStatementListItem (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12747:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13316:61)
+      at JSXParserMixin.parseBlockBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13309:10)
+      at JSXParserMixin.parseBlock (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:13297:10)
+      at JSXParserMixin.parseFunctionBody (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12101:24)
+      at JSXParserMixin.parseArrowExpression (/home/unixuser/weekmenu/node_modules/@babel/parser/lib/index.js:12076:10)
+4:02:27 PM [vite] hmr update /src/components/AuthProvider.jsx, /src/index.css
+4:02:27 PM [vite] hmr invalidate /src/components/AuthProvider.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+4:02:27 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/contexts/WeekMenuContext.jsx, /src/components/LoginScreen.jsx, /src/components/MenuSelector.jsx, /src/components/HomePage.jsx, /src/components/ShoppingListDetail.jsx, /src/components/Settings.jsx, /src/components/AddToShoppingList.jsx, /src/components/ListSelectorModal.jsx, /src/components/ShoppingListPanel.jsx, /src/components/SettingsPanel.jsx
+4:02:28 PM [vite] hmr invalidate /src/contexts/WeekMenuContext.jsx Could not Fast Refresh ("useWeekMenu" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+4:02:28 PM [vite] hmr update /src/App.jsx, /src/index.css, /src/components/MenuSelector.jsx, /src/components/AddToShoppingList.jsx, /src/components/RecipeSelectorPanel.jsx
+9:46:12 PM [vite] hmr update /src/index.css, /src/components/RecipeSelectorPanel.jsx
+9:46:35 PM [vite] hmr update /src/components/ShoppingListDetail.jsx, /src/index.css, /src/components/AddToShoppingList.jsx, /src/components/ShoppingListPanel.jsx, /src/components/ListSelectorModal.jsx, /src/components/RecipeSelectorPanel.jsx
+9:49:37 PM [vite] hmr update /src/components/MenuSelector.jsx, /src/index.css
+9:52:44 PM [vite] hmr update /src/components/RecipeSelectorPanel.jsx, /src/index.css
+9:55:07 PM [vite] hmr update /src/components/RecipeSelectorPanel.jsx, /src/index.css
+9:55:17 PM [vite] hmr update /src/components/MenuSelector.jsx, /src/index.css
+9:55:29 PM [vite] hmr update /src/components/MenuSelector.jsx, /src/index.css
+9:55:50 PM [vite] hmr update /src/components/MenuSelector.jsx, /src/index.css
+9:57:13 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css
+10:03:03 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css
+10:12:04 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css
+10:12:15 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css
+10:12:26 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css
+10:12:35 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css
+10:12:45 PM [vite] hmr update /src/components/AddToShoppingList.jsx, /src/index.css

@@ -9,7 +9,7 @@ import { updateShoppingList } from '../queries/shoppingLists'
 export const ShoppingListDetail = () => {
   const { id } = useParams()
   const navigate = useNavigate()
-  const { userProfile } = useAuth()
+  const { userProfile, subscription } = useAuth()
   const queryClient = useQueryClient()
   const searchInputRef = useRef(null)
   

@@ -2,16 +2,52 @@ import { useState } from 'react'
 import { CachedImage } from './CachedImage'
 import { useStores } from '../hooks/useStores'
 import { NewListModal } from './NewListModal'
+import { useShoppingLists } from '../hooks/useShoppingLists'
 
 export function ListSelectorModal({ 
-  lists, 
+  lists: propsLists, 
   selectedListId, 
   onSelectList, 
   onClose,
   promptText
 }) {
+  console.log('[ListSelectorModal] Rendered with props:', { 
+    propsListsCount: propsLists?.length || 0,
+    propsLists: propsLists?.map(l => l.id)
+  })
+  
   const { data: stores } = useStores()
   const [showCreateNew, setShowCreateNew] = useState(false)
+  
+  // Always use fresh data from the hook instead of potentially stale props
+  const { lists: freshLists, isLoading } = useShoppingLists()
+  
+  console.log('[ListSelectorModal] Fresh lists from hook:', {
+    freshListsCount: freshLists?.length || 0,
+    freshLists: freshLists?.map(l => l.id),
+    isLoading
+  })
+  
+  const lists = freshLists || propsLists || []
+  
+  console.log('[ListSelectorModal] Final lists to use:', {
+    listsCount: lists?.length || 0,
+    lists: lists?.map(l => l.id)
+  })
+  
+  // If still loading, show loading state
+  if (isLoading && !freshLists && !propsLists) {
+    return (
+      <div className="fixed inset-0 z-50 overflow-y-auto">
+        <div className="flex min-h-screen items-center justify-center p-4">
+          <div className="fixed inset-0 bg-black bg-opacity-50" onClick={onClose} />
+          <div className="relative bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+            <p className="text-center">Loading shopping lists...</p>
+          </div>
+        </div>
+      </div>
+    )
+  }
   
   // Check if there are stores without active lists
   const activeStoreIds = new Set(

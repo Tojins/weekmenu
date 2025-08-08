@@ -12,19 +12,32 @@ import ProductSearchModal from './ProductSearchModal'
 import { CachedImage } from './CachedImage'
 import { useStores } from '../hooks/useStores'
 import { ListSelectorModal } from './ListSelectorModal'
+import { useRecipeIngredientOverrides, useSaveRecipeIngredientOverride } from '../hooks/useRecipeIngredientOverrides'
 
 function IngredientRow({ ingredient, onProductChange }) {
   const [showSearch, setShowSearch] = useState(false)
+  const saveOverride = useSaveRecipeIngredientOverride()
 
   const handleReplace = () => {
     setShowSearch(true)
   }
 
-  const handleSelect = (selection) => {
+  const handleSelect = async (selection) => {
+    // Update local state
     if (selection.custom) {
       onProductChange(ingredient.id, { customName: selection.name })
+      // Save override to database
+      await saveOverride.mutateAsync({
+        recipeIngredientId: ingredient.id,
+        customName: selection.name
+      })
     } else {
       onProductChange(ingredient.id, { product: selection })
+      // Save override to database
+      await saveOverride.mutateAsync({
+        recipeIngredientId: ingredient.id,
+        productId: selection.id
+      })
     }
     setShowSearch(false)
   }
@@ -61,14 +74,14 @@ function IngredientRow({ ingredient, onProductChange }) {
             <span className="text-sm text-gray-400 italic">No product selected</span>
           )}
           
-          {/* Minimal replace button */}
+          {/* Edit/Replace button */}
           <button
             onClick={handleReplace}
             className="p-1.5 hover:bg-gray-200 rounded-md transition-colors"
             title="Replace product"
           >
             <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
             </svg>
           </button>
         </div>
@@ -87,9 +100,21 @@ function IngredientRow({ ingredient, onProductChange }) {
 
 export default function AddToShoppingList() {
   const navigate = useNavigate()
-  const { user, subscription } = useAuth()
+  const { user, subscription, loading: authLoading } = useAuth()
+  
+  console.log('[AddToShoppingList] Component render, subscription:', subscription?.subscription_id, 'authLoading:', authLoading)
+  
   const { weekmenu, isLoading: weekmenuLoading } = useWeekMenu()
-  const { lists } = useShoppingLists()
+  const { lists, isLoading: listsLoading } = useShoppingLists()
+  
+  console.log('[AddToShoppingList] After hooks:', {
+    subscription_id: subscription?.subscription_id,
+    authLoading,
+    listsLoading,
+    listsCount: lists?.length || 0,
+    lists: lists?.map(l => l.id)
+  })
+  
   const createItemsMutation = useCreateShoppingListItems()
   const createListMutation = useCreateShoppingList()
   
@@ -98,10 +123,17 @@ export default function AddToShoppingList() {
   const [selectedListId, setSelectedListId] = useState(null)
   const [showStoreSelector, setShowStoreSelector] = useState(false)
   const [showDefaultStorePrompt, setShowDefaultStorePrompt] = useState(false)
+  
+  // Load overrides for all recipe ingredients
+  const recipeIngredientIds = useMemo(() => 
+    fetchedIngredients.map(ing => ing.id),
+    [fetchedIngredients]
+  )
+  const { overrides, isLoading: overridesLoading } = useRecipeIngredientOverrides(recipeIngredientIds)
 
   useEffect(() => {
-    // Wait for weekmenu to load before checking
-    if (weekmenuLoading) {
+    // Wait for weekmenu and auth to load before checking
+    if (weekmenuLoading || authLoading) {
       return
     }
     
@@ -130,14 +162,26 @@ export default function AddToShoppingList() {
         setShowDefaultStorePrompt(true)
       }
     }
-  }, [weekmenuLoading, weekmenu?.recipes?.length, lists, subscription, navigate])
+  }, [weekmenuLoading, weekmenu?.recipes?.length, lists, subscription, navigate, authLoading])
   
-  // Initialize ingredients from fetched data
+  // Initialize ingredients from fetched data and apply overrides
   useEffect(() => {
     if (fetchedIngredients.length > 0) {
-      setIngredients(fetchedIngredients)
+      // Apply overrides to the fetched ingredients
+      const ingredientsWithOverrides = fetchedIngredients.map(ing => {
+        const override = overrides[ing.id]
+        if (override) {
+          return {
+            ...ing,
+            product: override.product || null,
+            customName: override.custom_name || null
+          }
+        }
+        return ing
+      })
+      setIngredients(ingredientsWithOverrides)
     }
-  }, [fetchedIngredients])
+  }, [fetchedIngredients, overrides])
 
 
   // Group ingredients by recipe
@@ -228,7 +272,7 @@ export default function AddToShoppingList() {
   
   const itemCount = ingredients.filter(ing => ing.product || ing.customName).length
 
-  if (isLoading || weekmenuLoading) {
+  if (isLoading || weekmenuLoading || authLoading || overridesLoading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
         <div className="text-center">
@@ -339,7 +383,7 @@ export default function AddToShoppingList() {
       {/* Store Selector Modal */}
       {(showStoreSelector || showDefaultStorePrompt) && (
         <ListSelectorModal
-          lists={lists}
+          lists={lists || []}
           selectedListId={selectedListId}
           onSelectList={async (listIdOrStoreId) => {
             if (listIdOrStoreId.startsWith('new-')) {

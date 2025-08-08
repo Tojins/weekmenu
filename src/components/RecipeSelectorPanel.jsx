@@ -8,10 +8,17 @@ export const RecipeSelectorPanel = () => {
   const navigate = useNavigate()
   const { weekmenu } = useWeekMenu()
   
+  console.log('[RecipeSelectorPanel] Rendering - weekmenu seed:', weekmenu?.seed)
+  
   const { data: recipes = [], isLoading: loading } = useQuery({
     queryKey: queryKeys.recipePreview(weekmenu?.seed),
-    queryFn: () => fetchRecipePreview(weekmenu?.seed),
+    queryFn: () => {
+      console.log('[RecipeSelectorPanel] Fetching recipe preview')
+      return fetchRecipePreview(weekmenu?.seed)
+    },
     enabled: !!weekmenu?.seed,
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    cacheTime: 10 * 60 * 1000, // 10 minutes
   })
 
   const selectedCount = weekmenu?.recipes?.length || 0
@@ -20,6 +27,7 @@ export const RecipeSelectorPanel = () => {
     <button
       onClick={() => navigate('/menu-selector')}
       className="w-full bg-white rounded-lg shadow-lg p-8 transition-all hover:shadow-xl border-2 border-transparent hover:border-green-500 cursor-pointer text-left group"
+      data-testid="recipe-selector-panel"
     >
       <div className="flex gap-6">
         {/* Recipe Grid Preview */}

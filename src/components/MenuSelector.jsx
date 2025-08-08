@@ -1,111 +1,59 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { supabase } from '../supabaseClient'
 import { useWeekMenu } from '../contexts/WeekMenuContext'
 import { useAuth } from './AuthProvider'
 import { RecipeControls } from './RecipeControls'
 import { RecipeDetailsModal } from './RecipeDetailsModal'
+import { useQuery, useInfiniteQuery, useQueryClient } from '@tanstack/react-query'
+import { queryKeys } from '../queries/keys'
+import { fetchRecipesBySeed, fetchRecipePreview } from '../queries/recipes'
 
 export function MenuSelector() {
   const navigate = useNavigate()
   const { weekmenu, isLoading: menuLoading, isSyncing, isOffline, addRecipe, removeRecipe, updateServings } = useWeekMenu()
   const { subscription } = useAuth()
-  const [recipes, setRecipes] = useState([])
-  const [isLoadingRecipes, setIsLoadingRecipes] = useState(true)
+  const queryClient = useQueryClient()
   const [showSidebar, setShowSidebar] = useState(false)
   const [hasAutoShownSidebar, setHasAutoShownSidebar] = useState(false)
-  const [page, setPage] = useState(0)
-  const [hasMore, setHasMore] = useState(true)
-  const [totalRecipes, setTotalRecipes] = useState(0)
   const [showSyncToast, setShowSyncToast] = useState(false)
   const [selectedModalRecipe, setSelectedModalRecipe] = useState(null)
-  const loadingRef = useRef(false)
   const observerRef = useRef()
-  const lastRecipeRef = useRef()
   const toastTimeoutRef = useRef()
 
   const recipesPerPage = 24
 
-  // Fetch recipes with seed-based ordering
-  const fetchRecipes = useCallback(async (pageNum = 0) => {
-    if (loadingRef.current || !weekmenu?.seed) return
-    
-    loadingRef.current = true
-    setIsLoadingRecipes(true)
-
-    try {
-      // First get total count
-      if (pageNum === 0) {
-        const { count } = await supabase
-          .from('recipes')
-          .select('*', { count: 'exact', head: true })
-        
-        setTotalRecipes(count || 0)
-      }
-
-      // Calculate which random_order column to use based on seed
-      const orderColumn = `random_order_${((weekmenu.seed - 1) % 20) + 1}`
-      
-      // Fetch recipes
-      const { data, error } = await supabase
-        .from('recipes')
-        .select(`
-          id,
-          title,
-          time_estimation,
-          image_url,
-          url,
-          cooking_instructions
-        `)
-        .order(orderColumn, { ascending: true })
-        .range(pageNum * recipesPerPage, (pageNum + 1) * recipesPerPage - 1)
-
-      if (error) {
-        console.error('Error fetching recipes:', error)
-        return
-      }
-
-      const formattedRecipes = data.map(recipe => {
-        // Check for seasonal keywords in title
-        const seasonalKeywords = ['pompoen', 'spruitjes', 'witloof', 'pastinaak', 'pompoene'];
-        const isSeasonalRecipe = seasonalKeywords.some(keyword => 
-          recipe.title.toLowerCase().includes(keyword)
-        );
-        
-        return {
-          id: recipe.id,
-          title: recipe.title,
-          cookingTime: recipe.time_estimation || 30,
-          category: 'main',
-          seasonal: isSeasonalRecipe,
-          imageUrl: recipe.image_url || 'https://via.placeholder.com/300x200',
-          url: recipe.url,
-          cooking_instructions: recipe.cooking_instructions
-        };
+  // Use infinite query for paginated recipe loading
+  const {
+    data,
+    error,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isLoading: isLoadingRecipes,
+  } = useInfiniteQuery({
+    queryKey: queryKeys.recipesBySeed(weekmenu?.seed, 'infinite'),
+    queryFn: ({ pageParam = 0 }) => {
+      console.log('[MenuSelector] Fetching recipes page:', pageParam)
+      return fetchRecipesBySeed({ 
+        seed: weekmenu?.seed, 
+        page: pageParam, 
+        pageSize: recipesPerPage 
       })
-
-      if (pageNum === 0) {
-        setRecipes(formattedRecipes)
-      } else {
-        setRecipes(prev => [...prev, ...formattedRecipes])
+    },
+    enabled: !!weekmenu?.seed,
+    getNextPageParam: (lastPage, pages) => {
+      if (lastPage.hasMore) {
+        return pages.length
       }
+      return undefined
+    },
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    cacheTime: 10 * 60 * 1000, // 10 minutes
+  })
 
-      setHasMore(data.length === recipesPerPage)
-      setPage(pageNum)
-    } catch (err) {
-      console.error('Error in fetchRecipes:', err)
-    } finally {
-      setIsLoadingRecipes(false)
-      loadingRef.current = false
-    }
-  }, [weekmenu?.seed])
-
-  // Initial load
-  useEffect(() => {
-    if (weekmenu?.seed) {
-      fetchRecipes(0)
-    }
-  }, [weekmenu?.seed, fetchRecipes])
+  // Flatten all pages of recipes
+  const recipes = data?.pages.flatMap(page => page.recipes) || []
+  const totalRecipes = data?.pages[0]?.totalCount || 0
 
   // Infinite scroll observer
   useEffect(() => {
@@ -117,8 +65,8 @@ export function MenuSelector() {
 
     observerRef.current = new IntersectionObserver((entries) => {
       const target = entries[0]
-      if (target.isIntersecting && hasMore && !loadingRef.current) {
-        fetchRecipes(page + 1)
+      if (target.isIntersecting && hasNextPage && !isFetchingNextPage) {
+        fetchNextPage()
       }
     }, options)
 
@@ -127,24 +75,23 @@ export function MenuSelector() {
         observerRef.current.disconnect()
       }
     }
-  }, [hasMore, page, fetchRecipes])
+  }, [hasNextPage, isFetchingNextPage, fetchNextPage])
 
   // Set up observer on last recipe
   useEffect(() => {
-    if (loadingRef.current) return
+    if (isFetchingNextPage) return
 
     if (observerRef.current) {
-      if (lastRecipeRef.current) {
-        observerRef.current.unobserve(lastRecipeRef.current)
-      }
-
       const recipeElements = document.querySelectorAll('.recipe-card')
       if (recipeElements.length > 0) {
-        lastRecipeRef.current = recipeElements[recipeElements.length - 1]
-        observerRef.current.observe(lastRecipeRef.current)
+        // Disconnect from all elements first
+        recipeElements.forEach(el => observerRef.current.unobserve(el))
+        // Observe only the last element
+        const lastElement = recipeElements[recipeElements.length - 1]
+        observerRef.current.observe(lastElement)
       }
     }
-  }, [recipes])
+  }, [recipes, isFetchingNextPage])
 
   // Show sidebar only the very first time a recipe is selected
   useEffect(() => {
@@ -204,6 +151,22 @@ export function MenuSelector() {
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Loading your menu...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-gray-50">
+        <div className="text-center">
+          <p className="text-red-600 mb-4">Error loading recipes</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          >
+            Retry
+          </button>
         </div>
       </div>
     )
@@ -291,14 +254,14 @@ export function MenuSelector() {
           </div>
 
           {/* Loading indicator for infinite scroll */}
-          {isLoadingRecipes && page > 0 && (
+          {isFetchingNextPage && (
             <div className="text-center py-12">
               <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-600 mx-auto"></div>
             </div>
           )}
 
           {/* No more recipes */}
-          {!hasMore && recipes.length > 0 && (
+          {!hasNextPage && recipes.length > 0 && (
             <div className="text-center py-12 text-gray-500">
               <p className="text-lg">You've reached the end of our recipes!</p>
             </div>

@@ -15,9 +15,9 @@ export const ShoppingListPanel = () => {
   
   // Fetch shopping lists
   const { data: shoppingLists = [], isLoading } = useQuery({
-    queryKey: queryKeys.shoppingLists(userProfile?.subscription_id),
-    queryFn: () => fetchShoppingLists(userProfile?.subscription_id),
-    enabled: !!userProfile?.subscription_id,
+    queryKey: queryKeys.shoppingLists(subscription?.subscription_id),
+    queryFn: () => fetchShoppingLists(subscription?.subscription_id),
+    enabled: !!subscription?.subscription_id,
   })
   
   // Create shopping list mutation

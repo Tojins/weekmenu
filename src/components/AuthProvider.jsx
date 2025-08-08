@@ -16,56 +16,31 @@ export const AuthProvider = ({ children }) => {
   const [userProfile, setUserProfile] = useState(null)
   const [subscription, setSubscription] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+  
+  console.log('[AuthProvider] Current state:', {
+    user: user?.id,
+    userProfile: userProfile?.id,
+    subscription_id: subscription?.subscription_id,
+    loading,
+    timestamp: new Date().toISOString()
+  })
 
   useEffect(() => {
-    let timeoutId = null
+    let isCancelled = false
     
     // Get initial session
     const getSession = async () => {
+      if (isCancelled) return
       console.time('AuthProvider:getSession')
       try {
-        // Check if there's a session in localStorage
-        const storedSession = localStorage.getItem('sb-padeskjkdetesmfuicvm-auth-token')
+        // Let Supabase handle session restoration from localStorage
+        const { data: { session }, error } = await supabase.auth.getSession()
         
-        // If we have a stored session, parse it and use it directly
-        if (storedSession) {
-          try {
-            const sessionData = JSON.parse(storedSession)
-            if (sessionData && sessionData.access_token) {
-              // Get user data using the stored token
-              const { data: { user }, error: userError } = await supabase.auth.getUser(sessionData.access_token)
-              
-              if (!userError && user) {
-                setUser(user)
-                // Don't fetch profile here - let onAuthStateChange handle it
-                // Don't set loading false here, let onAuthStateChange do it
-                return
-              }
-            }
-          } catch (parseError) {
-            console.error('Error parsing stored session:', parseError)
-          }
-        }
-        
-        // Fallback to regular session check with shorter timeout
-        console.time('AuthProvider:supabase.getSession')
-        const sessionPromise = supabase.auth.getSession()
-        const timeoutPromise = new Promise((_, reject) => 
-          setTimeout(() => reject(new Error('Session check timeout')), 2000)
-        )
-        
-        try {
-          const { data: { session }, error } = await Promise.race([sessionPromise, timeoutPromise])
-          console.timeEnd('AuthProvider:supabase.getSession')
-          
-          if (!error && session) {
-            setUser(session.user)
-            // Don't fetch profile here - let INITIAL_SESSION handle it
-          } else {
-            setUser(null)
-          }
-        } catch (timeoutError) {
-          console.error('Session check timed out')
+        if (!error && session) {
+          setUser(session.user)
+          // Don't fetch profile here - let INITIAL_SESSION handle it
+        } else {
           setUser(null)
         }
         
@@ -77,39 +52,36 @@ export const AuthProvider = ({ children }) => {
       console.timeEnd('AuthProvider:getSession')
     }
 
-    // Add timeout fallback
-    timeoutId = setTimeout(() => {
-      if (loading) {
-        setLoading(false)
-      }
-    }, 3000)
+    // No timeout - if auth fails, it should fail properly
 
     getSession()
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
+        console.log(`[AuthProvider] Auth state change: ${event}`)
         setUser(session?.user ?? null)
         
         // Fetch profile on auth events that indicate a new session
-        if ((event === 'INITIAL_SESSION' || event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session?.user) {
-          await fetchUserProfile(session.user.id)
+        // But avoid duplicate fetches
+        if ((event === 'INITIAL_SESSION' || event === 'SIGNED_IN') && session?.user) {
+          // Don't await here to avoid blocking auth completion
+          fetchUserProfile(session.user.id).catch(err => 
+            console.error('[AuthProvider] Profile fetch error:', err)
+          )
         } else if (!session?.user) {
           setUserProfile(null)
           setSubscription(null)
+          console.log('[AuthProvider] Cleared user data - no session')
         }
         
-        // Clear timeout when auth completes
-        if (timeoutId) {
-          clearTimeout(timeoutId)
-          timeoutId = null
-        }
+        // Set loading false when auth state is determined
         setLoading(false)
       }
     )
 
     return () => {
-      if (timeoutId) clearTimeout(timeoutId)
+      isCancelled = true
       subscription.unsubscribe()
     }
   }, [])
@@ -117,34 +89,52 @@ export const AuthProvider = ({ children }) => {
   const fetchUserProfile = async (userId) => {
     console.time('AuthProvider:fetchUserProfile')
     try {
-      // Add timeout to profile fetch
       console.time('AuthProvider:profileQuery')
-      const profilePromise = supabase
+      const { data, error } = await supabase
         .from('users')
-        .select('*, subscription:subscriptions(*)')
+        .select('*')
         .eq('id', userId)
         .single()
       
-      const timeoutPromise = new Promise((_, reject) => 
-        setTimeout(() => reject(new Error('Profile fetch timeout')), 2000)
-      )
+      console.timeEnd('AuthProvider:profileQuery')
       
-      try {
-        const { data, error } = await Promise.race([profilePromise, timeoutPromise])
-        console.timeEnd('AuthProvider:profileQuery')
-        
-        if (error) {
-          // Profile is optional, don't block auth
-          return
-        }
+      if (error) {
+        console.error('[AuthProvider] Error fetching profile:', error)
+        setError(`Failed to load user profile: ${error.message}`)
+        // This is a critical error - user exists but profile doesn't
+        return
+      }
 
         setUserProfile(data)
-        setSubscription(data?.subscription)
-      } catch (timeoutError) {
-        // Profile is optional, continue without it
-      }
+        
+        // Fetch subscription if user has subscription_id
+        if (data?.subscription_id) {
+          const { data: subscriptionData, error: subError } = await supabase
+            .from('subscriptions')
+            .select('*')
+            .eq('id', data.subscription_id)
+            .single()
+          
+          if (subError) {
+            console.error('[AuthProvider] Error fetching subscription:', subError)
+            setError(`Failed to load subscription: ${subError.message}`)
+            return
+          }
+          
+          setSubscription({
+            ...subscriptionData,
+            subscription_id: subscriptionData?.id // Add subscription_id for backward compatibility
+          })
+        }
+        
+        console.log('[AuthProvider] fetchUserProfile completed:', {
+          userId,
+          userProfile: data?.id,
+          subscription_id: data?.subscription_id
+        })
     } catch (error) {
-      // Silent fail - profile is optional
+      console.error('[AuthProvider] Error in fetchUserProfile:', error)
+      setError(`Failed to load user data: ${error.message}`)
     }
     console.timeEnd('AuthProvider:fetchUserProfile')
   }
@@ -196,6 +186,7 @@ export const AuthProvider = ({ children }) => {
     userProfile,
     subscription,
     loading,
+    error,
     signInWithEmail,
     signUpWithEmail,
     signInWithGoogle,

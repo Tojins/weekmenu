@@ -1,11 +1,25 @@
 import { execSync } from 'child_process';
 import dotenv from 'dotenv';
 
-dotenv.config({ path: '.env.local' });
+// Check for --env flag in arguments
+let envFile = '.env.local';
+const envArgIndex = process.argv.indexOf('--env');
+if (envArgIndex !== -1 && process.argv[envArgIndex + 1]) {
+    envFile = `.env.${process.argv[envArgIndex + 1]}`;
+}
+
+dotenv.config({ path: envFile });
 
 class DatabaseUtils {
     constructor() {
-        this.connectionString = `postgresql://postgres.${process.env.SUPABASE_PROJECT_REF}:${process.env.SUPABASE_DB_PASSWORD}@aws-0-eu-west-3.pooler.supabase.com:6543/postgres`;
+        // Use different connection string based on environment
+        if (envFile === '.env.test') {
+            // Local test database
+            this.connectionString = 'postgresql://postgres:postgres@localhost:54322/postgres';
+        } else {
+            // Production database
+            this.connectionString = `postgresql://postgres.${process.env.SUPABASE_PROJECT_REF}:${process.env.SUPABASE_DB_PASSWORD}@aws-0-eu-west-3.pooler.supabase.com:6543/postgres`;
+        }
     }
 
     query(sql) {
@@ -230,11 +244,20 @@ class DatabaseUtils {
 
 const db = new DatabaseUtils();
 
-const command = process.argv[2];
-const args = process.argv.slice(3);
+// Parse command and args, filtering out --env flag
+let command, args;
+if (process.argv[2] === '--env') {
+    // --env flag is present, command is at position 4
+    command = process.argv[4];
+    args = process.argv.slice(5);
+} else {
+    // No --env flag, command is at position 2
+    command = process.argv[2];
+    args = process.argv.slice(3);
+}
 
 if (!command) {
-    console.error('Usage: node db-utils.js <command> [args...]');
+    console.error('Usage: node db-utils.js [--env test|local] <command> [args...]');
     console.error('Commands:');
     console.error('  query "SQL"');
     console.error('  insert-recipe "title" "instructions" time_estimation "url" "recipe_url_candidate_id" "image_url" [number_of_servings]');

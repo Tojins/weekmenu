@@ -5,6 +5,7 @@ export const queryKeys = {
   shoppingListItems: (listId) => ['shoppingListItems', listId],
   recipes: (filters = {}) => ['recipes', filters],
   recipePreview: (seed) => ['recipes', 'preview', seed],
+  recipesBySeed: (seed, page) => ['recipes', 'bySeed', seed, page],
   recipesByIds: (ids) => ['recipes', 'byIds', ids?.sort().join(',')],
   recipeIngredients: (recipeIds) => ['recipeIngredients', recipeIds?.sort().join(',')],
   product: (id) => ['product', id],
